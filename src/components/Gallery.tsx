@@ -13,6 +13,8 @@ export const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<PortfolioImage | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [lastTap, setLastTap] = useState(0);
 
   const categories: { value: Category; labelKey: string }[] = [
     { value: 'all', labelKey: 'gallery.allWork' },
@@ -670,18 +672,33 @@ export const Gallery = () => {
 
   const closeLightbox = () => {
     setSelectedImage(null);
+    setIsZoomed(false);
+  };
+
+  const handleDoubleTap = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTap;
+    
+    if (tapLength < 500 && tapLength > 0) {
+      // Double tap detected
+      setIsZoomed(!isZoomed);
+    }
+    setLastTap(currentTime);
   };
 
   const goToNext = () => {
     const nextIndex = (currentIndex + 1) % filteredImages.length;
     setCurrentIndex(nextIndex);
     setSelectedImage(filteredImages[nextIndex]);
+    setIsZoomed(false); // Reset zoom when navigating
   };
 
   const goToPrev = () => {
     const prevIndex = (currentIndex - 1 + filteredImages.length) % filteredImages.length;
     setCurrentIndex(prevIndex);
     setSelectedImage(filteredImages[prevIndex]);
+    setIsZoomed(false); // Reset zoom when navigating
   };
 
   return (
@@ -823,10 +840,25 @@ export const Gallery = () => {
               className="max-w-6xl max-h-[90vh] relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
+              <motion.img
                 src={selectedImage.image_url}
                 alt={selectedImage.title}
-                className="max-w-full max-h-[80vh] object-contain rounded-lg"
+                className={`object-contain rounded-lg transition-transform duration-300 ${
+                  isZoomed 
+                    ? 'max-w-none max-h-none w-auto h-auto cursor-zoom-out' 
+                    : 'max-w-full max-h-[80vh] cursor-zoom-in'
+                }`}
+                animate={{ 
+                  scale: isZoomed ? 1.5 : 1,
+                  x: isZoomed ? 0 : 0,
+                  y: isZoomed ? 0 : 0
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                onClick={handleDoubleTap}
+                onTouchEnd={handleDoubleTap}
+                style={{
+                  transformOrigin: 'center center'
+                }}
               />
               <div className="mt-6 text-center">
                 <h3 className="font-playfair text-2xl text-white mb-2">
