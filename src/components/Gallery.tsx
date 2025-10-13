@@ -99,6 +99,19 @@ export const Gallery = () => {
             display_order: 4,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
+          },
+          {
+            id: '5',
+            title: 'Intricate Half-Mandala Design',
+            description: 'Detailed forearm henna featuring layered floral and geometric patterns with Nordic-inspired symmetry',
+            image_url: '/assets/gallery/PHOTO-2025-07-16-11-59-37.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/PHOTO-2025-07-16-11-59-37.jpg',
+            category: 'minimalist',
+            tags: ['mandala', 'geometric', 'detailed', 'forearm'],
+            featured: true,
+            display_order: 5,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
           }
         ];
         setImages(fallbackImages);
@@ -158,6 +171,19 @@ export const Gallery = () => {
           tags: ['photoshoot', 'fashion', 'editorial'],
           featured: true,
           display_order: 4,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '5',
+          title: 'Intricate Half-Mandala Design',
+          description: 'Detailed forearm henna featuring layered floral and geometric patterns with Nordic-inspired symmetry',
+          image_url: '/assets/gallery/PHOTO-2025-07-16-11-59-37.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/PHOTO-2025-07-16-11-59-37.jpg',
+          category: 'minimalist',
+          tags: ['mandala', 'geometric', 'detailed', 'forearm'],
+          featured: true,
+          display_order: 5,
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
         }
