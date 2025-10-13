@@ -29,9 +29,16 @@
   },
   "gallery": {
     "title": "Portfolio",
-    "subtitle": "Designer",
+    "subtitle": "En kurerad samling av samtida hennakonst",
     "viewProject": "Visa Projekt",
-    "placeholder": "Portfoliobild"
+    "placeholder": "Portfoliobild",
+    "allWork": "Alla Arbeten",
+    "nordicBridal": "Nordisk Brud",
+    "minimalist": "Minimalistisk",
+    "festival": "Festival",
+    "fusionArt": "Fusionskonst",
+    "photoshoot": "Fotografering",
+    "noImages": "Inga bilder än. Lägg till vacker hennakonst att visa!"
   },
   "care": {
     "title": "Henna Vårdguide",

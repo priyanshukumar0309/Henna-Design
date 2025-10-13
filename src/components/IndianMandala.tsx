@@ -48,7 +48,7 @@ export const IndianMandala = () => {
         {[...Array(8)].map((_, i) => (
           <motion.g key={`large-petal-${i}`} transform={`rotate(${i * 45} 200 200)`}>
             <motion.path
-              d="M 200,200 Q 195,120 200,80 Q 220,90 235,110 Q 240,130 235,150 Q 220,170 200,200 Z"
+              d="M 200,200 Q 195,100 200,50 Q 220,60 240,85 Q 248,115 240,145 Q 220,175 200,200 Z"
               fill="url(#petalGradient)"
               fillOpacity="0.5"
               stroke="#C97E5A"
@@ -58,7 +58,7 @@ export const IndianMandala = () => {
               transition={{ duration: 2, delay: 0.8 + i * 0.1, repeat: Infinity, repeatType: "reverse", repeatDelay: 6 }}
             />
             <motion.path
-              d="M 200,200 Q 205,120 200,80 Q 180,90 165,110 Q 160,130 165,150 Q 180,170 200,200 Z"
+              d="M 200,200 Q 205,100 200,50 Q 180,60 160,85 Q 152,115 160,145 Q 180,175 200,200 Z"
               fill="#E6D2B5"
               fillOpacity="0.4"
               stroke="#C19A6B"
@@ -68,7 +68,7 @@ export const IndianMandala = () => {
               transition={{ duration: 2, delay: 1 + i * 0.1, repeat: Infinity, repeatType: "reverse", repeatDelay: 6 }}
             />
             <motion.path
-              d="M 200,120 Q 210,110 215,120 Q 212,135 205,140 Q 200,135 200,120"
+              d="M 200,95 Q 210,85 215,95 Q 212,110 205,115 Q 200,110 200,95"
               fill="none"
               stroke="#8B5A3C"
               strokeWidth="0.8"
@@ -78,7 +78,7 @@ export const IndianMandala = () => {
             />
             <motion.ellipse
               cx="200"
-              cy="105"
+              cy="75"
               rx="6"
               ry="9"
               fill="#D4AF37"
@@ -86,6 +86,15 @@ export const IndianMandala = () => {
               initial={{ scale: 0 }}
               animate={{ scale: [0, 1, 1.15, 1] }}
               transition={{ duration: 1.8, delay: 1.8 + i * 0.1, repeat: Infinity, repeatDelay: 5 }}
+            />
+            <motion.path
+              d="M 200,120 Q 210,110 215,120 Q 212,135 205,140 Q 200,135 200,120"
+              fill="none"
+              stroke="#8B5A3C"
+              strokeWidth="0.6"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 1.5, delay: 2 + i * 0.1, repeat: Infinity, repeatType: "reverse", repeatDelay: 6 }}
             />
           </motion.g>
         ))}

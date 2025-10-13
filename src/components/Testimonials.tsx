@@ -37,7 +37,7 @@ export const Testimonials = () => {
       <Star
         key={i}
         className={`w-4 h-4 ${
-          i < rating ? 'fill-henna-gold text-henna-gold' : 'text-henna-light dark:text-henna-dark'
+          i < rating ? 'fill-henna-gold text-henna-gold' : 'text-henna-light'
         }`}
       />
     ));
@@ -90,11 +90,11 @@ export const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white/80 dark:bg-dark-card/80 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 dark:border-henna-gold/20 hover:shadow-xl transition-all duration-300 flex flex-col"
+              className="bg-white/80 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 hover:shadow-xl transition-all duration-300 flex flex-col"
             >
-              <Quote className="w-10 h-10 text-henna-light dark:text-henna-gold mb-4" />
+              <Quote className="w-10 h-10 text-henna-light mb-4" />
 
-              <p className="font-inter text-charcoal/80 dark:text-dark-text/90 leading-relaxed mb-6 flex-grow">
+              <p className="font-inter text-charcoal/80 leading-relaxed mb-6 flex-grow">
                 {testimonial.testimonial_text}
               </p>
 
@@ -102,7 +102,7 @@ export const Testimonials = () => {
                 {renderStars(testimonial.rating)}
               </div>
 
-              <div className="flex items-center gap-3 pt-4 border-t border-henna-light/30 dark:border-henna-gold/20">
+              <div className="flex items-center gap-3 pt-4 border-t border-henna-light/30">
                 {testimonial.image_url ? (
                   <img
                     src={testimonial.image_url}
@@ -117,10 +117,10 @@ export const Testimonials = () => {
                   </div>
                 )}
                 <div>
-                  <p className="font-inter font-medium text-charcoal dark:text-dark-text">
+                  <p className="font-inter font-medium text-charcoal">
                     {testimonial.client_name}
                   </p>
-                  <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/70 capitalize">
+                  <p className="font-inter text-sm text-charcoal/60 capitalize">
                     {testimonial.occasion}
                   </p>
                 </div>

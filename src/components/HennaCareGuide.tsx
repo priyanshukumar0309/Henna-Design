@@ -79,24 +79,24 @@ export const HennaCareGuide = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-ivory dark:bg-dark-card rounded-lg p-8 border border-henna-light/30 dark:border-henna-gold/20 hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-lg p-8 border border-henna-light/30 hover:shadow-xl transition-all duration-300"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="bg-henna-brown dark:bg-henna-gold text-white dark:text-dark-bg p-3 rounded-lg">
+                <div className="bg-henna-brown text-white p-3 rounded-lg">
                   {step.icon}
                 </div>
                 <div>
-                  <h3 className="font-playfair text-2xl font-semibold text-charcoal dark:text-dark-text mb-1">
+                  <h3 className="font-playfair text-2xl font-semibold text-charcoal mb-1">
                     {t(step.titleKey)}
                   </h3>
-                  <p className="font-inter text-sm text-henna-brown dark:text-henna-gold">
+                  <p className="font-inter text-sm text-henna-brown">
                     {t(step.descKey)}
                   </p>
                 </div>
               </div>
               <ul className="space-y-3 mt-6">
                 {step.detailKeys.map((detailKey, i) => (
-                  <li key={i} className="flex items-start gap-3 font-inter text-sm text-charcoal/80 dark:text-dark-text/85">
+                  <li key={i} className="flex items-start gap-3 font-inter text-sm text-charcoal/80">
                     <span className="mt-1 w-1.5 h-1.5 rounded-full bg-henna-gold flex-shrink-0" />
                     {t(detailKey)}
                   </li>
@@ -124,20 +124,20 @@ export const HennaCareGuide = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-ivory dark:bg-dark-card rounded-lg border border-henna-light/30 dark:border-henna-gold/20 overflow-hidden"
+                className="bg-white rounded-lg border border-henna-light/30 overflow-hidden"
               >
                 <button
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-sand/30 dark:hover:bg-henna-dark/20 transition-colors"
+                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-sand/30 transition-colors"
                 >
-                  <span className="font-inter font-medium text-charcoal dark:text-dark-text pr-8">
+                  <span className="font-inter font-medium text-charcoal pr-8">
                     {t(faq.questionKey)}
                   </span>
                   <motion.div
                     animate={{ rotate: expandedFaq === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown className="w-5 h-5 text-henna-brown dark:text-henna-gold flex-shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-henna-brown flex-shrink-0" />
                   </motion.div>
                 </button>
                 <AnimatePresence>
@@ -148,7 +148,7 @@ export const HennaCareGuide = () => {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 pb-5 font-inter text-charcoal/70 dark:text-dark-text/80">
+                      <div className="px-6 pb-5 font-inter text-charcoal/70">
                         {t(faq.answerKey)}
                       </div>
                     </motion.div>

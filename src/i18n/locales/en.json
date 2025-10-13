@@ -29,9 +29,16 @@
   },
   "gallery": {
     "title": "Portfolio",
-    "subtitle": "Designs",
+    "subtitle": "A curated collection of contemporary henna artistry",
     "viewProject": "View Project",
-    "placeholder": "Portfolio image"
+    "placeholder": "Portfolio image",
+    "allWork": "All Work",
+    "nordicBridal": "Nordic Bridal",
+    "minimalist": "Minimalist",
+    "festival": "Festival",
+    "fusionArt": "Fusion Art",
+    "photoshoot": "Photoshoot",
+    "noImages": "No images yet. Add some beautiful henna art to showcase!"
   },
   "care": {
     "title": "Henna Care Guide",

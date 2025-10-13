@@ -1,25 +1,27 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabase';
 import { PortfolioImage, Category } from '../types';
 
-const categories: { value: Category; label: string }[] = [
-  { value: 'all', label: 'All Work' },
-  { value: 'bridal', label: 'Nordic Bridal' },
-  { value: 'minimalist', label: 'Minimalist' },
-  { value: 'festival', label: 'Festival' },
-  { value: 'fusion', label: 'Fusion Art' },
-  { value: 'photoshoot', label: 'Photoshoot' },
-];
-
 export const Gallery = () => {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<Category>('all');
   const [images, setImages] = useState<PortfolioImage[]>([]);
   const [filteredImages, setFilteredImages] = useState<PortfolioImage[]>([]);
   const [selectedImage, setSelectedImage] = useState<PortfolioImage | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+
+  const categories: { value: Category; labelKey: string }[] = [
+    { value: 'all', labelKey: 'gallery.allWork' },
+    { value: 'bridal', labelKey: 'gallery.nordicBridal' },
+    { value: 'minimalist', labelKey: 'gallery.minimalist' },
+    { value: 'festival', labelKey: 'gallery.festival' },
+    { value: 'fusion', labelKey: 'gallery.fusionArt' },
+    { value: 'photoshoot', labelKey: 'gallery.photoshoot' },
+  ];
 
   useEffect(() => {
     fetchImages();
@@ -81,11 +83,11 @@ export const Gallery = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal mb-4">
-            Portfolio
+          <h2 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal dark:text-dark-text mb-4">
+            {t('gallery.title')}
           </h2>
-          <p className="font-inter text-lg text-charcoal/70 max-w-2xl mx-auto">
-            A curated collection of contemporary henna artistry
+          <p className="font-inter text-lg text-charcoal/70 dark:text-dark-text/80 max-w-2xl mx-auto">
+            {t('gallery.subtitle')}
           </p>
         </motion.div>
 
@@ -106,7 +108,7 @@ export const Gallery = () => {
                   : 'bg-white text-charcoal hover:bg-sand border border-henna-light'
               }`}
             >
-              {category.label}
+              {t(category.labelKey)}
             </button>
           ))}
         </motion.div>
@@ -119,8 +121,8 @@ export const Gallery = () => {
           </div>
         ) : filteredImages.length === 0 ? (
           <div className="text-center py-20">
-            <p className="font-inter text-lg text-charcoal/50">
-              No images yet. Add some beautiful henna art to showcase!
+            <p className="font-inter text-lg text-charcoal/50 dark:text-dark-text/50">
+              {t('gallery.noImages')}
             </p>
           </div>
         ) : (
