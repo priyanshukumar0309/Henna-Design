@@ -141,33 +141,51 @@
         "title": "Mini / Saver",
         "duration": "20-30 minutes",
         "price": "300-450 SEK",
-        "description": "Simple motifs (fingers + small mandala or back of one hand). Ideal for first-time clients, festivals, friends' gatherings, and kids. Organic henna included."
+        "point1": "Simple finger motifs + small mandala",
+        "point2": "Perfect for festivals, kids & first-time clients",
+        "point3": "100% organic henna included"
       },
       "standard": {
         "title": "Standard",
         "duration": "45-60 minutes",
         "price": "600-900 SEK",
-        "description": "Medium coverage up to wrist on both hands, front/back with light detail. Fine detailing and small mandalas. Perfect for parties, Eid, Diwali, or photoshoots."
+        "point1": "Both hands up to wrist (front/back)",
+        "point2": "Fine detailing & small mandalas",
+        "point3": "Ideal for parties, Eid, Diwali"
       },
       "premium": {
         "title": "Premium",
         "duration": "90-120 minutes",
         "price": "1,800-2,800 SEK",
-        "description": "Elaborate designs for engagements or pre-wedding. Detailed design up to mid-arm or feet. Includes short consultation, organic blend, and after-care kit."
+        "point1": "Up to mid-arm or feet designs",
+        "point2": "Consultation + organic blend",
+        "point3": "After-care kit included"
       },
       "bridal": {
         "title": "Bridal / Custom",
         "duration": "3-6 hours",
         "price": "3,500-5,000 SEK",
-        "description": "Full bridal (both hands & feet). Custom design concept, consultation & trial. Travel within Stockholm included. Optional add-ons: guest henna, bridesmaid mini motifs."
-      }
+        "point1": "Full bridal (hands & feet)",
+        "point2": "Custom concept + trial session",
+        "point3": "Travel in Stockholm included"
+      },
+      "hoverToSee": "Hover to see sample"
     },
     "bookingTitle": "Booking Information",
     "serviceArea": "Service Area: Available throughout Stockholm and Uppsala County",
-    "homeVisit": "Home Visit: Extra charges apply for hembesök (home visits)",
+    "homeVisitFee": "Home Visit (Hembesök): +300 SEK",
     "eventsDesc": "Events: Group bookings and corporate events welcome",
     "leadTime": "Lead Time: Book 4-5 weeks in advance for optimal scheduling",
-    "scheduleTitle": "Book Your Appointment",
+    "productsTitle": "Products & Hygiene",
+    "organicHenna": "Only 100% natural organic henna and essential oils used",
+    "sanitized": "Tools and materials sanitized after each session",
+    "paymentTitle": "Payment & Cancellation",
+    "advance": "Advance Payment",
+    "advanceDesc": "20% advance required to confirm bridal bookings",
+    "reschedule": "Free Reschedule",
+    "rescheduleDesc": "Up to 48 hours before appointment",
+    "homeVisit": "Home Visit Fee",
+    "homeVisitDesc": "+300 SEK (waived for bridal bookings)",
     "tagline": "Your story, beautifully adorned"
   },
   "footer": {

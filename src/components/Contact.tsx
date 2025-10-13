@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { Instagram, Mail, MessageCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 export const Contact = () => {
   const { t } = useTranslation();
+  const [flippedCard, setFlippedCard] = useState<string | null>(null);
 
   return (
     <section id="contact" className="py-32 px-6 bg-gradient-to-br from-ivory via-sand to-henna-light/20 dark:from-dark-bg dark:via-dark-surface dark:to-henna-dark/10 transition-colors duration-500">
@@ -101,13 +103,13 @@ export const Contact = () => {
           </motion.a>
         </div>
 
-        {/* Pricing Tiers */}
+        {/* Pricing Tiers with Flip Cards */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-16 bg-white/60 dark:bg-dark-surface/60 backdrop-blur-sm rounded-lg p-8 md:p-12 border border-henna-light/30 dark:border-henna-dark/30"
+          className="mt-16"
         >
           <h3 className="font-playfair text-3xl font-semibold text-charcoal dark:text-dark-text mb-8 text-center">
             {t('contact.pricingTitle')}
@@ -115,123 +117,233 @@ export const Contact = () => {
           
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {/* Mini/Saver Tier */}
-            <div className="bg-white dark:bg-dark-surface rounded-lg p-6 border-2 border-henna-light/30 dark:border-henna-dark/30 hover:border-henna-brown dark:hover:border-henna-gold transition-all duration-300">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-2xl">✨</span>
-                <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
-                  {t('contact.pricing.mini.title')}
-                </h4>
+            <div 
+              className="h-80 perspective-1000"
+              onMouseEnter={() => setFlippedCard('mini')}
+              onMouseLeave={() => setFlippedCard(null)}
+            >
+              <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${flippedCard === 'mini' ? 'rotate-y-180' : ''}`}>
+                {/* Front */}
+                <div className="absolute w-full h-full backface-hidden bg-white dark:bg-dark-surface rounded-lg p-6 border-2 border-henna-light/30 dark:border-henna-dark/30 shadow-lg">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-2xl">✨</span>
+                    <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
+                      {t('contact.pricing.mini.title')}
+                    </h4>
+                  </div>
+                  <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
+                    ⏱️ {t('contact.pricing.mini.duration')}
+                  </p>
+                  <p className="font-playfair text-4xl font-bold text-henna-brown dark:text-henna-gold mb-4">
+                    {t('contact.pricing.mini.price')}
+                  </p>
+                  <ul className="space-y-2 font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+                    <li>• {t('contact.pricing.mini.point1')}</li>
+                    <li>• {t('contact.pricing.mini.point2')}</li>
+                    <li>• {t('contact.pricing.mini.point3')}</li>
+                  </ul>
+                  <p className="font-inter text-xs text-charcoal/50 dark:text-dark-text/50 mt-4 italic">
+                    {t('contact.pricing.hoverToSee')}
+                  </p>
+                </div>
+                {/* Back */}
+                <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg overflow-hidden shadow-lg">
+                  <img 
+                    src="/assets/gallery/photo_6087126964323338496_y.jpg" 
+                    alt="Mini Package Sample"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
-                {t('contact.pricing.mini.duration')}
-              </p>
-              <p className="font-playfair text-3xl font-bold text-henna-brown dark:text-henna-gold mb-3">
-                {t('contact.pricing.mini.price')}
-              </p>
-              <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
-                {t('contact.pricing.mini.description')}
-              </p>
             </div>
 
             {/* Standard Tier */}
-            <div className="bg-white dark:bg-dark-surface rounded-lg p-6 border-2 border-henna-light/30 dark:border-henna-dark/30 hover:border-henna-brown dark:hover:border-henna-gold transition-all duration-300">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-2xl">🌿</span>
-                <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
-                  {t('contact.pricing.standard.title')}
-                </h4>
+            <div 
+              className="h-80 perspective-1000"
+              onMouseEnter={() => setFlippedCard('standard')}
+              onMouseLeave={() => setFlippedCard(null)}
+            >
+              <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${flippedCard === 'standard' ? 'rotate-y-180' : ''}`}>
+                {/* Front */}
+                <div className="absolute w-full h-full backface-hidden bg-white dark:bg-dark-surface rounded-lg p-6 border-2 border-henna-light/30 dark:border-henna-dark/30 shadow-lg">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-2xl">🌿</span>
+                    <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
+                      {t('contact.pricing.standard.title')}
+                    </h4>
+                  </div>
+                  <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
+                    ⏱️ {t('contact.pricing.standard.duration')}
+                  </p>
+                  <p className="font-playfair text-4xl font-bold text-henna-brown dark:text-henna-gold mb-4">
+                    {t('contact.pricing.standard.price')}
+                  </p>
+                  <ul className="space-y-2 font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+                    <li>• {t('contact.pricing.standard.point1')}</li>
+                    <li>• {t('contact.pricing.standard.point2')}</li>
+                    <li>• {t('contact.pricing.standard.point3')}</li>
+                  </ul>
+                  <p className="font-inter text-xs text-charcoal/50 dark:text-dark-text/50 mt-4 italic">
+                    {t('contact.pricing.hoverToSee')}
+                  </p>
+                </div>
+                {/* Back */}
+                <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg overflow-hidden shadow-lg">
+                  <img 
+                    src="/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.49.jpeg" 
+                    alt="Standard Package Sample"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
-                {t('contact.pricing.standard.duration')}
-              </p>
-              <p className="font-playfair text-3xl font-bold text-henna-brown dark:text-henna-gold mb-3">
-                {t('contact.pricing.standard.price')}
-              </p>
-              <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
-                {t('contact.pricing.standard.description')}
-              </p>
             </div>
 
             {/* Premium Tier */}
-            <div className="bg-white dark:bg-dark-surface rounded-lg p-6 border-2 border-henna-light/30 dark:border-henna-dark/30 hover:border-henna-brown dark:hover:border-henna-gold transition-all duration-300">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-2xl">🌺</span>
-                <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
-                  {t('contact.pricing.premium.title')}
-                </h4>
+            <div 
+              className="h-80 perspective-1000"
+              onMouseEnter={() => setFlippedCard('premium')}
+              onMouseLeave={() => setFlippedCard(null)}
+            >
+              <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${flippedCard === 'premium' ? 'rotate-y-180' : ''}`}>
+                {/* Front */}
+                <div className="absolute w-full h-full backface-hidden bg-white dark:bg-dark-surface rounded-lg p-6 border-2 border-henna-light/30 dark:border-henna-dark/30 shadow-lg">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-2xl">🌺</span>
+                    <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
+                      {t('contact.pricing.premium.title')}
+                    </h4>
+                  </div>
+                  <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
+                    ⏱️ {t('contact.pricing.premium.duration')}
+                  </p>
+                  <p className="font-playfair text-4xl font-bold text-henna-brown dark:text-henna-gold mb-4">
+                    {t('contact.pricing.premium.price')}
+                  </p>
+                  <ul className="space-y-2 font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+                    <li>• {t('contact.pricing.premium.point1')}</li>
+                    <li>• {t('contact.pricing.premium.point2')}</li>
+                    <li>• {t('contact.pricing.premium.point3')}</li>
+                  </ul>
+                  <p className="font-inter text-xs text-charcoal/50 dark:text-dark-text/50 mt-4 italic">
+                    {t('contact.pricing.hoverToSee')}
+                  </p>
+                </div>
+                {/* Back */}
+                <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg overflow-hidden shadow-lg">
+                  <img 
+                    src="/assets/gallery/photo_6087126964323338495_y.jpg" 
+                    alt="Premium Package Sample"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
-                {t('contact.pricing.premium.duration')}
-              </p>
-              <p className="font-playfair text-3xl font-bold text-henna-brown dark:text-henna-gold mb-3">
-                {t('contact.pricing.premium.price')}
-              </p>
-              <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
-                {t('contact.pricing.premium.description')}
-              </p>
             </div>
 
             {/* Bridal/Custom Tier */}
-            <div className="bg-gradient-to-br from-henna-light/20 to-henna-gold/20 dark:from-henna-dark/20 dark:to-henna-gold/10 rounded-lg p-6 border-2 border-henna-brown/50 dark:border-henna-gold/50">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-2xl">💍</span>
-                <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
-                  {t('contact.pricing.bridal.title')}
-                </h4>
+            <div 
+              className="h-80 perspective-1000"
+              onMouseEnter={() => setFlippedCard('bridal')}
+              onMouseLeave={() => setFlippedCard(null)}
+            >
+              <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${flippedCard === 'bridal' ? 'rotate-y-180' : ''}`}>
+                {/* Front */}
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-henna-light/20 to-henna-gold/20 dark:from-henna-dark/20 dark:to-henna-gold/10 rounded-lg p-6 border-2 border-henna-brown/50 dark:border-henna-gold/50 shadow-lg">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-2xl">💍</span>
+                    <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
+                      {t('contact.pricing.bridal.title')}
+                    </h4>
+                  </div>
+                  <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
+                    ⏱️ {t('contact.pricing.bridal.duration')}
+                  </p>
+                  <p className="font-playfair text-4xl font-bold text-henna-brown dark:text-henna-gold mb-4">
+                    {t('contact.pricing.bridal.price')}
+                  </p>
+                  <ul className="space-y-2 font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+                    <li>• {t('contact.pricing.bridal.point1')}</li>
+                    <li>• {t('contact.pricing.bridal.point2')}</li>
+                    <li>• {t('contact.pricing.bridal.point3')}</li>
+                  </ul>
+                  <p className="font-inter text-xs text-charcoal/50 dark:text-dark-text/50 mt-4 italic">
+                    {t('contact.pricing.hoverToSee')}
+                  </p>
+                </div>
+                {/* Back */}
+                <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg overflow-hidden shadow-lg">
+                  <img 
+                    src="/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.48.jpeg" 
+                    alt="Bridal Package Sample"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
-                {t('contact.pricing.bridal.duration')}
-              </p>
-              <p className="font-playfair text-3xl font-bold text-henna-brown dark:text-henna-gold mb-3">
-                {t('contact.pricing.bridal.price')}
-              </p>
-              <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
-                {t('contact.pricing.bridal.description')}
-              </p>
             </div>
           </div>
         </motion.div>
 
-        {/* Booking Information */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-8 text-center bg-white/60 dark:bg-dark-surface/60 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 dark:border-henna-dark/30"
-        >
-          <div className="max-w-2xl mx-auto">
+        {/* Booking Information & Important Notes */}
+        <div className="mt-8 grid md:grid-cols-2 gap-6">
+          {/* Booking Information */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="bg-white/60 dark:bg-dark-surface/60 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 dark:border-henna-dark/30"
+          >
             <h3 className="font-playfair text-2xl font-semibold text-charcoal dark:text-dark-text mb-6">
               {t('contact.bookingTitle')}
             </h3>
             <div className="space-y-3 font-inter text-charcoal/80 dark:text-dark-text/80 text-left">
               <p>📍 {t('contact.serviceArea')}</p>
-              <p>🏠 {t('contact.homeVisit')}</p>
+              <p>🏠 {t('contact.homeVisitFee')}</p>
               <p>🎉 {t('contact.eventsDesc')}</p>
               <p>📅 {t('contact.leadTime')}</p>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Google Calendar Embed */}
+          {/* Products & Hygiene */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="bg-white/60 dark:bg-dark-surface/60 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 dark:border-henna-dark/30"
+          >
+            <h3 className="font-playfair text-2xl font-semibold text-charcoal dark:text-dark-text mb-6">
+              {t('contact.productsTitle')}
+            </h3>
+            <div className="space-y-3 font-inter text-charcoal/80 dark:text-dark-text/80 text-left">
+              <p>🌿 {t('contact.organicHenna')}</p>
+              <p>✨ {t('contact.sanitized')}</p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Payment & Cancellation */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-8 bg-white/60 dark:bg-dark-surface/60 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 dark:border-henna-dark/30"
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-6 bg-white/60 dark:bg-dark-surface/60 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 dark:border-henna-dark/30"
         >
           <h3 className="font-playfair text-2xl font-semibold text-charcoal dark:text-dark-text mb-6 text-center">
-            {t('contact.scheduleTitle')}
+            {t('contact.paymentTitle')}
           </h3>
-          <div className="max-w-3xl mx-auto">
-            <div className="relative w-full overflow-hidden rounded-lg" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1_5KSnFfNJ9p-gLAiuSDo_56OU8HahyJ8DY31f0mK4A9GokaWFIer1gTB6ciw01puhJGhb7KeB?gv=true"
-                className="absolute top-0 left-0 w-full h-full border-0"
-                frameBorder="0"
-                title="Book Appointment"
-              />
+          <div className="grid md:grid-cols-3 gap-6 font-inter text-charcoal/80 dark:text-dark-text/80 text-left max-w-4xl mx-auto">
+            <div>
+              <p className="font-semibold mb-2">💳 {t('contact.advance')}</p>
+              <p className="text-sm">{t('contact.advanceDesc')}</p>
+            </div>
+            <div>
+              <p className="font-semibold mb-2">🔄 {t('contact.reschedule')}</p>
+              <p className="text-sm">{t('contact.rescheduleDesc')}</p>
+            </div>
+            <div>
+              <p className="font-semibold mb-2">🏠 {t('contact.homeVisit')}</p>
+              <p className="text-sm">{t('contact.homeVisitDesc')}</p>
             </div>
           </div>
         </motion.div>

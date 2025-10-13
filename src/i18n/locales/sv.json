@@ -140,33 +140,51 @@
         "title": "Mini / Sparpaket",
         "duration": "20-30 minuter",
         "price": "300-450 SEK",
-        "description": "Enkla motiv (fingrar + liten mandala eller baksidan av en hand). Perfekt för förstagångsklienter, festivaler, väntresor och barn. Ekologisk henna ingår."
+        "point1": "Enkla fingermotiv + liten mandala",
+        "point2": "Perfekt för festivaler, barn & förstagångsklienter",
+        "point3": "100% ekologisk henna ingår"
       },
       "standard": {
         "title": "Standard",
         "duration": "45-60 minuter",
         "price": "600-900 SEK",
-        "description": "Medeltäckning upp till handled på båda händerna, fram/bak med lätt detalj. Fin detaljering och små mandalas. Perfekt för fester, Eid, Diwali eller fotosessioner."
+        "point1": "Båda händer upp till handled (fram/bak)",
+        "point2": "Fin detaljering & små mandalas",
+        "point3": "Idealisk för fester, Eid, Diwali"
       },
       "premium": {
         "title": "Premium",
         "duration": "90-120 minuter",
         "price": "1 800-2 800 SEK",
-        "description": "Detaljerade designer för förlovningar eller förbröllop. Detaljerad design upp till mitten av armen eller fötterna. Inkluderar kort konsultation, ekologisk blandning och eftervårdskit."
+        "point1": "Upp till mitten av armen eller fötter",
+        "point2": "Konsultation + ekologisk blandning",
+        "point3": "Eftervårdskit ingår"
       },
       "bridal": {
         "title": "Brud / Anpassad",
         "duration": "3-6 timmar",
         "price": "3 500-5 000 SEK",
-        "description": "Full brud (båda händer & fötter). Anpassad designkoncept, konsultation & provning. Resa inom Stockholm ingår. Valfria tillägg: gästhenna, brudtärnamini motiv."
-      }
+        "point1": "Full brud (händer & fötter)",
+        "point2": "Anpassat koncept + provsession",
+        "point3": "Resa i Stockholm ingår"
+      },
+      "hoverToSee": "Hovra för att se exempel"
     },
     "bookingTitle": "Bokningsinformation",
     "serviceArea": "Serviceområde: Tillgänglig i hela Stockholm och Uppsala län",
-    "homeVisit": "Hembesök: Extra avgifter tillkommer för hembesök",
+    "homeVisitFee": "Hembesök: +300 SEK",
     "eventsDesc": "Evenemang: Gruppbokningar och företagsevenemang välkomnas",
     "leadTime": "Ledtid: Boka 4-5 veckor i förväg för optimal planering",
-    "scheduleTitle": "Boka Din Tid",
+    "productsTitle": "Produkter & Hygien",
+    "organicHenna": "Endast 100% naturlig ekologisk henna och eteriska oljor används",
+    "sanitized": "Verktyg och material saneras efter varje session",
+    "paymentTitle": "Betalning & Avbokning",
+    "advance": "Förskottsbetalning",
+    "advanceDesc": "20% förskott krävs för att bekräfta brudbokningar",
+    "reschedule": "Gratis Ombokn",
+    "rescheduleDesc": "Upp till 48 timmar före mötet",
+    "homeVisit": "Hembesöksavgift",
+    "homeVisitDesc": "+300 SEK (efterskänks för brudbokningar)",
     "tagline": "Din berättelse, vackert prydd"
   },
   "footer": {
