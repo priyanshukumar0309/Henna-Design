@@ -93,13 +93,13 @@ export const ScrollHennaBorder = () => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 h-full w-12 sm:w-20 md:w-28 lg:w-36 pointer-events-none z-0 overflow-hidden"
+        className="fixed left-0 top-0 h-full w-12 sm:w-20 md:w-28 lg:w-36 pointer-events-none z-0 overflow-hidden hidden sm:block"
         style={{ opacity }}
       >
         <motion.svg
           className="w-full h-[120%]"
           viewBox="0 0 120 1000"
-          preserveAspectRatio="none"
+          preserveAspectRatio="xMidYMid meet"
           style={{ y: leftY }}
         >
           <defs>
@@ -282,13 +282,13 @@ export const ScrollHennaBorder = () => {
       </motion.div>
 
       <motion.div
-        className="fixed right-0 top-0 h-full w-12 sm:w-20 md:w-28 lg:w-36 pointer-events-none z-0 overflow-hidden"
+        className="fixed right-0 top-0 h-full w-12 sm:w-20 md:w-28 lg:w-36 pointer-events-none z-10 overflow-hidden"
         style={{ opacity }}
       >
         <motion.svg
           className="w-full h-[120%]"
           viewBox="0 0 120 1000"
-          preserveAspectRatio="none"
+          preserveAspectRatio="xMidYMid meet"
           style={{ y: rightY }}
         >
           <defs>
