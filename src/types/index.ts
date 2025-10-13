@@ -49,4 +49,4 @@ export interface MoodBoard {
   expires_at: string;
 }
 
-export type Category = 'all' | 'bridal' | 'festival' | 'minimalist' | 'fusion' | 'photoshoot';
+export type Category = 'all' | 'bridal' | 'festival' | 'minimalist' | 'fusion' | 'photoshoot' | 'stain_progression';

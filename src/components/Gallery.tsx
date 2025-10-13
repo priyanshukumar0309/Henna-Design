@@ -21,6 +21,7 @@ export const Gallery = () => {
     { value: 'festival', labelKey: 'gallery.festival' },
     { value: 'fusion', labelKey: 'gallery.fusionArt' },
     { value: 'photoshoot', labelKey: 'gallery.photoshoot' },
+    { value: 'stain_progression', labelKey: 'gallery.stainProgression' },
   ];
 
   useEffect(() => {
@@ -216,6 +217,58 @@ export const Gallery = () => {
             display_order: 13,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
+          },
+          {
+            id: '14',
+            title: 'Fresh Henna Application - Bridal Hands',
+            description: 'Freshly applied henna paste showing intricate bridal design on hands and forearms with traditional motifs',
+            image_url: '/assets/gallery/photo_6087126964323338495_y.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338495_y.jpg',
+            category: 'stain_progression',
+            tags: ['fresh_application', 'bridal', 'traditional', 'detailed', 'paste_stage'],
+            featured: true,
+            display_order: 14,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '15',
+            title: 'Deep Henna Stain Development',
+            description: 'Rich, dark mahogany henna stain showing full color development after paste removal and proper aftercare',
+            image_url: '/assets/gallery/photo_6087126964323338496_y.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338496_y.jpg',
+            category: 'stain_progression',
+            tags: ['deep_stain', 'mature_color', 'aftercare', 'dark_mahogany', 'developed'],
+            featured: true,
+            display_order: 15,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '16',
+            title: 'Medium Stain - Festival Design',
+            description: 'Medium-toned henna stain showing the progression from orange to rich brown on festival hand design',
+            image_url: '/assets/gallery/photo_6087126964323338509_y.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338509_y.jpg',
+            category: 'stain_progression',
+            tags: ['medium_stain', 'festival', 'brown_tone', 'progression', 'intermediate'],
+            featured: true,
+            display_order: 16,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '17',
+            title: 'Light Stain - Minimalist Design',
+            description: 'Light henna stain showcasing subtle color development perfect for everyday wear and minimalist aesthetics',
+            image_url: '/assets/gallery/photo_6089378764137022110_y (1).jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/photo_6089378764137022110_y (1).jpg',
+            category: 'stain_progression',
+            tags: ['light_stain', 'minimalist', 'subtle', 'everyday', 'gentle'],
+            featured: true,
+            display_order: 17,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
           }
         ];
         setImages(fallbackImages);
@@ -392,6 +445,58 @@ export const Gallery = () => {
           tags: ['artistic', 'forearm', 'creative', 'flowing', 'expression'],
           featured: true,
           display_order: 13,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '14',
+          title: 'Fresh Henna Application - Bridal Hands',
+          description: 'Freshly applied henna paste showing intricate bridal design on hands and forearms with traditional motifs',
+          image_url: '/assets/gallery/photo_6087126964323338495_y.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338495_y.jpg',
+          category: 'stain_progression',
+          tags: ['fresh_application', 'bridal', 'traditional', 'detailed', 'paste_stage'],
+          featured: true,
+          display_order: 14,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '15',
+          title: 'Deep Henna Stain Development',
+          description: 'Rich, dark mahogany henna stain showing full color development after paste removal and proper aftercare',
+          image_url: '/assets/gallery/photo_6087126964323338496_y.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338496_y.jpg',
+          category: 'stain_progression',
+          tags: ['deep_stain', 'mature_color', 'aftercare', 'dark_mahogany', 'developed'],
+          featured: true,
+          display_order: 15,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '16',
+          title: 'Medium Stain - Festival Design',
+          description: 'Medium-toned henna stain showing the progression from orange to rich brown on festival hand design',
+          image_url: '/assets/gallery/photo_6087126964323338509_y.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338509_y.jpg',
+          category: 'stain_progression',
+          tags: ['medium_stain', 'festival', 'brown_tone', 'progression', 'intermediate'],
+          featured: true,
+          display_order: 16,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '17',
+          title: 'Light Stain - Minimalist Design',
+          description: 'Light henna stain showcasing subtle color development perfect for everyday wear and minimalist aesthetics',
+          image_url: '/assets/gallery/photo_6089378764137022110_y (1).jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/photo_6089378764137022110_y (1).jpg',
+          category: 'stain_progression',
+          tags: ['light_stain', 'minimalist', 'subtle', 'everyday', 'gentle'],
+          featured: true,
+          display_order: 17,
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
         }
