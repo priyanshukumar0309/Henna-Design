@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nordicsoul.netlify.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Allow all search engines to index all content
+Disallow:
