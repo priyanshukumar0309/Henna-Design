@@ -82,7 +82,13 @@
   "testimonials": {
     "title": "Kundberättelser",
     "subtitle": "Hör från de som har upplevt Nordic Soul Henna",
-    "tagline": "Varje design berättar en historia, varje kund blir en del av vår"
+    "tagline": "Varje design berättar en historia, varje kund blir en del av vår",
+    "occasions": {
+      "bridal": "Bröllop",
+      "festival": "Festival",
+      "photoshoot": "Fotografering",
+      "private party": "Privat Fest"
+    }
   },
   "contact": {
     "title": "Låt Oss Skapa Tillsammans",

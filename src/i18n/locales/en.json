@@ -82,7 +82,13 @@
   "testimonials": {
     "title": "Client Stories",
     "subtitle": "Hear from those who've experienced Nordic Soul Henna",
-    "tagline": "Every design tells a story, every client becomes part of ours"
+    "tagline": "Every design tells a story, every client becomes part of ours",
+    "occasions": {
+      "bridal": "Bridal",
+      "festival": "Festival",
+      "photoshoot": "Photoshoot",
+      "private party": "Private Party"
+    }
   },
   "contact": {
     "title": "Let's Create Together",

@@ -237,7 +237,7 @@ export const Testimonials = () => {
                     {testimonial.client_name}
                   </p>
                   <p className="font-inter text-sm text-charcoal/60 capitalize">
-                    {testimonial.occasion}
+                    {t(`testimonials.occasions.${testimonial.occasion}` as any)}
                   </p>
                 </div>
               </div>
