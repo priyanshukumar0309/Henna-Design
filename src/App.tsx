@@ -40,7 +40,9 @@ function App() {
           <Testimonials />
         </section>
 
-        <Contact />
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
 
       <Footer />

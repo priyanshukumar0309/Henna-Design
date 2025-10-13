@@ -16,9 +16,19 @@ export const Navigation = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
+    const handleClickOutside = (e: MouseEvent) => {
+      if (isLangMenuOpen && !(e.target as Element).closest('.lang-menu-container')) {
+        setIsLangMenuOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isLangMenuOpen]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -79,7 +89,7 @@ export const Navigation = () => {
               {t('nav.getInTouch')}
             </button>
 
-            <div className="relative">
+            <div className="relative lang-menu-container">
               <button
                 onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
                 className="p-2 text-charcoal dark:text-dark-text hover:text-henna-brown transition-colors"
@@ -87,22 +97,30 @@ export const Navigation = () => {
                 <Languages className="w-5 h-5" />
               </button>
               {isLangMenuOpen && (
-                <div className="absolute right-0 mt-2 py-2 w-32 bg-white dark:bg-dark-surface rounded-lg shadow-xl border border-henna-light/30 dark:border-henna-dark/30">
+                <div className="absolute right-0 mt-2 py-2 w-40 bg-white dark:bg-dark-surface rounded-lg shadow-xl border border-henna-light/30 dark:border-henna-dark/30">
                   <button
                     onClick={() => changeLanguage('en')}
-                    className={`block w-full text-left px-4 py-2 text-sm hover:bg-henna-light/20 dark:hover:bg-henna-dark/20 transition-colors ${
+                    className={`flex items-center gap-2 w-full text-left px-4 py-2 text-sm hover:bg-henna-light/20 dark:hover:bg-henna-dark/20 transition-colors ${
                       i18n.language === 'en' ? 'text-henna-brown font-semibold' : 'text-charcoal dark:text-dark-text'
                     }`}
                   >
-                    English
+                    <span>🇬🇧</span> English
                   </button>
                   <button
                     onClick={() => changeLanguage('sv')}
-                    className={`block w-full text-left px-4 py-2 text-sm hover:bg-henna-light/20 dark:hover:bg-henna-dark/20 transition-colors ${
+                    className={`flex items-center gap-2 w-full text-left px-4 py-2 text-sm hover:bg-henna-light/20 dark:hover:bg-henna-dark/20 transition-colors ${
                       i18n.language === 'sv' ? 'text-henna-brown font-semibold' : 'text-charcoal dark:text-dark-text'
                     }`}
                   >
-                    Svenska
+                    <span>🇸🇪</span> Svenska
+                  </button>
+                  <button
+                    onClick={() => changeLanguage('hi')}
+                    className={`flex items-center gap-2 w-full text-left px-4 py-2 text-sm hover:bg-henna-light/20 dark:hover:bg-henna-dark/20 transition-colors ${
+                      i18n.language === 'hi' ? 'text-henna-brown font-semibold' : 'text-charcoal dark:text-dark-text'
+                    }`}
+                  >
+                    <span>🇮🇳</span> हिंदी
                   </button>
                 </div>
               )}
@@ -178,7 +196,7 @@ export const Navigation = () => {
                       : 'bg-transparent text-charcoal dark:text-dark-text border-henna-light dark:border-henna-dark'
                   }`}
                 >
-                  EN
+                  🇬🇧 EN
                 </button>
                 <button
                   onClick={() => changeLanguage('sv')}
@@ -188,7 +206,17 @@ export const Navigation = () => {
                       : 'bg-transparent text-charcoal dark:text-dark-text border-henna-light dark:border-henna-dark'
                   }`}
                 >
-                  SV
+                  🇸🇪 SV
+                </button>
+                <button
+                  onClick={() => changeLanguage('hi')}
+                  className={`flex-1 px-4 py-2 rounded-full border transition-colors ${
+                    i18n.language === 'hi'
+                      ? 'bg-henna-brown text-white border-henna-brown'
+                      : 'bg-transparent text-charcoal dark:text-dark-text border-henna-light dark:border-henna-dark'
+                  }`}
+                >
+                  🇮🇳 HI
                 </button>
               </motion.div>
             </div>

@@ -35,7 +35,7 @@ export const Testimonials = () => {
       <Star
         key={i}
         className={`w-4 h-4 ${
-          i < rating ? 'fill-henna-gold text-henna-gold' : 'text-henna-light'
+          i < rating ? 'fill-henna-gold text-henna-gold' : 'text-henna-light dark:text-henna-dark'
         }`}
       />
     ));
