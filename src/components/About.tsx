@@ -52,7 +52,19 @@ export const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal dark:text-dark-text mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-4"
+            >
+              <h3 className="font-playfair text-lg md:text-xl font-medium text-henna-brown dark:text-henna-gold italic">
+                कोलकाता और वाराणसी से स्टॉकहोम तक की यात्रा
+              </h3>
+            </motion.div>
+            
+            <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-charcoal dark:text-dark-text mb-6">
               {t('about.title')}
             </h2>
             
