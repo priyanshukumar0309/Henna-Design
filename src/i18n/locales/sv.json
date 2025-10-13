@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "home": "Hem",
+    "portfolio": "Portfolio",
+    "about": "Om Mig",
+    "careGuide": "Vårdguide",
+    "testimonials": "Omdömen",
+    "getInTouch": "Kontakta"
+  },
+  "hero": {
+    "title": "Nordisk Själ",
+    "subtitle": "Indisk Konst",
+    "mehndi": "Mehndi Konst",
+    "description": "Där skandinavisk minimalism möter uråldrig konstform.",
+    "location": "Samtida hennadesign i Stockholm."
+  },
+  "about": {
+    "title": "Från Kolkata och Varanasi till Stockholm",
+    "paragraph1": "Att växa upp omgiven av den rika traditionen av mehndi i de livfulla städerna Kolkata och Varanasi lärde mig att henna är mer än dekoration—det är en ritual, en välsignelse, en berättelse skriven på huden.",
+    "paragraph2": "Efter flytten till Stockholm upptäckte jag något oväntat: den nordiska uppskattningen för minimalism förminskade inte konsten—den förfinade den. Rena linjer, avsiktligt negativt utrymme och målinriktat design blev mitt nya språk.",
+    "paragraph3": "Idag skapar jag henna som hedrar båda världarna. Varje design bär själen av indiskt arv samtidigt som den talar det eleganta, diskreta språket av skandinavisk estetik.",
+    "philosophy": "Filosofi",
+    "philosophyText": "Mindre är mer. Varje streck har syfte. Skönhet i återhållsamhet.",
+    "location": "Plats",
+    "locationText": "Baserad i Stockholm, betjänar hela Sverige och därutöver.",
+    "tagline": "Nordisk Själ, Indiskt Hjärta",
+    "artistAtWork": "Konstnär i arbete",
+    "replaceImage": "Ersätt med faktisk bild"
+  },
+  "gallery": {
+    "title": "Portfolio",
+    "subtitle": "Designer",
+    "viewProject": "Visa Projekt",
+    "placeholder": "Portfoliobild"
+  },
+  "care": {
+    "title": "Henna Vårdguide",
+    "subtitle": "Hur du får din henna att hålla längre och utveckla en rik, djup färg",
+    "keepItOn": "Behåll den",
+    "keepItOnDesc": "Lämna pastan på i minst 4-6 timmar, eller över natten för djupaste färg",
+    "moisturize": "Fukta",
+    "moisturizeDesc": "Applicera kokosolja eller olivolja efter borttagning av pastan för att försegla färgen",
+    "avoidWater": "Undvik vatten",
+    "avoidWaterDesc": "Håll designen torr i 12-24 timmar efter att pastan tagits bort",
+    "natureDevelop": "Låt den utvecklas",
+    "natureDevelopDesc": "Färgen kommer att mörkna under 24-48 timmar - ha tålamod!"
+  },
+  "testimonials": {
+    "title": "Vänliga Ord",
+    "subtitle": "Från kunder"
+  },
+  "contact": {
+    "title": "Låt Oss Skapa Tillsammans",
+    "subtitle": "Oavsett om det är din bröllopdag, ett speciellt firande eller ett konstnärligt samarbete, skulle jag gärna höra från dig.",
+    "instagram": "Instagram",
+    "instagramDesc": "Följ för daglig inspiration",
+    "whatsapp": "WhatsApp",
+    "whatsappDesc": "Snabba svar",
+    "email": "E-post",
+    "emailDesc": "För detaljerade förfrågningar",
+    "bookingTitle": "Bokningsinformation",
+    "bridalConsultations": "Brudkonsultationer: Gratis provning tillgänglig för alla brudbokningar",
+    "travel": "Resor: Tillgänglig i hela Stockholm och omgivande områden. Reser också till Kolkata och Varanasi för speciella tillfällen.",
+    "eventsDesc": "Evenemang: Gruppbokningar och företagsevenemang välkomnas",
+    "leadTime": "Ledtid: Boka 2-4 veckor i förväg för optimal planering",
+    "tagline": "Din berättelse, vackert prydd"
+  },
+  "footer": {
+    "title": "Nordic Soul",
+    "description": "Samtida hennakonst som blandar skandinavisk minimalism med indiskt arv.",
+    "connect": "Anslut",
+    "services": "Tjänster",
+    "bridalHenna": "Brudhenna",
+    "festival": "Festival & Evenemang",
+    "fashion": "Mode Fotosessioner",
+    "privateParties": "Privata Fester",
+    "corporateEvents": "Företagsevenemang",
+    "location": "Stockholm, Sverige",
+    "copyright": "© 2024 Nordic Soul Henna. Alla rättigheter förbehållna.",
+    "madeWith": "Gjord med",
+    "madeIn": "i Stockholm"
+  }
+}

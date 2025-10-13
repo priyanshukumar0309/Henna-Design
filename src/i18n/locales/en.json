@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "careGuide": "Care Guide",
+    "testimonials": "Testimonials",
+    "getInTouch": "Get in Touch"
+  },
+  "hero": {
+    "title": "Nordic Soul",
+    "subtitle": "Indian Art",
+    "mehndi": "Mehndi Artistry",
+    "description": "Where Scandinavian minimalism meets ancient artistry.",
+    "location": "Contemporary henna design in Stockholm."
+  },
+  "about": {
+    "title": "From Kolkata and Varanasi to Stockholm",
+    "paragraph1": "Growing up surrounded by the rich tradition of mehndi in the vibrant cities of Kolkata and Varanasi, I learned that henna is more than decoration—it's a ritual, a blessing, a story written on skin.",
+    "paragraph2": "After moving to Stockholm, I discovered something unexpected: the Nordic appreciation for minimalism didn't diminish the art—it refined it. Clean lines, intentional negative space, and purposeful design became my new language.",
+    "paragraph3": "Today, I create henna that honors both worlds. Each design carries the soul of Indian heritage while speaking the elegant, understated language of Scandinavian aesthetics.",
+    "philosophy": "Philosophy",
+    "philosophyText": "Less is more. Every stroke has purpose. Beauty in restraint.",
+    "location": "Location",
+    "locationText": "Based in Stockholm, serving all of Sweden and beyond.",
+    "tagline": "Nordic Soul, Indian Heart",
+    "artistAtWork": "Artist at work",
+    "replaceImage": "Replace with actual image"
+  },
+  "gallery": {
+    "title": "Portfolio",
+    "subtitle": "Designs",
+    "viewProject": "View Project",
+    "placeholder": "Portfolio image"
+  },
+  "care": {
+    "title": "Henna Care Guide",
+    "subtitle": "How to make your henna last longer and develop a rich, deep color",
+    "keepItOn": "Keep it on",
+    "keepItOnDesc": "Leave the paste on for at least 4-6 hours, or overnight for the deepest color",
+    "moisturize": "Moisturize",
+    "moisturizeDesc": "Apply coconut or olive oil after removing the paste to seal the color",
+    "avoidWater": "Avoid water",
+    "avoidWaterDesc": "Keep the design dry for 12-24 hours after removing the paste",
+    "natureDevelop": "Let it develop",
+    "natureDevelopDesc": "The color will darken over 24-48 hours - be patient!"
+  },
+  "testimonials": {
+    "title": "Kind Words",
+    "subtitle": "From clients"
+  },
+  "contact": {
+    "title": "Let's Create Together",
+    "subtitle": "Whether it's your wedding day, a special celebration, or an artistic collaboration, I'd love to hear from you.",
+    "instagram": "Instagram",
+    "instagramDesc": "Follow for daily inspiration",
+    "whatsapp": "WhatsApp",
+    "whatsappDesc": "Quick responses",
+    "email": "Email",
+    "emailDesc": "For detailed inquiries",
+    "bookingTitle": "Booking Information",
+    "bridalConsultations": "Bridal Consultations: Complimentary trial available for all bridal bookings",
+    "travel": "Travel: Available throughout Stockholm and surrounding areas. Also travel to Kolkata and Varanasi for special occasions.",
+    "eventsDesc": "Events: Group bookings and corporate events welcome",
+    "leadTime": "Lead Time: Book 2-4 weeks in advance for optimal scheduling",
+    "tagline": "Your story, beautifully adorned"
+  },
+  "footer": {
+    "title": "Nordic Soul",
+    "description": "Contemporary henna artistry blending Scandinavian minimalism with Indian heritage.",
+    "connect": "Connect",
+    "services": "Services",
+    "bridalHenna": "Bridal Henna",
+    "festival": "Festival & Events",
+    "fashion": "Fashion Photoshoots",
+    "privateParties": "Private Parties",
+    "corporateEvents": "Corporate Events",
+    "location": "Stockholm, Sweden",
+    "copyright": "© 2024 Nordic Soul Henna. All rights reserved.",
+    "madeWith": "Made with",
+    "madeIn": "in Stockholm"
+  }
+}
