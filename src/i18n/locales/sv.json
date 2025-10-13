@@ -23,7 +23,8 @@
     "location": "Plats",
     "locationText": "Baserad i Rotebro, Sollentuna, Stockholm, betjänar hela Sverige och därutöver.",
     "tagline": "Nordisk Själ, Indiskt Hjärta",
-    "artistAtWork": "Konstnär i arbete",
+          "artistAtWork": "Konstnär i arbete",
+          "experience": "12+ år av passionerat arbete inom detta område",
     "replaceImage": "Ersätt med faktisk bild"
   },
   "gallery": {

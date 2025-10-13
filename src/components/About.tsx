@@ -40,7 +40,7 @@ export const About = () => {
                           {t('about.artistAtWork')}
                         </p>
                         <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
-                          Professional Henna Artist
+                          {t('about.experience')}
                         </p>
                       </div>
                     </div>
