@@ -25,38 +25,13 @@ export const Contact = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           <motion.a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ y: -10 }}
-            className="bg-white/80 dark:bg-dark-surface/80 backdrop-blur-sm rounded-lg p-8 text-center border border-henna-light/30 dark:border-henna-dark/30 hover:shadow-2xl transition-all duration-300 group"
-          >
-            <div className="w-16 h-16 bg-gradient-to-br from-henna-brown to-henna-gold rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-              <Instagram className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text mb-2">
-              {t('contact.instagram')}
-            </h3>
-            <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
-              {t('contact.instagramDesc')}
-            </p>
-            <p className="font-inter text-henna-brown dark:text-henna-gold mt-3">
-              @nordicsoulhenna
-            </p>
-          </motion.a>
-
-          <motion.a
             href="https://wa.me/918420153353?text=Hi%2C%20I%20am%20interested%20in%20your%20henna%20services.%20Could%20you%20please%20provide%20more%20information%20about%20your%20packages%20and%20availability%3F"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6 }}
             whileHover={{ y: -10 }}
             className="bg-white/80 dark:bg-dark-surface/80 backdrop-blur-sm rounded-lg p-8 text-center border border-henna-light/30 dark:border-henna-dark/30 hover:shadow-2xl transition-all duration-300 group"
           >
@@ -82,7 +57,7 @@ export const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             whileHover={{ y: -10 }}
             className="bg-white/80 dark:bg-dark-surface/80 backdrop-blur-sm rounded-lg p-8 text-center border border-henna-light/30 dark:border-henna-dark/30 hover:shadow-2xl transition-all duration-300 group"
           >
@@ -97,6 +72,31 @@ export const Contact = () => {
             </p>
             <p className="font-inter text-henna-brown dark:text-henna-gold mt-3">
               guptasupriya333@gmail.com
+            </p>
+          </motion.a>
+
+          <motion.a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            whileHover={{ y: -10 }}
+            className="bg-white/80 dark:bg-dark-surface/80 backdrop-blur-sm rounded-lg p-8 text-center border border-henna-light/30 dark:border-henna-dark/30 hover:shadow-2xl transition-all duration-300 group"
+          >
+            <div className="w-16 h-16 bg-gradient-to-br from-henna-brown to-henna-gold rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <Instagram className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text mb-2">
+              {t('contact.instagram')}
+            </h3>
+            <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+              {t('contact.instagramDesc')}
+            </p>
+            <p className="font-inter text-henna-brown dark:text-henna-gold mt-3">
+              @nordicsoulhenna
             </p>
           </motion.a>
         </div>

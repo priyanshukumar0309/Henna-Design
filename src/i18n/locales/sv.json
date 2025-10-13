@@ -23,8 +23,8 @@
     "location": "Plats",
            "locationText": "Baserad i Rotebro, Sollentuna, Stockholm, betjänar Stockholms län och därutöver.",
     "tagline": "Nordisk Själ, Indiskt Hjärta",
-          "artistAtWork": "Konstnär i arbete",
-          "experience": "12+ år av passionerat arbete inom detta område",
+          "artistAtWork": "Konstnär",
+          "experience": "12+ år av att lära, öva och förfina detta hantverk.",
     "replaceImage": "Ersätt med faktisk bild"
   },
   "gallery": {
@@ -38,8 +38,9 @@
     "festival": "Festival",
     "fusionArt": "Fusionskonst",
     "photoshoot": "Fotografering",
-    "stainProgression": "Henna Fläckutveckling",
-    "noImages": "Inga bilder än. Lägg till vacker hennakonst att visa!"
+           "stainProgression": "Henna Fläckutveckling",
+           "noImages": "Inga bilder än. Lägg till vacker hennakonst att visa!",
+           "doubleTapToZoom": "Dubbelklicka för att zooma in/ut"
   },
   "care": {
     "title": "Henna Vårdguide",

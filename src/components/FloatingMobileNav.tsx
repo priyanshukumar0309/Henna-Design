@@ -100,7 +100,8 @@ export const FloatingMobileNav = () => {
                   <img 
                     src="/favicon.png" 
                     alt="Home" 
-                    className="w-4 h-4"
+                    className={`w-4 h-4 ${isActive ? 'brightness-0 invert' : 'dark:brightness-0 dark:invert'}`}
+                    style={{ filter: isActive ? 'brightness(0) invert(1)' : '' }}
                   />
                 ) : (
                   <item.icon className="w-4 h-4" />

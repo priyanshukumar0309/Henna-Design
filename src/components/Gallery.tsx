@@ -174,8 +174,8 @@ export const Gallery = () => {
             description: 'Beautiful mandala pattern extending from wrist to forearm with intricate geometric details',
             image_url: '/assets/gallery/photo_6087126964323338495_y.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338495_y.jpg',
-            category: 'minimalist',
-            tags: ['mandala', 'arm', 'geometric', 'elegant', 'detailed'],
+            category: 'bridal',
+            tags: ['mandala', 'arm', 'geometric', 'elegant', 'detailed', 'bridal'],
             featured: true,
             display_order: 10,
             created_at: new Date().toISOString(),
@@ -200,8 +200,8 @@ export const Gallery = () => {
             description: 'Modern minimalist henna design perfect for everyday wear and special occasions',
             image_url: '/assets/gallery/photo_6087126964323338509_y.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338509_y.jpg',
-            category: 'minimalist',
-            tags: ['minimalist', 'wrist', 'contemporary', 'modern', 'elegant'],
+            category: 'fusion',
+            tags: ['minimalist', 'wrist', 'contemporary', 'modern', 'elegant', 'fusion'],
             featured: true,
             display_order: 12,
             created_at: new Date().toISOString(),
@@ -482,8 +482,8 @@ export const Gallery = () => {
           description: 'Beautiful mandala pattern extending from wrist to forearm with intricate geometric details',
           image_url: '/assets/gallery/photo_6087126964323338495_y.jpg',
           thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338495_y.jpg',
-          category: 'minimalist',
-          tags: ['mandala', 'arm', 'geometric', 'elegant', 'detailed'],
+          category: 'bridal',
+          tags: ['mandala', 'arm', 'geometric', 'elegant', 'detailed', 'bridal'],
           featured: true,
           display_order: 10,
           created_at: new Date().toISOString(),
@@ -508,8 +508,8 @@ export const Gallery = () => {
           description: 'Modern minimalist henna design perfect for everyday wear and special occasions',
           image_url: '/assets/gallery/photo_6087126964323338509_y.jpg',
           thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338509_y.jpg',
-          category: 'minimalist',
-          tags: ['minimalist', 'wrist', 'contemporary', 'modern', 'elegant'],
+          category: 'fusion',
+          tags: ['minimalist', 'wrist', 'contemporary', 'modern', 'elegant', 'fusion'],
           featured: true,
           display_order: 12,
           created_at: new Date().toISOString(),
@@ -849,7 +849,7 @@ export const Gallery = () => {
                     : 'max-w-full max-h-[80vh] cursor-zoom-in'
                 }`}
                 animate={{ 
-                  scale: isZoomed ? 1.5 : 1,
+                  scale: isZoomed ? 1.2 : 1,
                   x: isZoomed ? 0 : 0,
                   y: isZoomed ? 0 : 0
                 }}
@@ -867,6 +867,9 @@ export const Gallery = () => {
                 {selectedImage.description && (
                   <p className="font-inter text-white/70">{selectedImage.description}</p>
                 )}
+                <p className="font-inter text-white/50 text-sm mt-2">
+                  {t('gallery.doubleTapToZoom')}
+                </p>
               </div>
             </motion.div>
           </motion.div>

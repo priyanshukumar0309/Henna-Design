@@ -23,8 +23,8 @@
     "location": "Location",
            "locationText": "Based in Rotebro, Sollentuna, Stockholm, serving Stockholm County and beyond.",
     "tagline": "Nordic Soul, Indian Heart",
-          "artistAtWork": "Artist at work",
-          "experience": "12+ years of passionate work in this area",
+          "artistAtWork": "Artist",
+          "experience": "12+ years of learning, practicing, and perfecting this craft.",
     "replaceImage": "Replace with actual image"
   },
   "gallery": {
@@ -38,8 +38,9 @@
     "festival": "Festival",
     "fusionArt": "Fusion Art",
     "photoshoot": "Photoshoot",
-    "stainProgression": "Henna Stain Progression",
-    "noImages": "No images yet. Add some beautiful henna art to showcase!"
+           "stainProgression": "Henna Stain Progression",
+           "noImages": "No images yet. Add some beautiful henna art to showcase!",
+           "doubleTapToZoom": "Double tap to zoom in/out"
   },
   "care": {
     "title": "Henna Care Guide",
