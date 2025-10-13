@@ -164,6 +164,58 @@ export const Gallery = () => {
             display_order: 9,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
+          },
+          {
+            id: '10',
+            title: 'Elegant Arm Mandala Design',
+            description: 'Beautiful mandala pattern extending from wrist to forearm with intricate geometric details',
+            image_url: '/assets/gallery/photo_6087126964323338495_y.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338495_y.jpg',
+            category: 'minimalist',
+            tags: ['mandala', 'arm', 'geometric', 'elegant', 'detailed'],
+            featured: true,
+            display_order: 10,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '11',
+            title: 'Traditional Hand Henna Art',
+            description: 'Classic palm design with traditional motifs and intricate finger patterns',
+            image_url: '/assets/gallery/photo_6087126964323338496_y.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338496_y.jpg',
+            category: 'festival',
+            tags: ['traditional', 'palm', 'hand', 'classic', 'detailed'],
+            featured: true,
+            display_order: 11,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '12',
+            title: 'Contemporary Wrist Design',
+            description: 'Modern minimalist henna design perfect for everyday wear and special occasions',
+            image_url: '/assets/gallery/photo_6087126964323338509_y.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338509_y.jpg',
+            category: 'minimalist',
+            tags: ['minimalist', 'wrist', 'contemporary', 'modern', 'elegant'],
+            featured: true,
+            display_order: 12,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '13',
+            title: 'Artistic Forearm Henna',
+            description: 'Creative henna artistry featuring flowing patterns and artistic expression',
+            image_url: '/assets/gallery/photo_6089378764137022110_y (1).jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/photo_6089378764137022110_y (1).jpg',
+            category: 'photoshoot',
+            tags: ['artistic', 'forearm', 'creative', 'flowing', 'expression'],
+            featured: true,
+            display_order: 13,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
           }
         ];
         setImages(fallbackImages);
@@ -288,6 +340,58 @@ export const Gallery = () => {
           tags: ['festival', 'hands', 'mandala', 'symmetrical', 'traditional'],
           featured: true,
           display_order: 9,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '10',
+          title: 'Elegant Arm Mandala Design',
+          description: 'Beautiful mandala pattern extending from wrist to forearm with intricate geometric details',
+          image_url: '/assets/gallery/photo_6087126964323338495_y.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338495_y.jpg',
+          category: 'minimalist',
+          tags: ['mandala', 'arm', 'geometric', 'elegant', 'detailed'],
+          featured: true,
+          display_order: 10,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '11',
+          title: 'Traditional Hand Henna Art',
+          description: 'Classic palm design with traditional motifs and intricate finger patterns',
+          image_url: '/assets/gallery/photo_6087126964323338496_y.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338496_y.jpg',
+          category: 'festival',
+          tags: ['traditional', 'palm', 'hand', 'classic', 'detailed'],
+          featured: true,
+          display_order: 11,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '12',
+          title: 'Contemporary Wrist Design',
+          description: 'Modern minimalist henna design perfect for everyday wear and special occasions',
+          image_url: '/assets/gallery/photo_6087126964323338509_y.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338509_y.jpg',
+          category: 'minimalist',
+          tags: ['minimalist', 'wrist', 'contemporary', 'modern', 'elegant'],
+          featured: true,
+          display_order: 12,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '13',
+          title: 'Artistic Forearm Henna',
+          description: 'Creative henna artistry featuring flowing patterns and artistic expression',
+          image_url: '/assets/gallery/photo_6089378764137022110_y (1).jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/photo_6089378764137022110_y (1).jpg',
+          category: 'photoshoot',
+          tags: ['artistic', 'forearm', 'creative', 'flowing', 'expression'],
+          featured: true,
+          display_order: 13,
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
         }
