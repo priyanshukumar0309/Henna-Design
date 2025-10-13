@@ -75,8 +75,6 @@ export const Hero = () => {
           className="font-inter text-base md:text-lg text-charcoal/70 dark:text-dark-text/70 max-w-2xl mx-auto mt-12 leading-relaxed"
         >
           {t('hero.description')}
-          <br />
-          {t('hero.location')}
         </motion.p>
       </div>
 

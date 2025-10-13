@@ -69,7 +69,10 @@ export const Contact = () => {
             <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
               {t('contact.whatsappDesc')}
             </p>
-            <p className="font-inter text-henna-brown dark:text-henna-gold mt-3">
+            <p className="font-inter text-henna-brown dark:text-henna-gold mt-3 font-medium">
+              {t('contact.clickToMessage')}
+            </p>
+            <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mt-1">
               +91 8420153353
             </p>
           </motion.a>
