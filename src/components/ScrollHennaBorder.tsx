@@ -1,242 +1,296 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
+import { useInView } from 'react-intersection-observer';
+import { useEffect, useState } from 'react';
 
 export const ScrollHennaBorder = () => {
   const { scrollYProgress } = useScroll();
   const { theme } = useTheme();
+  const [currentSection, setCurrentSection] = useState(0);
 
-  const leftOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9], [0, 1, 1]);
-  const rightOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9], [0, 1, 1]);
-  const leftY = useTransform(scrollYProgress, [0.1, 1], [0, -100]);
-  const rightY = useTransform(scrollYProgress, [0.1, 1], [0, -150]);
+  const { ref: heroRef, inView: heroInView } = useInView({ threshold: 0.3 });
+  const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.3 });
+  const { ref: galleryRef, inView: galleryInView } = useInView({ threshold: 0.3 });
+  const { ref: testimonialRef, inView: testimonialInView } = useInView({ threshold: 0.3 });
+  const { ref: contactRef, inView: contactInView } = useInView({ threshold: 0.3 });
+
+  useEffect(() => {
+    if (heroInView) setCurrentSection(0);
+    else if (aboutInView) setCurrentSection(1);
+    else if (galleryInView) setCurrentSection(2);
+    else if (testimonialInView) setCurrentSection(3);
+    else if (contactInView) setCurrentSection(4);
+  }, [heroInView, aboutInView, galleryInView, testimonialInView, contactInView]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const sections = document.querySelectorAll('section');
+      if (sections.length > 0 && heroRef) (sections[0] as any).ref = heroRef;
+      if (sections.length > 1 && aboutRef) (sections[1] as any).ref = aboutRef;
+      if (sections.length > 2 && galleryRef) (sections[2] as any).ref = galleryRef;
+      if (sections.length > 3 && testimonialRef) (sections[3] as any).ref = testimonialRef;
+      if (sections.length > 4 && contactRef) (sections[4] as any).ref = contactRef;
+    }
+  }, []);
+
+  const opacity = useTransform(scrollYProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0]);
+  const leftY = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
+  const rightY = useTransform(scrollYProgress, [0, 1], ['0%', '-25%']);
 
   const strokeColor = theme === 'dark' ? '#C19A6B' : '#C97E5A';
   const fillColor = theme === 'dark' ? '#8B5A3C' : '#E6D2B5';
+  const accentColor = theme === 'dark' ? '#D4AF37' : '#B8956A';
+
+  const getSectionPattern = (side: 'left' | 'right') => {
+    switch (currentSection) {
+      case 0:
+        return 'hero';
+      case 1:
+        return 'about';
+      case 2:
+        return 'gallery';
+      case 3:
+        return 'testimonial';
+      case 4:
+        return 'contact';
+      default:
+        return 'hero';
+    }
+  };
 
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 h-screen w-24 md:w-32 lg:w-40 pointer-events-none z-0 hidden sm:block"
-        style={{ opacity: leftOpacity }}
+        className="fixed left-0 top-0 h-full w-16 sm:w-20 md:w-28 lg:w-36 pointer-events-none z-0 hidden sm:block overflow-hidden"
+        style={{ opacity }}
       >
         <motion.svg
-          className="w-full h-full"
-          viewBox="0 0 100 800"
-          preserveAspectRatio="xMinYMin slice"
+          className="w-full h-[120%]"
+          viewBox="0 0 120 1000"
+          preserveAspectRatio="none"
           style={{ y: leftY }}
         >
+          <defs>
+            <linearGradient id="leftGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor={strokeColor} stopOpacity="0.2" />
+              <stop offset="50%" stopColor={strokeColor} stopOpacity="0.8" />
+              <stop offset="100%" stopColor={strokeColor} stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+
           <motion.path
-            d="M 20,50 Q 30,70 25,90 Q 20,110 30,130 Q 40,150 30,170 Q 20,190 25,210"
+            d="M 30,0 Q 40,50 35,100 Q 30,150 40,200 Q 50,250 40,300 Q 30,350 35,400 Q 40,450 35,500 Q 30,550 40,600 Q 45,650 40,700 Q 35,750 40,800 Q 45,850 40,900 Q 35,950 40,1000"
             fill="none"
-            stroke={strokeColor}
-            strokeWidth="1.5"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 0.5 }}
+            stroke="url(#leftGradient)"
+            strokeWidth="2"
+            strokeLinecap="round"
           />
 
-          <motion.g>
-            {[0, 1, 2, 3, 4].map((i) => (
-              <motion.g key={`left-peacock-${i}`}>
-                <motion.path
-                  d={`M 25,${100 + i * 150} Q 15,${110 + i * 150} 10,${120 + i * 150} Q 15,${130 + i * 150} 25,${140 + i * 150} Q 35,${130 + i * 150} 40,${120 + i * 150} Q 35,${110 + i * 150} 25,${100 + i * 150} Z`}
-                  fill={fillColor}
-                  fillOpacity="0.3"
-                  stroke={strokeColor}
-                  strokeWidth="1"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1.5, delay: 1 + i * 0.2 }}
-                />
-                <motion.circle
-                  cx="25"
-                  cy={120 + i * 150}
-                  r="3"
-                  fill={strokeColor}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1.5 + i * 0.2 }}
-                />
-              </motion.g>
-            ))}
-          </motion.g>
-
-          <motion.g>
-            {[0, 1, 2, 3].map((i) => (
-              <motion.g key={`left-vine-${i}`}>
-                <motion.path
-                  d={`M 40,${200 + i * 180} Q 50,${210 + i * 180} 45,${220 + i * 180} Q 40,${230 + i * 180} 50,${240 + i * 180}`}
-                  fill="none"
-                  stroke={strokeColor}
-                  strokeWidth="1"
-                  strokeDasharray="3 3"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, delay: 1.5 + i * 0.3 }}
-                />
-                <motion.circle
-                  cx="45"
-                  cy={220 + i * 180}
-                  r="2"
-                  fill={fillColor}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.4, delay: 2 + i * 0.3 }}
-                />
-              </motion.g>
-            ))}
-          </motion.g>
-
-          <motion.g>
-            {[0, 1, 2].map((i) => (
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+            <motion.g
+              key={`left-pattern-${i}`}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.3,
+                scale: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.8
+              }}
+              transition={{ duration: 0.6, delay: i * 0.05 }}
+            >
               <motion.path
-                key={`left-leaf-${i}`}
-                d={`M 15,${300 + i * 220} Q 10,${310 + i * 220} 15,${320 + i * 220} Q 20,${315 + i * 220} 15,${300 + i * 220} Z`}
+                d={`M 35,${80 + i * 125} Q 20,${90 + i * 125} 15,${105 + i * 125} Q 20,${120 + i * 125} 35,${130 + i * 125} Q 50,${120 + i * 125} 55,${105 + i * 125} Q 50,${90 + i * 125} 35,${80 + i * 125} Z`}
                 fill={fillColor}
-                fillOpacity="0.4"
+                fillOpacity="0.3"
                 stroke={strokeColor}
-                strokeWidth="0.8"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 1, delay: 2 + i * 0.4 }}
+                strokeWidth="1.2"
               />
-            ))}
-          </motion.g>
+              <motion.circle
+                cx="35"
+                cy={105 + i * 125}
+                r="4"
+                fill={accentColor}
+                fillOpacity="0.7"
+              />
+              {[0, 1, 2, 3].map((j) => (
+                <motion.circle
+                  key={`dot-${i}-${j}`}
+                  cx={35 + Math.cos((j * Math.PI * 2) / 4 + Math.PI / 4) * 12}
+                  cy={105 + i * 125 + Math.sin((j * Math.PI * 2) / 4 + Math.PI / 4) * 12}
+                  r="1.5"
+                  fill={strokeColor}
+                  fillOpacity="0.6"
+                />
+              ))}
+            </motion.g>
+          ))}
+
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+            <motion.g
+              key={`left-vine-${i}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+            >
+              <motion.path
+                d={`M 55,${150 + i * 150} Q 65,${165 + i * 150} 60,${180 + i * 150} Q 55,${195 + i * 150} 65,${210 + i * 150}`}
+                fill="none"
+                stroke={strokeColor}
+                strokeWidth="1"
+                strokeDasharray="4 4"
+                opacity="0.5"
+              />
+              <motion.circle
+                cx="60"
+                cy={180 + i * 150}
+                r="2.5"
+                fill={fillColor}
+              />
+            </motion.g>
+          ))}
+
+          {[0, 1, 2, 3, 4].map((i) => (
+            <motion.path
+              key={`left-leaf-${i}`}
+              d={`M 15,${220 + i * 180} Q 10,${230 + i * 180} 15,${245 + i * 180} Q 22,${240 + i * 180} 15,${220 + i * 180} Z`}
+              fill={fillColor}
+              fillOpacity="0.4"
+              stroke={strokeColor}
+              strokeWidth="0.8"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 0.7, x: 0 }}
+              transition={{ duration: 0.6, delay: 1 + i * 0.15 }}
+            />
+          ))}
         </motion.svg>
       </motion.div>
 
       <motion.div
-        className="fixed right-0 top-0 h-screen w-24 md:w-32 lg:w-40 pointer-events-none z-0 hidden sm:block"
-        style={{ opacity: rightOpacity }}
+        className="fixed right-0 top-0 h-full w-16 sm:w-20 md:w-28 lg:w-36 pointer-events-none z-0 hidden sm:block overflow-hidden"
+        style={{ opacity }}
       >
         <motion.svg
-          className="w-full h-full"
-          viewBox="0 0 100 800"
-          preserveAspectRatio="xMaxYMin slice"
+          className="w-full h-[120%]"
+          viewBox="0 0 120 1000"
+          preserveAspectRatio="none"
           style={{ y: rightY }}
         >
+          <defs>
+            <linearGradient id="rightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor={strokeColor} stopOpacity="0.2" />
+              <stop offset="50%" stopColor={strokeColor} stopOpacity="0.8" />
+              <stop offset="100%" stopColor={strokeColor} stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+
           <motion.path
-            d="M 80,80 Q 70,100 75,120 Q 80,140 70,160 Q 60,180 70,200 Q 80,220 75,240"
+            d="M 90,0 Q 80,50 85,100 Q 90,150 80,200 Q 70,250 80,300 Q 90,350 85,400 Q 80,450 85,500 Q 90,550 80,600 Q 75,650 80,700 Q 85,750 80,800 Q 75,850 80,900 Q 85,950 80,1000"
             fill="none"
-            stroke={strokeColor}
-            strokeWidth="1.5"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 0.7 }}
+            stroke="url(#rightGradient)"
+            strokeWidth="2"
+            strokeLinecap="round"
           />
 
-          <motion.g>
-            {[0, 1, 2, 3].map((i) => (
-              <motion.g key={`right-paisley-${i}`}>
-                <motion.path
-                  d={`M 75,${120 + i * 170} Q 85,${130 + i * 170} 80,${145 + i * 170} Q 70,${150 + i * 170} 65,${140 + i * 170} Q 70,${125 + i * 170} 75,${120 + i * 170} Z`}
-                  fill={fillColor}
-                  fillOpacity="0.35"
-                  stroke={strokeColor}
-                  strokeWidth="1"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1.5, delay: 1.2 + i * 0.25 }}
-                />
-                <motion.ellipse
-                  cx="75"
-                  cy={135 + i * 170}
-                  rx="4"
-                  ry="6"
-                  fill={strokeColor}
-                  fillOpacity="0.6"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1.7 + i * 0.25 }}
-                />
-              </motion.g>
-            ))}
-          </motion.g>
-
-          <motion.g>
-            {[0, 1, 2, 3, 4].map((i) => (
-              <motion.g key={`right-flower-${i}`}>
-                <motion.circle
-                  cx="60"
-                  cy={250 + i * 140}
-                  r="8"
-                  fill="none"
-                  stroke={strokeColor}
-                  strokeWidth="1"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.8, delay: 1.5 + i * 0.2 }}
-                />
-                {[0, 1, 2, 3, 4].map((j) => (
-                  <motion.ellipse
-                    key={`petal-${i}-${j}`}
-                    cx={60 + Math.cos((j * Math.PI * 2) / 5) * 10}
-                    cy={250 + i * 140 + Math.sin((j * Math.PI * 2) / 5) * 10}
-                    rx="3"
-                    ry="5"
-                    fill={fillColor}
-                    fillOpacity="0.5"
-                    transform={`rotate(${j * 72}, ${60 + Math.cos((j * Math.PI * 2) / 5) * 10}, ${250 + i * 140 + Math.sin((j * Math.PI * 2) / 5) * 10})`}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.4, delay: 1.8 + i * 0.2 + j * 0.05 }}
-                  />
-                ))}
-                <motion.circle
-                  cx="60"
-                  cy={250 + i * 140}
-                  r="2"
-                  fill={strokeColor}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.3, delay: 2.2 + i * 0.2 }}
-                />
-              </motion.g>
-            ))}
-          </motion.g>
-
-          <motion.g>
-            {[0, 1, 2, 3].map((i) => (
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+            <motion.g
+              key={`right-paisley-${i}`}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.3,
+                scale: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.8
+              }}
+              transition={{ duration: 0.6, delay: i * 0.05 }}
+            >
               <motion.path
-                key={`right-curve-${i}`}
-                d={`M 55,${350 + i * 160} Q 65,${360 + i * 160} 70,${375 + i * 160} Q 65,${390 + i * 160} 55,${400 + i * 160}`}
+                d={`M 85,${100 + i * 125} Q 95,${110 + i * 125} 90,${130 + i * 125} Q 80,${140 + i * 125} 70,${130 + i * 125} Q 75,${110 + i * 125} 85,${100 + i * 125} Z`}
+                fill={fillColor}
+                fillOpacity="0.35"
+                stroke={strokeColor}
+                strokeWidth="1.2"
+              />
+              <motion.ellipse
+                cx="82"
+                cy={120 + i * 125}
+                rx="5"
+                ry="8"
+                fill={accentColor}
+                fillOpacity="0.6"
+              />
+            </motion.g>
+          ))}
+
+          {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+            <motion.g
+              key={`right-flower-${i}`}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 + i * 0.12 }}
+            >
+              <motion.circle
+                cx="70"
+                cy={180 + i * 140}
+                r="10"
                 fill="none"
                 stroke={strokeColor}
-                strokeWidth="1"
-                strokeDasharray="2 4"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.8, delay: 2 + i * 0.3 }}
+                strokeWidth="1.2"
               />
-            ))}
-          </motion.g>
-
-          <motion.g>
-            {[0, 1, 2].map((i) => (
-              <motion.g key={`right-peacock-feather-${i}`}>
-                <motion.path
-                  d={`M 85,${450 + i * 200} L 75,${470 + i * 200} Q 80,${475 + i * 200} 85,${470 + i * 200} Z`}
+              {[0, 1, 2, 3, 4, 5].map((j) => (
+                <motion.ellipse
+                  key={`petal-${i}-${j}`}
+                  cx={70 + Math.cos((j * Math.PI * 2) / 6) * 12}
+                  cy={180 + i * 140 + Math.sin((j * Math.PI * 2) / 6) * 12}
+                  rx="3.5"
+                  ry="6"
                   fill={fillColor}
-                  fillOpacity="0.4"
+                  fillOpacity="0.5"
                   stroke={strokeColor}
-                  strokeWidth="0.8"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1.2, delay: 2.5 + i * 0.4 }}
+                  strokeWidth="0.5"
+                  transform={`rotate(${j * 60}, ${70 + Math.cos((j * Math.PI * 2) / 6) * 12}, ${180 + i * 140 + Math.sin((j * Math.PI * 2) / 6) * 12})`}
                 />
-                <motion.circle
-                  cx="80"
-                  cy={470 + i * 200}
-                  r="3"
-                  fill={strokeColor}
-                  fillOpacity="0.7"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.4, delay: 3 + i * 0.4 }}
-                />
-              </motion.g>
-            ))}
-          </motion.g>
+              ))}
+              <motion.circle
+                cx="70"
+                cy={180 + i * 140}
+                r="3"
+                fill={accentColor}
+              />
+            </motion.g>
+          ))}
+
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+            <motion.path
+              key={`right-curve-${i}`}
+              d={`M 60,${250 + i * 150} Q 50,${265 + i * 150} 55,${280 + i * 150} Q 60,${295 + i * 150} 50,${310 + i * 150}`}
+              fill="none"
+              stroke={strokeColor}
+              strokeWidth="1"
+              strokeDasharray="3 5"
+              opacity="0.5"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 1.5, delay: 1.2 + i * 0.2 }}
+            />
+          ))}
+
+          {[0, 1, 2, 3, 4].map((i) => (
+            <motion.g key={`right-peacock-${i}`}>
+              <motion.path
+                d={`M 95,${330 + i * 180} L 85,${355 + i * 180} Q 90,${362 + i * 180} 95,${355 + i * 180} Z`}
+                fill={fillColor}
+                fillOpacity="0.45"
+                stroke={strokeColor}
+                strokeWidth="1"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 0.8, y: 0 }}
+                transition={{ duration: 0.7, delay: 1.5 + i * 0.2 }}
+              />
+              <motion.circle
+                cx="90"
+                cy={355 + i * 180}
+                r="3.5"
+                fill={accentColor}
+                fillOpacity="0.8"
+              />
+            </motion.g>
+          ))}
         </motion.svg>
       </motion.div>
     </>

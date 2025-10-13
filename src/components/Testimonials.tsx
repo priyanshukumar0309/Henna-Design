@@ -60,9 +60,9 @@ export const Testimonials = () => {
   }
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute top-1/4 left-0 w-72 h-72 bg-henna-light/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-sage/10 rounded-full blur-3xl" />
+    <section className="py-32 px-6 relative overflow-hidden bg-ivory dark:bg-dark-bg transition-colors duration-500">
+      <div className="absolute top-1/4 left-0 w-72 h-72 bg-henna-light/10 dark:bg-henna-gold/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-sage/10 dark:bg-sage/5 rounded-full blur-3xl" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
@@ -72,10 +72,10 @@ export const Testimonials = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal mb-4">
+          <h2 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal dark:text-dark-text mb-4">
             Client Stories
           </h2>
-          <p className="font-inter text-lg text-charcoal/70 max-w-2xl mx-auto">
+          <p className="font-inter text-lg text-charcoal/70 dark:text-dark-text/80 max-w-2xl mx-auto">
             Hear from those who've experienced Nordic Soul Henna
           </p>
         </motion.div>
@@ -88,11 +88,11 @@ export const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white/80 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 hover:shadow-xl transition-all duration-300 flex flex-col"
+              className="bg-white/80 dark:bg-dark-card/80 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 dark:border-henna-gold/20 hover:shadow-xl transition-all duration-300 flex flex-col"
             >
-              <Quote className="w-10 h-10 text-henna-light mb-4" />
+              <Quote className="w-10 h-10 text-henna-light dark:text-henna-gold mb-4" />
 
-              <p className="font-inter text-charcoal/80 leading-relaxed mb-6 flex-grow">
+              <p className="font-inter text-charcoal/80 dark:text-dark-text/90 leading-relaxed mb-6 flex-grow">
                 {testimonial.testimonial_text}
               </p>
 
@@ -100,7 +100,7 @@ export const Testimonials = () => {
                 {renderStars(testimonial.rating)}
               </div>
 
-              <div className="flex items-center gap-3 pt-4 border-t border-henna-light/30">
+              <div className="flex items-center gap-3 pt-4 border-t border-henna-light/30 dark:border-henna-gold/20">
                 {testimonial.image_url ? (
                   <img
                     src={testimonial.image_url}
@@ -115,10 +115,10 @@ export const Testimonials = () => {
                   </div>
                 )}
                 <div>
-                  <p className="font-inter font-medium text-charcoal">
+                  <p className="font-inter font-medium text-charcoal dark:text-dark-text">
                     {testimonial.client_name}
                   </p>
-                  <p className="font-inter text-sm text-charcoal/60 capitalize">
+                  <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/70 capitalize">
                     {testimonial.occasion}
                   </p>
                 </div>
@@ -134,7 +134,7 @@ export const Testimonials = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <p className="font-playfair text-2xl italic text-henna-dark">
+          <p className="font-playfair text-2xl italic text-henna-dark dark:text-henna-gold">
             Every design tells a story, every client becomes part of ours
           </p>
         </motion.div>
