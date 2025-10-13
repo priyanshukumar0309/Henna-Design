@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabase';
 import { Testimonial } from '../types';
 
 export const Testimonials = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetchTestimonials();
@@ -73,10 +75,10 @@ export const Testimonials = () => {
           className="text-center mb-20"
         >
           <h2 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal dark:text-dark-text mb-4">
-            Client Stories
+            {t('testimonials.title')}
           </h2>
           <p className="font-inter text-lg text-charcoal/70 dark:text-dark-text/80 max-w-2xl mx-auto">
-            Hear from those who've experienced Nordic Soul Henna
+            {t('testimonials.subtitle')}
           </p>
         </motion.div>
 
@@ -135,7 +137,7 @@ export const Testimonials = () => {
           className="mt-16 text-center"
         >
           <p className="font-playfair text-2xl italic text-henna-dark dark:text-henna-gold">
-            Every design tells a story, every client becomes part of ours
+            {t('testimonials.tagline')}
           </p>
         </motion.div>
       </div>

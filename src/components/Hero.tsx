@@ -30,7 +30,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative min-h-screen flex items-center justify-center bg-ivory dark:bg-dark-bg overflow-hidden transition-colors duration-500">
+    <div ref={containerRef} className="relative min-h-screen flex items-center justify-center bg-ivory dark:bg-dark-bg overflow-hidden transition-colors duration-500 pt-20">
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
           <defs>
