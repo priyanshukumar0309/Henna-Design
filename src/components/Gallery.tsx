@@ -38,21 +38,11 @@ export const Gallery = () => {
 
   const fetchImages = async () => {
     try {
-      const { data, error } = await supabase
-        .from('portfolio_images')
-        .select('*')
-        .order('display_order', { ascending: true })
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      
-      // If Supabase returns no data, use local fallback images
-      if (!data || data.length === 0) {
         const fallbackImages: PortfolioImage[] = [
           {
             id: '1',
             title: 'Nordic Bridal Henna Design',
-            description: t('gallery.nordicBridaldescription'),
+            description: t('gallery.image1description'),
             image_url: './assets/gallery/henna-bridal-001.jpg',
             thumbnail_url: './assets/gallery/thumbnails/henna-bridal-001.jpg',
             category: 'bridal',
@@ -78,7 +68,7 @@ export const Gallery = () => {
           {
             id: '3',
             title: 'Minimalist Fusion Art',
-            description: 'Clean lines meeting traditional motifs',
+            description: t('gallery.image3description'),
             image_url: '/assets/gallery/henna-minimalist-001.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/henna-minimalist-001.jpg',
             category: 'minimalist',
@@ -91,7 +81,7 @@ export const Gallery = () => {
           {
             id: '4',
             title: 'Photoshoot Ready Design',
-            description: 'Fashion-forward henna perfect for editorial shoots',
+            description: t('gallery.image4description'),
             image_url: '/assets/gallery/henna-photoshoot-001.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/henna-photoshoot-001.jpg',
             category: 'photoshoot',
@@ -104,7 +94,7 @@ export const Gallery = () => {
           {
             id: '5',
             title: 'Intricate Half-Mandala Design',
-            description: 'Detailed forearm henna featuring layered floral and geometric patterns with Nordic-inspired symmetry',
+            description: t('gallery.image5description'),
             image_url: '/assets/gallery/PHOTO-2025-07-16-11-59-37.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/PHOTO-2025-07-16-11-59-37.jpg',
             category: 'minimalist',
@@ -117,7 +107,7 @@ export const Gallery = () => {
           {
             id: '6',
             title: 'Majestic Peacock & Lotus Design',
-            description: 'Elaborate bridal henna featuring a stunning peacock with fanned tail feathers and lotus flower motif',
+            description: t('gallery.image6description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.48.jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.48.jpeg',
             category: 'bridal',
@@ -130,7 +120,7 @@ export const Gallery = () => {
           {
             id: '7',
             title: 'Intricate Hand Mandala Design',
-            description: 'Detailed palm mandala with concentric patterns, finger decorations, and traditional motifs',
+            description: t('gallery.image7description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.49.jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.49.jpeg',
             category: 'minimalist',
@@ -143,7 +133,7 @@ export const Gallery = () => {
           {
             id: '8',
             title: 'Full Arm Design - Darkest Stain Stage',
-            description: 'Complete arm and hand design showing the darkest stage of henna stain progression with deep reddish-brown to almost black color on palms/fingers',
+            description: t('gallery.image8description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.50 (1).jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.50 (1).jpeg',
             category: 'stain_progression',
@@ -156,7 +146,7 @@ export const Gallery = () => {
           {
             id: '9',
             title: 'Festival Hand Design Collection',
-            description: 'Symmetrical hand designs with mandala patterns, floral motifs, and intricate finger decorations',
+            description: t('gallery.image9description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.54.jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.54.jpeg',
             category: 'festival',
@@ -169,7 +159,7 @@ export const Gallery = () => {
           {
             id: '10',
             title: 'Elegant Arm Mandala Design',
-            description: 'Beautiful mandala pattern extending from wrist to forearm with intricate geometric details',
+            description: t('gallery.image10description'),
             image_url: '/assets/gallery/photo_6087126964323338495_y.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338495_y.jpg',
             category: 'bridal',
@@ -182,7 +172,7 @@ export const Gallery = () => {
           {
             id: '11',
             title: 'Traditional Hand Henna Art',
-            description: 'Classic palm design with traditional motifs and intricate finger patterns',
+            description: t('gallery.image11description'),
             image_url: '/assets/gallery/photo_6087126964323338496_y.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338496_y.jpg',
             category: 'festival',
@@ -195,7 +185,7 @@ export const Gallery = () => {
           {
             id: '12',
             title: 'Contemporary Wrist Design',
-            description: 'Modern minimalist henna design perfect for everyday wear and special occasions',
+            description: t('gallery.image12description'),
             image_url: '/assets/gallery/photo_6087126964323338509_y.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338509_y.jpg',
             category: 'fusion',
@@ -208,7 +198,7 @@ export const Gallery = () => {
           {
             id: '13',
             title: 'Artistic Forearm Henna',
-            description: 'Creative henna artistry featuring flowing patterns and artistic expression',
+            description: t('gallery.image13description'),
             image_url: '/assets/gallery/photo_6089378764137022110_y (1).jpg',
             thumbnail_url: '/assets/gallery/thumbnails/photo_6089378764137022110_y (1).jpg',
             category: 'photoshoot',
@@ -221,7 +211,7 @@ export const Gallery = () => {
           {
             id: '14',
             title: 'Dark Hand Design with Ring',
-            description: 'Rich, dark reddish-brown henna design showing second darkest stage of stain progression with intricate patterns',
+            description: t('gallery.image14description'),
             image_url: '/assets/gallery/photo_6087126964323338505_y.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/photo_6087126964323338505_y.jpg',
             category: 'stain_progression',
@@ -234,7 +224,7 @@ export const Gallery = () => {
           {
             id: '15',
             title: 'Traditional Palm Mandala',
-            description: 'Classic palm design with traditional mandala patterns and intricate details',
+            description: t('gallery.image15description'),
             image_url: '/assets/gallery/PHOTO-2025-07-19-19-21-15.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/PHOTO-2025-07-19-19-21-15.jpg',
             category: 'festival',
@@ -247,7 +237,7 @@ export const Gallery = () => {
           {
             id: '16',
             title: 'Nordic-Inspired Hand Design',
-            description: 'Modern henna design blending traditional motifs with Scandinavian minimalism',
+            description: t('gallery.image16description'),
             image_url: '/assets/gallery/PHOTO-2025-09-19-19-34-54.jpg',
             thumbnail_url: '/assets/gallery/thumbnails/PHOTO-2025-09-19-19-34-54.jpg',
             category: 'minimalist',
@@ -260,7 +250,7 @@ export const Gallery = () => {
           {
             id: '17',
             title: 'Medium-Dark Arm Design',
-            description: 'Prominent peacock design showing medium-dark stage of stain progression with reddish-brown henna',
+            description: t('gallery.image17description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.35.jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.35.jpeg',
             category: 'stain_progression',
@@ -273,7 +263,7 @@ export const Gallery = () => {
           {
             id: '18',
             title: 'Light-Medium Hand Patterns',
-            description: 'Henna design showing light-medium stage of stain progression with lighter reddish-brown color',
+            description: t('gallery.image18description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.36 (2).jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.36 (2).jpeg',
             category: 'stain_progression',
@@ -286,7 +276,7 @@ export const Gallery = () => {
           {
             id: '19',
             title: 'Medium Wrist Art',
-            description: 'Vibrant reddish-brown henna design showing medium stage of stain progression with detailed traditional patterns',
+            description: t('gallery.image19description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.36 (1).jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.36 (1).jpeg',
             category: 'stain_progression',
@@ -299,7 +289,7 @@ export const Gallery = () => {
           {
             id: '20',
             title: 'Medium Hand Art',
-            description: 'Traditional henna patterns showing medium stage of stain progression with well-developed reddish-brown color',
+            description: t('gallery.image20description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.36.jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.36.jpeg',
             category: 'stain_progression',
@@ -312,7 +302,7 @@ export const Gallery = () => {
           {
             id: '21',
             title: 'Intricate Palm Design',
-            description: 'Detailed palm henna featuring complex geometric and floral patterns',
+            description: t('gallery.image21description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.49 (2).jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.49 (2).jpeg',
             category: 'bridal',
@@ -325,7 +315,7 @@ export const Gallery = () => {
           {
             id: '22',
             title: 'Lightest Stain Stage',
-            description: 'Henna design showing the lightest stage of stain progression with lighter henna color, possibly early stage or fading',
+            description: t('gallery.image22description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.56 (2).jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.56 (2).jpeg',
             category: 'stain_progression',
@@ -338,7 +328,7 @@ export const Gallery = () => {
           {
             id: '23',
             title: 'Dark Hand Design - Stage 3',
-            description: 'Deep reddish-brown mehndi design showing third darkest stage of stain progression with dense traditional patterns',
+            description: t('gallery.image23description'),
             image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.51.00 (1).jpeg',
             thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.51.00 (1).jpeg',
             category: 'stain_progression',
@@ -350,9 +340,6 @@ export const Gallery = () => {
           },
         ];
         setImages(fallbackImages);
-      } else {
-        setImages(data);
-      }
     } catch (error) {
       console.error('Error fetching images:', error);
       // On error, also use fallback images
@@ -360,7 +347,7 @@ export const Gallery = () => {
         {
           id: '1',
           title: 'Nordic Bridal Henna Design',
-          description: 'Elegant minimalist bridal henna with Scandinavian influences',
+          description: t('gallery.image1description'),
           image_url: '/assets/gallery/henna-bridal-001.jpg',
           thumbnail_url: '/assets/gallery/thumbnails/henna-bridal-001.jpg',
           category: 'bridal',
