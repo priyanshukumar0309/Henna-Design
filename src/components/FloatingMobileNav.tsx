@@ -94,7 +94,7 @@ export const FloatingMobileNav = () => {
                 {isActive && (
                   <motion.div
                     layoutId="activeIndicator"
-                    className="absolute inset-0 bg-henna-brown rounded-xl"
+                    className="absolute inset-0 rounded-xl"
                     initial={false}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
