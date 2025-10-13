@@ -19,39 +19,63 @@ export const IndianMandala = () => {
         </linearGradient>
       </defs>
 
-      {/* Outermost Scalloped Border - 8 large scallops */}
+      {/* Outermost Flower Petals - 8 elegant curved petals */}
       <motion.g
         animate={{ rotate: [0, 360] }}
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
         style={{ transformOrigin: "200px 200px" }}
       >
         {[...Array(8)].map((_, i) => (
-          <motion.g key={`outermost-scallop-${i}`} transform={`rotate(${i * 45} 200 200)`}>
+          <motion.g key={`outermost-petal-${i}`} transform={`rotate(${i * 45} 200 200)`}>
             <motion.path
-              d="M 200,20 Q 220,15 240,20 Q 250,40 240,60 Q 220,70 200,60 Q 180,70 160,60 Q 150,40 160,20 Q 180,15 200,20 Z"
+              d="M 200,200 Q 190,25 200,15 Q 215,20 225,35 Q 235,55 230,75 Q 225,95 215,110 Q 210,130 200,200 Z"
+              fill="#E6D2B5"
+              fillOpacity="0.4"
+              stroke="#C97E5A"
+              strokeWidth="1.2"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 2.5, delay: i * 0.08, repeat: Infinity, repeatType: "reverse", repeatDelay: 8 }}
+            />
+            <motion.path
+              d="M 200,200 Q 210,25 200,15 Q 185,20 175,35 Q 165,55 170,75 Q 175,95 185,110 Q 190,130 200,200 Z"
               fill="#C19A6B"
               fillOpacity="0.3"
               stroke="#C97E5A"
-              strokeWidth="1.5"
+              strokeWidth="1"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 2, delay: i * 0.05, repeat: Infinity, repeatType: "reverse", repeatDelay: 8 }}
+              transition={{ duration: 2.8, delay: i * 0.08, repeat: Infinity, repeatType: "reverse", repeatDelay: 8 }}
             />
+            {/* Petal center line */}
+            <motion.line
+              x1="200"
+              y1="200"
+              x2="200"
+              y2="50"
+              stroke="#8B5A3C"
+              strokeWidth="0.8"
+              strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.6 }}
+              transition={{ duration: 2, delay: 0.5 + i * 0.08, repeat: Infinity, repeatType: "reverse", repeatDelay: 8 }}
+            />
+            {/* Petal tip accent */}
             <motion.circle
               cx="200"
-              cy="40"
-              r="3"
+              cy="25"
+              r="2"
               fill="#D4AF37"
-              fillOpacity="0.7"
+              fillOpacity="0.8"
               initial={{ scale: 0 }}
-              animate={{ scale: [0, 1, 1.2, 1] }}
-              transition={{ duration: 1.5, delay: 0.5 + i * 0.05, repeat: Infinity, repeatDelay: 8 }}
+              animate={{ scale: [0, 1, 1.3, 1] }}
+              transition={{ duration: 1.5, delay: 1 + i * 0.08, repeat: Infinity, repeatDelay: 8 }}
             />
           </motion.g>
         ))}
       </motion.g>
 
-      {/* Third Petal Ring - 8 elongated petals with dots */}
+      {/* Third Petal Ring - 8 curved flower petals with dots */}
       <motion.g
         initial={{ scale: 0, rotate: 0 }}
         animate={{ scale: 1, rotate: [0, -360, 0] }}
@@ -60,7 +84,7 @@ export const IndianMandala = () => {
         {[...Array(8)].map((_, i) => (
           <motion.g key={`third-petal-${i}`} transform={`rotate(${i * 45} 200 200)`}>
             <motion.path
-              d="M 200,200 L 195,80 L 200,70 L 205,80 L 200,200 Z"
+              d="M 200,200 Q 195,90 200,75 Q 210,80 215,95 Q 210,110 200,200 Z"
               fill="#E6D2B5"
               fillOpacity="0.6"
               stroke="#C97E5A"
@@ -69,14 +93,37 @@ export const IndianMandala = () => {
               animate={{ pathLength: 1, opacity: 1 }}
               transition={{ duration: 2, delay: 1 + i * 0.08, repeat: Infinity, repeatType: "reverse", repeatDelay: 7 }}
             />
+            <motion.path
+              d="M 200,200 Q 205,90 200,75 Q 190,80 185,95 Q 190,110 200,200 Z"
+              fill="#C19A6B"
+              fillOpacity="0.4"
+              stroke="#C97E5A"
+              strokeWidth="1"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 2.2, delay: 1.2 + i * 0.08, repeat: Infinity, repeatType: "reverse", repeatDelay: 7 }}
+            />
+            {/* Petal center line */}
+            <motion.line
+              x1="200"
+              y1="200"
+              x2="200"
+              y2="85"
+              stroke="#8B5A3C"
+              strokeWidth="0.6"
+              strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.7 }}
+              transition={{ duration: 1.5, delay: 1.5 + i * 0.08, repeat: Infinity, repeatType: "reverse", repeatDelay: 7 }}
+            />
             <motion.circle
               cx="200"
-              cy="75"
-              r="2"
+              cy="90"
+              r="1.5"
               fill="#8B5A3C"
               initial={{ scale: 0 }}
               animate={{ scale: [0, 1, 1.3, 1] }}
-              transition={{ duration: 1.2, delay: 1.5 + i * 0.08, repeat: Infinity, repeatDelay: 7 }}
+              transition={{ duration: 1.2, delay: 1.8 + i * 0.08, repeat: Infinity, repeatDelay: 7 }}
             />
           </motion.g>
         ))}
@@ -130,7 +177,7 @@ export const IndianMandala = () => {
         ))}
       </motion.g>
 
-      {/* Second Petal Ring - 8 larger petals with cross-hatch */}
+      {/* Second Petal Ring - 8 larger curved petals with cross-hatch */}
       <motion.g
         initial={{ scale: 0, rotate: 0 }}
         animate={{ scale: 1, rotate: [0, 360, 0] }}
@@ -139,7 +186,7 @@ export const IndianMandala = () => {
         {[...Array(8)].map((_, i) => (
           <motion.g key={`second-petal-${i}`} transform={`rotate(${i * 45} 200 200)`}>
             <motion.path
-              d="M 200,200 Q 198,120 200,100 Q 220,110 240,130 Q 245,150 240,170 Q 220,190 200,200 Z"
+              d="M 200,200 Q 198,120 200,100 Q 215,105 225,120 Q 230,140 225,160 Q 220,180 200,200 Z"
               fill="#C19A6B"
               fillOpacity="0.6"
               stroke="#C97E5A"
@@ -149,7 +196,7 @@ export const IndianMandala = () => {
               transition={{ duration: 2.2, delay: 2.5 + i * 0.1, repeat: Infinity, repeatType: "reverse", repeatDelay: 6 }}
             />
             <motion.path
-              d="M 200,200 Q 202,120 200,100 Q 180,110 160,130 Q 155,150 160,170 Q 180,190 200,200 Z"
+              d="M 200,200 Q 202,120 200,100 Q 185,105 175,120 Q 170,140 175,160 Q 180,180 200,200 Z"
               fill="#E6D2B5"
               fillOpacity="0.5"
               stroke="none"
@@ -161,8 +208,8 @@ export const IndianMandala = () => {
             <motion.line
               x1="200"
               y1="120"
-              x2="220"
-              y2="140"
+              x2="215"
+              y2="135"
               stroke="#8B5A3C"
               strokeWidth="0.8"
               initial={{ pathLength: 0, opacity: 0 }}
@@ -172,24 +219,37 @@ export const IndianMandala = () => {
             <motion.line
               x1="200"
               y1="140"
-              x2="220"
-              y2="160"
+              x2="215"
+              y2="155"
               stroke="#8B5A3C"
               strokeWidth="0.8"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ pathLength: 1, opacity: 0.6 }}
               transition={{ duration: 1.5, delay: 3.1 + i * 0.1, repeat: Infinity, repeatType: "reverse", repeatDelay: 6 }}
             />
+            {/* Petal center line */}
+            <motion.line
+              x1="200"
+              y1="200"
+              x2="200"
+              y2="110"
+              stroke="#8B5A3C"
+              strokeWidth="0.6"
+              strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.7 }}
+              transition={{ duration: 1.8, delay: 3.2 + i * 0.1, repeat: Infinity, repeatType: "reverse", repeatDelay: 6 }}
+            />
             <motion.ellipse
               cx="200"
               cy="130"
-              rx="4"
-              ry="6"
+              rx="3"
+              ry="5"
               fill="#D4AF37"
               fillOpacity="0.8"
               initial={{ scale: 0 }}
               animate={{ scale: [0, 1, 1.15, 1] }}
-              transition={{ duration: 1.8, delay: 3.2 + i * 0.1, repeat: Infinity, repeatDelay: 6 }}
+              transition={{ duration: 1.8, delay: 3.4 + i * 0.1, repeat: Infinity, repeatDelay: 6 }}
             />
           </motion.g>
         ))}
