@@ -18,29 +18,61 @@ export const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative">
-              <div className="aspect-[3/4] bg-gradient-to-br from-henna-light to-sand rounded-lg overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <Sparkles className="w-16 h-16 text-henna-brown mx-auto mb-4" />
-                    <p className="font-playfair text-2xl text-henna-dark dark:text-henna-gold italic">
-                      {t('about.artistAtWork')}
-                    </p>
-                    <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mt-2">
-                      {t('about.replaceImage')}
-                    </p>
+            <div className="relative group">
+              {/* Main Image Container */}
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="/assets/about/Supriya.jpg" 
+                  alt="Supriya Gupta - Professional Henna Artist in Stockholm"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                
+                {/* Gradient Overlay for Better Text Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Floating Info Card */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="bg-white/95 dark:bg-dark-surface/95 backdrop-blur-sm rounded-lg p-4 border border-henna-light/30 dark:border-henna-dark/30">
+                    <div className="flex items-center gap-3">
+                      <Sparkles className="w-6 h-6 text-henna-brown flex-shrink-0" />
+                      <div>
+                        <p className="font-playfair text-lg font-semibold text-charcoal dark:text-dark-text">
+                          {t('about.artistAtWork')}
+                        </p>
+                        <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+                          Professional Henna Artist
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              {/* Decorative Edge Elements */}
+              <div className="absolute -top-4 -left-4 w-24 h-24 opacity-20">
+                <svg viewBox="0 0 100 100" className="w-full h-full text-henna-brown">
+                  <path d="M20,20 Q30,10 40,20 Q50,30 60,20 Q70,10 80,20 L80,80 Q70,90 60,80 Q50,70 40,80 Q30,90 20,80 Z" 
+                        fill="none" stroke="currentColor" strokeWidth="2" className="animate-pulse" />
+                </svg>
+              </div>
+
+              <div className="absolute -bottom-6 -right-6 w-20 h-20 opacity-15">
+                <svg viewBox="0 0 100 100" className="w-full h-full text-henna-light">
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" strokeWidth="1" />
+                  <circle cx="50" cy="50" r="10" fill="currentColor" opacity="0.3" />
+                </svg>
+              </div>
+
+              {/* Rotating Mandala Element */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="absolute -bottom-8 -right-8 w-32 h-32 opacity-30"
+                transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+                className="absolute -top-8 -right-8 w-16 h-16 opacity-20"
               >
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="#C97E5A" strokeWidth="0.5" />
-                  <circle cx="50" cy="50" r="35" fill="none" stroke="#C19A6B" strokeWidth="0.5" />
-                  <circle cx="50" cy="50" r="25" fill="none" stroke="#E6D2B5" strokeWidth="0.5" />
+                <svg viewBox="0 0 100 100" className="w-full h-full text-henna-gold">
+                  <path d="M50,10 L60,30 L80,30 L65,45 L70,65 L50,55 L30,65 L35,45 L20,30 L40,30 Z" 
+                        fill="none" stroke="currentColor" strokeWidth="2" />
                 </svg>
               </motion.div>
             </div>
