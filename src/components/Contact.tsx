@@ -149,7 +149,7 @@ export const Contact = () => {
                 {/* Back */}
                 <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg overflow-hidden shadow-lg">
                   <img 
-                    src="/assets/gallery/photo_6087126964323338496_y.jpg" 
+                    src="/assets/gallery/PHOTO-2025-07-16-11-59-37.jpg" 
                     alt="Mini Package Sample"
                     className="w-full h-full object-cover"
                   />
@@ -190,7 +190,7 @@ export const Contact = () => {
                 {/* Back */}
                 <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg overflow-hidden shadow-lg">
                   <img 
-                    src="/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.49.jpeg" 
+                    src="/assets/gallery/photo_6087126964323338495_y.jpg" 
                     alt="Standard Package Sample"
                     className="w-full h-full object-cover"
                   />
@@ -231,7 +231,7 @@ export const Contact = () => {
                 {/* Back */}
                 <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg overflow-hidden shadow-lg">
                   <img 
-                    src="/assets/gallery/photo_6087126964323338495_y.jpg" 
+                    src="/assets/gallery/photo_6087126964323338505_y.jpg" 
                     alt="Premium Package Sample"
                     className="w-full h-full object-cover"
                   />
@@ -272,7 +272,7 @@ export const Contact = () => {
                 {/* Back */}
                 <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg overflow-hidden shadow-lg">
                   <img 
-                    src="/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.48.jpeg" 
+                    src="/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.50 (1).jpeg" 
                     alt="Bridal Package Sample"
                     className="w-full h-full object-cover"
                   />
