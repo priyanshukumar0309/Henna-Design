@@ -1,33 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { gsap } from 'gsap';
 import { ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { IndianMandala } from './IndianMandala';
 
 export const Hero = () => {
-  const hennaPathRef = useRef<SVGPathElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
-
-  useEffect(() => {
-    if (hennaPathRef.current) {
-      const path = hennaPathRef.current;
-      const length = path.getTotalLength();
-
-      gsap.set(path, {
-        strokeDasharray: length,
-        strokeDashoffset: length,
-      });
-
-      gsap.to(path, {
-        strokeDashoffset: 0,
-        duration: 3,
-        ease: 'power2.inOut',
-        delay: 0.5,
-      });
-    }
-  }, []);
 
   return (
     <div ref={containerRef} className="relative min-h-screen flex items-center justify-center bg-ivory dark:bg-dark-bg overflow-hidden transition-colors duration-500 pt-20">
@@ -48,18 +27,6 @@ export const Hero = () => {
         </svg>
       </div>
 
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <svg className="w-full h-full" viewBox="0 0 1200 800">
-          <path
-            ref={hennaPathRef}
-            d="M 200,400 Q 400,200 600,400 T 1000,400"
-            fill="none"
-            stroke="#C97E5A"
-            strokeWidth="2"
-            opacity="0.3"
-          />
-        </svg>
-      </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         <motion.div
