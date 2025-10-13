@@ -141,7 +141,7 @@ export const Gallery = () => {
             category: 'stain_progression',
             tags: ['stain-progression', 'darkest', 'peacock', 'elephant', 'personalized', 'full-arm'],
             featured: true,
-            display_order: 1,
+            display_order: 3,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
           },
@@ -219,7 +219,7 @@ export const Gallery = () => {
             category: 'stain_progression',
             tags: ['stain-progression', 'dark', 'hand', 'ring', 'traditional'],
             featured: true,
-            display_order: 2,
+            display_order: 4,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
           },
@@ -258,7 +258,7 @@ export const Gallery = () => {
             category: 'stain_progression',
             tags: ['stain-progression', 'medium-dark', 'peacock', 'traditional', 'arm-design'],
             featured: true,
-            display_order: 4,
+            display_order: 6,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
           },
@@ -271,7 +271,7 @@ export const Gallery = () => {
             category: 'stain_progression',
             tags: ['stain-progression', 'light-medium', 'traditional', 'hand-patterns'],
             featured: true,
-            display_order: 7,
+            display_order: 2,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
           },
@@ -284,7 +284,7 @@ export const Gallery = () => {
             category: 'stain_progression',
             tags: ['stain-progression', 'medium', 'vibrant', 'traditional', 'detailed'],
             featured: true,
-            display_order: 6,
+            display_order: 8,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
           },
@@ -297,7 +297,7 @@ export const Gallery = () => {
             category: 'stain_progression',
             tags: ['stain-progression', 'medium', 'traditional', 'indian', 'mehndi'],
             featured: true,
-            display_order: 5,
+            display_order: 7,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
           },
@@ -323,7 +323,7 @@ export const Gallery = () => {
             category: 'stain_progression',
             tags: ['stain-progression', 'lightest', 'forearm', 'early-stage', 'fading'],
             featured: true,
-            display_order: 8,
+            display_order: 1,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
           },
@@ -336,7 +336,7 @@ export const Gallery = () => {
             category: 'stain_progression',
             tags: ['stain-progression', 'dark', 'hand', 'traditional', 'dense-patterns'],
             featured: true,
-            display_order: 3,
+            display_order: 5,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
           },
