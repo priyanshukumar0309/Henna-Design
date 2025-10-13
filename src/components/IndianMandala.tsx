@@ -24,18 +24,19 @@ export const IndianMandala = () => {
         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
         style={{ transformOrigin: "200px 200px" }}
       >
-        {[...Array(32)].map((_, i) => (
-          <motion.circle
-            key={`outer-scallop-${i}`}
-            cx={200 + 175 * Math.cos((i * Math.PI) / 16)}
-            cy={200 + 175 * Math.sin((i * Math.PI) / 16)}
-            r="8"
-            fill="#C19A6B"
-            fillOpacity="0.3"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 1.1, 1] }}
-            transition={{ duration: 2, delay: i * 0.02, repeat: Infinity, repeatDelay: 5 }}
-          />
+        {[...Array(16)].map((_, i) => (
+          <motion.g key={`outermost-scallop-${i}`} transform={`rotate(${i * 22.5} 200 200)`}>
+            <motion.circle
+              cx="200"
+              cy="15"
+              r="8"
+              fill="#C19A6B"
+              fillOpacity="0.3"
+              initial={{ scale: 0 }}
+              animate={{ scale: [0, 1, 1.1, 1] }}
+              transition={{ duration: 2, delay: i * 0.02, repeat: Infinity, repeatDelay: 5 }}
+            />
+          </motion.g>
         ))}
       </motion.g>
 
@@ -75,6 +76,17 @@ export const IndianMandala = () => {
               animate={{ pathLength: 1 }}
               transition={{ duration: 1.5, delay: 1.5 + i * 0.1, repeat: Infinity, repeatType: "reverse", repeatDelay: 6 }}
             />
+            <motion.ellipse
+              cx="200"
+              cy="105"
+              rx="6"
+              ry="9"
+              fill="#D4AF37"
+              fillOpacity="0.7"
+              initial={{ scale: 0 }}
+              animate={{ scale: [0, 1, 1.15, 1] }}
+              transition={{ duration: 1.8, delay: 1.8 + i * 0.1, repeat: Infinity, repeatDelay: 5 }}
+            />
           </motion.g>
         ))}
       </motion.g>
@@ -84,18 +96,19 @@ export const IndianMandala = () => {
         transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
         style={{ transformOrigin: "200px 200px" }}
       >
-        {[...Array(24)].map((_, i) => (
-          <motion.circle
-            key={`mid-scallop-${i}`}
-            cx={200 + 140 * Math.cos((i * Math.PI) / 12)}
-            cy={200 + 140 * Math.sin((i * Math.PI) / 12)}
-            r="6"
-            fill="#C97E5A"
-            fillOpacity="0.4"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 1.15, 1] }}
-            transition={{ duration: 1.8, delay: 1.2 + i * 0.03, repeat: Infinity, repeatDelay: 5 }}
-          />
+        {[...Array(16)].map((_, i) => (
+          <motion.g key={`outer-scallop-${i}`} transform={`rotate(${i * 22.5} 200 200)`}>
+            <motion.circle
+              cx="200"
+              cy="60"
+              r="6"
+              fill="#C97E5A"
+              fillOpacity="0.4"
+              initial={{ scale: 0 }}
+              animate={{ scale: [0, 1, 1.15, 1] }}
+              transition={{ duration: 1.8, delay: 1.2 + i * 0.03, repeat: Infinity, repeatDelay: 5 }}
+            />
+          </motion.g>
         ))}
       </motion.g>
 
@@ -146,17 +159,18 @@ export const IndianMandala = () => {
         style={{ transformOrigin: "200px 200px" }}
       >
         {[...Array(16)].map((_, i) => (
-          <motion.circle
-            key={`inner-scallop-${i}`}
-            cx={200 + 100 * Math.cos((i * Math.PI) / 8)}
-            cy={200 + 100 * Math.sin((i * Math.PI) / 8)}
-            r="5"
-            fill="#C19A6B"
-            fillOpacity="0.5"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 1.1, 1] }}
-            transition={{ duration: 1.5, delay: 2.2 + i * 0.05, repeat: Infinity, repeatDelay: 5 }}
-          />
+          <motion.g key={`inner-scallop-${i}`} transform={`rotate(${i * 22.5} 200 200)`}>
+            <motion.circle
+              cx="200"
+              cy="100"
+              r="5"
+              fill="#C19A6B"
+              fillOpacity="0.5"
+              initial={{ scale: 0 }}
+              animate={{ scale: [0, 1, 1.1, 1] }}
+              transition={{ duration: 1.5, delay: 2.2 + i * 0.05, repeat: Infinity, repeatDelay: 5 }}
+            />
+          </motion.g>
         ))}
       </motion.g>
 
@@ -213,17 +227,18 @@ export const IndianMandala = () => {
         style={{ transformOrigin: "200px 200px" }}
       >
         {[...Array(12)].map((_, i) => (
-          <motion.circle
-            key={`center-scallop-${i}`}
-            cx={200 + 55 * Math.cos((i * Math.PI) / 6)}
-            cy={200 + 55 * Math.sin((i * Math.PI) / 6)}
-            r="4"
-            fill="#D4AF37"
-            fillOpacity="0.6"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 1.15, 1] }}
-            transition={{ duration: 1.3, delay: 3 + i * 0.06, repeat: Infinity, repeatDelay: 5 }}
-          />
+          <motion.g key={`center-scallop-${i}`} transform={`rotate(${i * 30} 200 200)`}>
+            <motion.circle
+              cx="200"
+              cy="145"
+              r="4"
+              fill="#D4AF37"
+              fillOpacity="0.6"
+              initial={{ scale: 0 }}
+              animate={{ scale: [0, 1, 1.15, 1] }}
+              transition={{ duration: 1.3, delay: 3 + i * 0.06, repeat: Infinity, repeatDelay: 5 }}
+            />
+          </motion.g>
         ))}
       </motion.g>
 
@@ -268,17 +283,18 @@ export const IndianMandala = () => {
         style={{ transformOrigin: "200px 200px" }}
       >
         {[...Array(8)].map((_, i) => (
-          <motion.circle
-            key={`core-scallop-${i}`}
-            cx={200 + 25 * Math.cos((i * Math.PI) / 4)}
-            cy={200 + 25 * Math.sin((i * Math.PI) / 4)}
-            r="3"
-            fill="#C97E5A"
-            fillOpacity="0.7"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 1.2, 1] }}
-            transition={{ duration: 1.2, delay: 3.7 + i * 0.08, repeat: Infinity, repeatDelay: 5 }}
-          />
+          <motion.g key={`core-scallop-${i}`} transform={`rotate(${i * 45} 200 200)`}>
+            <motion.circle
+              cx="200"
+              cy="175"
+              r="3"
+              fill="#C97E5A"
+              fillOpacity="0.7"
+              initial={{ scale: 0 }}
+              animate={{ scale: [0, 1, 1.2, 1] }}
+              transition={{ duration: 1.2, delay: 3.7 + i * 0.08, repeat: Infinity, repeatDelay: 5 }}
+            />
+          </motion.g>
         ))}
       </motion.g>
 
@@ -308,26 +324,6 @@ export const IndianMandala = () => {
             initial={{ scale: 0 }}
             animate={{ scale: [0, 1, 1.3, 1] }}
             transition={{ duration: 0.8, delay: 4.3 + i * 0.08, repeat: Infinity, repeatDelay: 5 }}
-          />
-        ))}
-      </motion.g>
-
-      <motion.g
-        animate={{ rotate: [0, 360] }}
-        transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-        style={{ transformOrigin: "200px 200px" }}
-      >
-        {[...Array(48)].map((_, i) => (
-          <motion.circle
-            key={`far-outer-${i}`}
-            cx={200 + 185 * Math.cos((i * Math.PI) / 24)}
-            cy={200 + 185 * Math.sin((i * Math.PI) / 24)}
-            r="2"
-            fill="#C19A6B"
-            fillOpacity="0.2"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1, 1.1, 1] }}
-            transition={{ duration: 2, delay: i * 0.015, repeat: Infinity, repeatDelay: 6 }}
           />
         ))}
       </motion.g>

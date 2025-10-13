@@ -17,6 +17,7 @@ export default {
         charcoal: '#2B2B2B',
         'dark-bg': '#1A1A1A',
         'dark-surface': '#242424',
+        'dark-card': '#2C2C2C',
         'dark-text': '#E5E5E5',
       },
       fontFamily: {
