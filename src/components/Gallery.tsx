@@ -44,9 +44,125 @@ export const Gallery = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setImages(data || []);
+      
+      // If Supabase returns no data, use local fallback images
+      if (!data || data.length === 0) {
+        const fallbackImages: PortfolioImage[] = [
+          {
+            id: '1',
+            title: 'Nordic Bridal Henna Design',
+            description: 'Elegant minimalist bridal henna with Scandinavian influences',
+            image_url: '/assets/gallery/henna-bridal-001.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/henna-bridal-001.jpg',
+            category: 'bridal',
+            tags: ['bridal', 'minimalist', 'nordic'],
+            featured: true,
+            display_order: 1,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '2',
+            title: 'Contemporary Festival Design',
+            description: 'Modern henna art for celebrations and festivals',
+            image_url: '/assets/gallery/henna-festival-001.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/henna-festival-001.jpg',
+            category: 'festival',
+            tags: ['festival', 'modern', 'celebration'],
+            featured: true,
+            display_order: 2,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '3',
+            title: 'Minimalist Fusion Art',
+            description: 'Clean lines meeting traditional motifs',
+            image_url: '/assets/gallery/henna-minimalist-001.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/henna-minimalist-001.jpg',
+            category: 'minimalist',
+            tags: ['minimalist', 'fusion', 'contemporary'],
+            featured: true,
+            display_order: 3,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '4',
+            title: 'Photoshoot Ready Design',
+            description: 'Fashion-forward henna perfect for editorial shoots',
+            image_url: '/assets/gallery/henna-photoshoot-001.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/henna-photoshoot-001.jpg',
+            category: 'photoshoot',
+            tags: ['photoshoot', 'fashion', 'editorial'],
+            featured: true,
+            display_order: 4,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          }
+        ];
+        setImages(fallbackImages);
+      } else {
+        setImages(data);
+      }
     } catch (error) {
       console.error('Error fetching images:', error);
+      // On error, also use fallback images
+      const fallbackImages: PortfolioImage[] = [
+        {
+          id: '1',
+          title: 'Nordic Bridal Henna Design',
+          description: 'Elegant minimalist bridal henna with Scandinavian influences',
+          image_url: '/assets/gallery/henna-bridal-001.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/henna-bridal-001.jpg',
+          category: 'bridal',
+          tags: ['bridal', 'minimalist', 'nordic'],
+          featured: true,
+          display_order: 1,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '2',
+          title: 'Contemporary Festival Design',
+          description: 'Modern henna art for celebrations and festivals',
+          image_url: '/assets/gallery/henna-festival-001.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/henna-festival-001.jpg',
+          category: 'festival',
+          tags: ['festival', 'modern', 'celebration'],
+          featured: true,
+          display_order: 2,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '3',
+          title: 'Minimalist Fusion Art',
+          description: 'Clean lines meeting traditional motifs',
+          image_url: '/assets/gallery/henna-minimalist-001.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/henna-minimalist-001.jpg',
+          category: 'minimalist',
+          tags: ['minimalist', 'fusion', 'contemporary'],
+          featured: true,
+          display_order: 3,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '4',
+          title: 'Photoshoot Ready Design',
+          description: 'Fashion-forward henna perfect for editorial shoots',
+          image_url: '/assets/gallery/henna-photoshoot-001.jpg',
+          thumbnail_url: '/assets/gallery/thumbnails/henna-photoshoot-001.jpg',
+          category: 'photoshoot',
+          tags: ['photoshoot', 'fashion', 'editorial'],
+          featured: true,
+          display_order: 4,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        }
+      ];
+      setImages(fallbackImages);
     } finally {
       setLoading(false);
     }
