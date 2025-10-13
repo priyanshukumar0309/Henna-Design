@@ -2,6 +2,7 @@ import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { CustomCursor } from './components/CustomCursor';
 import { NordicLightCycle } from './components/NordicLightCycle';
 import { ScrollHennaBorder } from './components/ScrollHennaBorder';
+import { FloatingMobileNav } from './components/FloatingMobileNav';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { Gallery } from './components/Gallery';
@@ -19,10 +20,13 @@ function App() {
       <CustomCursor />
       <NordicLightCycle />
       <ScrollHennaBorder />
+      <FloatingMobileNav />
       <Navigation />
 
       <main>
-        <Hero />
+        <section id="hero">
+          <Hero />
+        </section>
 
         <section id="portfolio">
           <Gallery />
