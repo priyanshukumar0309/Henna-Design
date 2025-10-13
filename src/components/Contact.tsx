@@ -50,7 +50,7 @@ export const Contact = () => {
           </motion.a>
 
           <motion.a
-            href="https://wa.me/46700000000"
+            href="https://wa.me/918420153353?text=Hi%2C%20I%20am%20interested%20in%20your%20henna%20services.%20Could%20you%20please%20provide%20more%20information%20about%20your%20packages%20and%20availability%3F"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 30 }}
