@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, User, BookOpen, Star, Mail } from 'lucide-react';
+import { Image, User, BookOpen, Star, Mail, Home } from 'lucide-react';
 
 export const FloatingMobileNav = () => {
   const { t } = useTranslation();
@@ -41,7 +41,7 @@ export const FloatingMobileNav = () => {
 
   // Navigation items
   const navItems = [
-    { id: 'hero', icon: 'favicon', labelKey: 'nav.home', ref: heroRef },
+    { id: 'hero', icon: Home, labelKey: 'nav.home', ref: heroRef },
     { id: 'portfolio', icon: Image, labelKey: 'nav.portfolio', ref: portfolioRef },
     { id: 'about', icon: User, labelKey: 'nav.about', ref: aboutRef },
     { id: 'care', icon: BookOpen, labelKey: 'nav.careGuide', ref: careRef },
@@ -96,16 +96,7 @@ export const FloatingMobileNav = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                {item.icon === 'favicon' ? (
-                  <img 
-                    src="/favicon.png" 
-                    alt="Home" 
-                    className={`w-4 h-4 ${isActive ? 'brightness-0 invert' : 'dark:brightness-0 dark:invert'}`}
-                    style={{ filter: isActive ? 'brightness(0) invert(1)' : '' }}
-                  />
-                ) : (
-                  <item.icon className="w-4 h-4" />
-                )}
+                <item.icon className="w-4 h-4" />
                 
                 {/* Active indicator */}
                 {isActive && (

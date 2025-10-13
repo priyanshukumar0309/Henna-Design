@@ -849,7 +849,7 @@ export const Gallery = () => {
                     : 'max-w-full max-h-[80vh] cursor-zoom-in'
                 }`}
                 animate={{ 
-                  scale: isZoomed ? 1.2 : 1,
+                  scale: isZoomed ? 1.05 : 1,
                   x: isZoomed ? 0 : 0,
                   y: isZoomed ? 0 : 0
                 }}
