@@ -43,11 +43,11 @@ export const Footer = () => {
                 <span className="font-inter">@nordicsoulhenna</span>
               </a>
               <a
-                href="mailto:hello@nordicsoulhenna.com"
+                href="mailto:guptasupriya333@gmail.com"
                 className="flex items-center gap-3 text-white/70 hover:text-henna-gold transition-colors group"
               >
                 <Mail className="w-5 h-5" />
-                <span className="font-inter">hello@nordicsoulhenna.com</span>
+                <span className="font-inter">guptasupriya333@gmail.com</span>
               </a>
               <div className="flex items-center gap-3 text-white/70">
                 <MapPin className="w-5 h-5" />

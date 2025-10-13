@@ -70,12 +70,12 @@ export const Contact = () => {
               {t('contact.whatsappDesc')}
             </p>
             <p className="font-inter text-henna-brown dark:text-henna-gold mt-3">
-              +46 70 000 0000
+              +91 8420153353
             </p>
           </motion.a>
 
           <motion.a
-            href="mailto:hello@nordicsoulhenna.com"
+            href="mailto:guptasupriya333@gmail.com"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -93,7 +93,7 @@ export const Contact = () => {
               {t('contact.emailDesc')}
             </p>
             <p className="font-inter text-henna-brown dark:text-henna-gold mt-3">
-              hello@nordicsoulhenna.com
+              guptasupriya333@gmail.com
             </p>
           </motion.a>
         </div>

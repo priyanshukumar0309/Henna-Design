@@ -55,6 +55,18 @@ export const About = () => {
             <h2 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal dark:text-dark-text mb-6">
               {t('about.title')}
             </h2>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-8"
+            >
+              <h3 className="font-playfair text-2xl md:text-3xl font-medium text-henna-brown dark:text-henna-gold italic">
+                {t('about.artistName')}
+              </h3>
+            </motion.div>
 
             <div className="space-y-6 font-inter text-lg text-charcoal/80 dark:text-dark-text/80 leading-relaxed">
               <p>{t('about.paragraph1')}</p>
