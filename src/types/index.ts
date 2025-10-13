@@ -2,6 +2,7 @@ export interface PortfolioImage {
   id: string;
   title: string;
   description: string;
+  descriptionKey?: string; // Optional translation key for description
   image_url: string;
   thumbnail_url: string | null;
   category: string;

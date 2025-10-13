@@ -6,7 +6,7 @@ import { supabase } from '../lib/supabase';
 import { PortfolioImage, Category } from '../types';
 
 export const Gallery = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<Category>('all');
   const [images, setImages] = useState<PortfolioImage[]>([]);
   const [filteredImages, setFilteredImages] = useState<PortfolioImage[]>([]);
@@ -26,7 +26,8 @@ export const Gallery = () => {
 
   useEffect(() => {
     fetchImages();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [i18n.language]);
 
   useEffect(() => {
     if (selectedCategory === 'all') {
@@ -42,7 +43,8 @@ export const Gallery = () => {
           {
             id: '1',
             title: 'Nordic Bridal Henna Design',
-            description: t('gallery.image1description'),
+            description: 'Elegant minimalist bridal henna with Scandinavian influences',
+            descriptionKey: 'gallery.image1description',
             image_url: './assets/gallery/henna-bridal-001.jpg',
             thumbnail_url: './assets/gallery/thumbnails/henna-bridal-001.jpg',
             category: 'bridal',
