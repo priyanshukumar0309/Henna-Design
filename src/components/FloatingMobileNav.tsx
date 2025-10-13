@@ -1,9 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
-import { Home, Image, User, Heart, MessageCircle, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Image, User, Heart, MessageCircle, Mail } from 'lucide-react';
 
 export const FloatingMobileNav = () => {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState('hero');
   const [isVisible, setIsVisible] = useState(false);
   const { scrollYProgress } = useScroll();
@@ -39,12 +41,12 @@ export const FloatingMobileNav = () => {
 
   // Navigation items
   const navItems = [
-    { id: 'hero', icon: Home, label: 'Home', ref: heroRef },
-    { id: 'portfolio', icon: Image, label: 'Portfolio', ref: portfolioRef },
-    { id: 'about', icon: User, label: 'About', ref: aboutRef },
-    { id: 'care', icon: Heart, label: 'Care Guide', ref: careRef },
-    { id: 'testimonials', icon: MessageCircle, label: 'Testimonials', ref: testimonialsRef },
-    { id: 'contact', icon: Mail, label: 'Contact', ref: contactRef },
+    { id: 'hero', icon: 'favicon', labelKey: 'nav.home', ref: heroRef },
+    { id: 'portfolio', icon: Image, labelKey: 'nav.portfolio', ref: portfolioRef },
+    { id: 'about', icon: User, labelKey: 'nav.about', ref: aboutRef },
+    { id: 'care', icon: Heart, labelKey: 'nav.careGuide', ref: careRef },
+    { id: 'testimonials', icon: MessageCircle, labelKey: 'nav.testimonials', ref: testimonialsRef },
+    { id: 'contact', icon: Mail, labelKey: 'nav.getInTouch', ref: contactRef },
   ];
 
   // Smooth scroll to section
@@ -77,7 +79,6 @@ export const FloatingMobileNav = () => {
       <div className="bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md rounded-xl p-1.5 shadow-2xl border border-henna-light/30 dark:border-henna-dark/30">
         <div className="flex flex-col gap-1">
           {navItems.map((item, index) => {
-            const Icon = item.icon;
             const isActive = activeSection === item.id;
             
             return (
@@ -95,7 +96,15 @@ export const FloatingMobileNav = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Icon className="w-4 h-4" />
+                {item.icon === 'favicon' ? (
+                  <img 
+                    src="/favicon.png" 
+                    alt="Home" 
+                    className={`w-4 h-4 ${isActive ? 'brightness-0 invert' : 'dark:brightness-0 dark:invert'}`}
+                  />
+                ) : (
+                  <item.icon className="w-4 h-4" />
+                )}
                 
                 {/* Active indicator */}
                 {isActive && (
@@ -113,7 +122,7 @@ export const FloatingMobileNav = () => {
                     ? 'bg-henna-brown text-white' 
                     : 'bg-charcoal dark:bg-dark-surface text-white dark:text-dark-text'
                 } opacity-0 group-hover:opacity-100 pointer-events-none`}>
-                  {item.label}
+                  {t(item.labelKey)}
                   <div className={`absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-l-4 border-l-transparent ${
                     isActive ? 'border-t-4 border-b-4 border-t-henna-brown border-b-henna-brown' 
                     : 'border-t-4 border-b-4 border-t-charcoal dark:border-t-dark-surface border-b-charcoal dark:border-b-dark-surface'
