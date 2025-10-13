@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
-import { Home, Image, User, Heart, MessageCircle, ChevronUp } from 'lucide-react';
+import { Home, Image, User, Heart, MessageCircle, Mail } from 'lucide-react';
 
 export const FloatingMobileNav = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -44,7 +44,7 @@ export const FloatingMobileNav = () => {
     { id: 'about', icon: User, label: 'About', ref: aboutRef },
     { id: 'care', icon: Heart, label: 'Care Guide', ref: careRef },
     { id: 'testimonials', icon: MessageCircle, label: 'Testimonials', ref: testimonialsRef },
-    { id: 'contact', icon: ChevronUp, label: 'Contact', ref: contactRef },
+    { id: 'contact', icon: Mail, label: 'Contact', ref: contactRef },
   ];
 
   // Smooth scroll to section
@@ -74,8 +74,8 @@ export const FloatingMobileNav = () => {
       transition={{ duration: 0.3 }}
       className="fixed right-4 top-1/2 -translate-y-1/2 z-50 block sm:hidden"
     >
-      <div className="bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md rounded-2xl p-2 shadow-2xl border border-henna-light/30 dark:border-henna-dark/30">
-        <div className="flex flex-col gap-2">
+      <div className="bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md rounded-xl p-1.5 shadow-2xl border border-henna-light/30 dark:border-henna-dark/30">
+        <div className="flex flex-col gap-1">
           {navItems.map((item, index) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
@@ -83,8 +83,8 @@ export const FloatingMobileNav = () => {
             return (
               <motion.button
                 key={item.id}
-                onClick={() => item.id === 'contact' ? scrollToTop() : scrollToSection(item.id)}
-                className={`relative group p-3 rounded-xl transition-all duration-300 ${
+                onClick={() => scrollToSection(item.id)}
+                className={`relative group p-2 rounded-lg transition-all duration-300 ${
                   isActive 
                     ? 'bg-henna-brown text-white shadow-lg' 
                     : 'text-charcoal dark:text-dark-text hover:bg-henna-light/20 dark:hover:bg-henna-dark/20'
@@ -95,7 +95,7 @@ export const FloatingMobileNav = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Icon className="w-5 h-5" />
+                <Icon className="w-4 h-4" />
                 
                 {/* Active indicator */}
                 {isActive && (
