@@ -112,6 +112,58 @@ export const Gallery = () => {
             display_order: 5,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
+          },
+          {
+            id: '6',
+            title: 'Majestic Peacock & Lotus Design',
+            description: 'Elaborate bridal henna featuring a stunning peacock with fanned tail feathers and lotus flower motif',
+            image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.48.jpeg',
+            thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.48.jpeg',
+            category: 'bridal',
+            tags: ['peacock', 'lotus', 'bridal', 'traditional', 'detailed'],
+            featured: true,
+            display_order: 6,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '7',
+            title: 'Intricate Hand Mandala Design',
+            description: 'Detailed palm mandala with concentric patterns, finger decorations, and traditional motifs',
+            image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.49.jpeg',
+            thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.49.jpeg',
+            category: 'minimalist',
+            tags: ['mandala', 'hand', 'palm', 'traditional', 'intricate'],
+            featured: true,
+            display_order: 7,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '8',
+            title: 'Full Arm Bridal Design with Personalization',
+            description: 'Complete arm and hand design featuring peacocks, elephants, floral patterns, and personalized names',
+            image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.50 (1).jpeg',
+            thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.50 (1).jpeg',
+            category: 'bridal',
+            tags: ['bridal', 'peacock', 'elephant', 'personalized', 'full-arm', 'traditional'],
+            featured: true,
+            display_order: 8,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '9',
+            title: 'Festival Hand Design Collection',
+            description: 'Symmetrical hand designs with mandala patterns, floral motifs, and intricate finger decorations',
+            image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.54.jpeg',
+            thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.54.jpeg',
+            category: 'festival',
+            tags: ['festival', 'hands', 'mandala', 'symmetrical', 'traditional'],
+            featured: true,
+            display_order: 9,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
           }
         ];
         setImages(fallbackImages);
@@ -184,6 +236,58 @@ export const Gallery = () => {
           tags: ['mandala', 'geometric', 'detailed', 'forearm'],
           featured: true,
           display_order: 5,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '6',
+          title: 'Majestic Peacock & Lotus Design',
+          description: 'Elaborate bridal henna featuring a stunning peacock with fanned tail feathers and lotus flower motif',
+          image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.48.jpeg',
+          thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.48.jpeg',
+          category: 'bridal',
+          tags: ['peacock', 'lotus', 'bridal', 'traditional', 'detailed'],
+          featured: true,
+          display_order: 6,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '7',
+          title: 'Intricate Hand Mandala Design',
+          description: 'Detailed palm mandala with concentric patterns, finger decorations, and traditional motifs',
+          image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.49.jpeg',
+          thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.49.jpeg',
+          category: 'minimalist',
+          tags: ['mandala', 'hand', 'palm', 'traditional', 'intricate'],
+          featured: true,
+          display_order: 7,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '8',
+          title: 'Full Arm Bridal Design with Personalization',
+          description: 'Complete arm and hand design featuring peacocks, elephants, floral patterns, and personalized names',
+          image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.50 (1).jpeg',
+          thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.50 (1).jpeg',
+          category: 'bridal',
+          tags: ['bridal', 'peacock', 'elephant', 'personalized', 'full-arm', 'traditional'],
+          featured: true,
+          display_order: 8,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: '9',
+          title: 'Festival Hand Design Collection',
+          description: 'Symmetrical hand designs with mandala patterns, floral motifs, and intricate finger decorations',
+          image_url: '/assets/gallery/WhatsApp Image 2025-10-13 at 18.50.54.jpeg',
+          thumbnail_url: '/assets/gallery/thumbnails/WhatsApp Image 2025-10-13 at 18.50.54.jpeg',
+          category: 'festival',
+          tags: ['festival', 'hands', 'mandala', 'symmetrical', 'traditional'],
+          featured: true,
+          display_order: 9,
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
         }
