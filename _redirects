@@ -1,0 +1,8 @@
+# Netlify redirects file
+# This ensures all routes work properly in a Single Page Application
+
+# Redirect all routes to index.html for React Router
+/*    /index.html   200
+
+# Optional: Redirect old paths if you have any
+# /old-path    /new-path    301
