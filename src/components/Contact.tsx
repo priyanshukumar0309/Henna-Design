@@ -101,22 +101,137 @@ export const Contact = () => {
           </motion.a>
         </div>
 
+        {/* Pricing Tiers */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-16 text-center bg-white/60 dark:bg-dark-surface/60 backdrop-blur-sm rounded-lg p-12 border border-henna-light/30 dark:border-henna-dark/30"
+          className="mt-16 bg-white/60 dark:bg-dark-surface/60 backdrop-blur-sm rounded-lg p-8 md:p-12 border border-henna-light/30 dark:border-henna-dark/30"
+        >
+          <h3 className="font-playfair text-3xl font-semibold text-charcoal dark:text-dark-text mb-8 text-center">
+            {t('contact.pricingTitle')}
+          </h3>
+          
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* Mini/Saver Tier */}
+            <div className="bg-white dark:bg-dark-surface rounded-lg p-6 border-2 border-henna-light/30 dark:border-henna-dark/30 hover:border-henna-brown dark:hover:border-henna-gold transition-all duration-300">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-2xl">✨</span>
+                <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
+                  {t('contact.pricing.mini.title')}
+                </h4>
+              </div>
+              <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
+                {t('contact.pricing.mini.duration')}
+              </p>
+              <p className="font-playfair text-3xl font-bold text-henna-brown dark:text-henna-gold mb-3">
+                {t('contact.pricing.mini.price')}
+              </p>
+              <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+                {t('contact.pricing.mini.description')}
+              </p>
+            </div>
+
+            {/* Standard Tier */}
+            <div className="bg-white dark:bg-dark-surface rounded-lg p-6 border-2 border-henna-light/30 dark:border-henna-dark/30 hover:border-henna-brown dark:hover:border-henna-gold transition-all duration-300">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-2xl">🌿</span>
+                <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
+                  {t('contact.pricing.standard.title')}
+                </h4>
+              </div>
+              <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
+                {t('contact.pricing.standard.duration')}
+              </p>
+              <p className="font-playfair text-3xl font-bold text-henna-brown dark:text-henna-gold mb-3">
+                {t('contact.pricing.standard.price')}
+              </p>
+              <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+                {t('contact.pricing.standard.description')}
+              </p>
+            </div>
+
+            {/* Premium Tier */}
+            <div className="bg-white dark:bg-dark-surface rounded-lg p-6 border-2 border-henna-light/30 dark:border-henna-dark/30 hover:border-henna-brown dark:hover:border-henna-gold transition-all duration-300">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-2xl">🌺</span>
+                <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
+                  {t('contact.pricing.premium.title')}
+                </h4>
+              </div>
+              <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
+                {t('contact.pricing.premium.duration')}
+              </p>
+              <p className="font-playfair text-3xl font-bold text-henna-brown dark:text-henna-gold mb-3">
+                {t('contact.pricing.premium.price')}
+              </p>
+              <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+                {t('contact.pricing.premium.description')}
+              </p>
+            </div>
+
+            {/* Bridal/Custom Tier */}
+            <div className="bg-gradient-to-br from-henna-light/20 to-henna-gold/20 dark:from-henna-dark/20 dark:to-henna-gold/10 rounded-lg p-6 border-2 border-henna-brown/50 dark:border-henna-gold/50">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-2xl">💍</span>
+                <h4 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text">
+                  {t('contact.pricing.bridal.title')}
+                </h4>
+              </div>
+              <p className="font-inter text-sm text-charcoal/60 dark:text-dark-text/60 mb-3">
+                {t('contact.pricing.bridal.duration')}
+              </p>
+              <p className="font-playfair text-3xl font-bold text-henna-brown dark:text-henna-gold mb-3">
+                {t('contact.pricing.bridal.price')}
+              </p>
+              <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+                {t('contact.pricing.bridal.description')}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Booking Information */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-8 text-center bg-white/60 dark:bg-dark-surface/60 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 dark:border-henna-dark/30"
         >
           <div className="max-w-2xl mx-auto">
-            <h3 className="font-playfair text-3xl font-semibold text-charcoal dark:text-dark-text mb-6">
+            <h3 className="font-playfair text-2xl font-semibold text-charcoal dark:text-dark-text mb-6">
               {t('contact.bookingTitle')}
             </h3>
-            <div className="space-y-4 font-inter text-charcoal/80 dark:text-dark-text/80">
-              <p>{t('contact.bridalConsultations')}</p>
-              <p>{t('contact.travel')}</p>
-              <p>{t('contact.eventsDesc')}</p>
-              <p>{t('contact.leadTime')}</p>
+            <div className="space-y-3 font-inter text-charcoal/80 dark:text-dark-text/80 text-left">
+              <p>📍 {t('contact.serviceArea')}</p>
+              <p>🏠 {t('contact.homeVisit')}</p>
+              <p>🎉 {t('contact.eventsDesc')}</p>
+              <p>📅 {t('contact.leadTime')}</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Google Calendar Embed */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-8 bg-white/60 dark:bg-dark-surface/60 backdrop-blur-sm rounded-lg p-8 border border-henna-light/30 dark:border-henna-dark/30"
+        >
+          <h3 className="font-playfair text-2xl font-semibold text-charcoal dark:text-dark-text mb-6 text-center">
+            {t('contact.scheduleTitle')}
+          </h3>
+          <div className="max-w-3xl mx-auto">
+            <div className="relative w-full overflow-hidden rounded-lg" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1_5KSnFfNJ9p-gLAiuSDo_56OU8HahyJ8DY31f0mK4A9GokaWFIer1gTB6ciw01puhJGhb7KeB?gv=true"
+                className="absolute top-0 left-0 w-full h-full border-0"
+                frameBorder="0"
+                title="Book Appointment"
+              />
             </div>
           </div>
         </motion.div>

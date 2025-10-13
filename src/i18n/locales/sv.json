@@ -125,8 +125,8 @@
     }
   },
   "contact": {
-    "title": "Låt Oss Skapa Tillsammans",
-    "subtitle": "Oavsett om det är din bröllopdag, ett speciellt firande eller ett konstnärligt samarbete, skulle jag gärna höra från dig.",
+    "title": "Boka Din Henna Session i Stockholm",
+    "subtitle": "Professionell henna artist i Stockholm. Boka din brudhenna, henna party eller mehndi design session idag.",
     "instagram": "Instagram",
     "instagramDesc": "Följ för daglig inspiration",
     "whatsapp": "WhatsApp",
@@ -134,11 +134,39 @@
     "clickToMessage": "Klicka för att meddela",
     "email": "E-post",
     "emailDesc": "För detaljerade förfrågningar",
+    "pricingTitle": "Henna Priser & Paket",
+    "pricing": {
+      "mini": {
+        "title": "Mini / Sparpaket",
+        "duration": "20-30 minuter",
+        "price": "300-450 SEK",
+        "description": "Enkla motiv (fingrar + liten mandala eller baksidan av en hand). Perfekt för förstagångsklienter, festivaler, väntresor och barn. Ekologisk henna ingår."
+      },
+      "standard": {
+        "title": "Standard",
+        "duration": "45-60 minuter",
+        "price": "600-900 SEK",
+        "description": "Medeltäckning upp till handled på båda händerna, fram/bak med lätt detalj. Fin detaljering och små mandalas. Perfekt för fester, Eid, Diwali eller fotosessioner."
+      },
+      "premium": {
+        "title": "Premium",
+        "duration": "90-120 minuter",
+        "price": "1 800-2 800 SEK",
+        "description": "Detaljerade designer för förlovningar eller förbröllop. Detaljerad design upp till mitten av armen eller fötterna. Inkluderar kort konsultation, ekologisk blandning och eftervårdskit."
+      },
+      "bridal": {
+        "title": "Brud / Anpassad",
+        "duration": "3-6 timmar",
+        "price": "3 500-5 000 SEK",
+        "description": "Full brud (båda händer & fötter). Anpassad designkoncept, konsultation & provning. Resa inom Stockholm ingår. Valfria tillägg: gästhenna, brudtärnamini motiv."
+      }
+    },
     "bookingTitle": "Bokningsinformation",
-    "bridalConsultations": "Brudkonsultationer: Gratis provning tillgänglig för alla brudbokningar",
-    "travel": "Resor: Tillgänglig i hela Rotebro, Sollentuna, Stockholm och omgivande områden. Reser också till Kolkata och Varanasi för speciella tillfällen.",
+    "serviceArea": "Serviceområde: Tillgänglig i hela Stockholm och Uppsala län",
+    "homeVisit": "Hembesök: Extra avgifter tillkommer för hembesök",
     "eventsDesc": "Evenemang: Gruppbokningar och företagsevenemang välkomnas",
-    "leadTime": "Ledtid: Boka 2-4 veckor i förväg för optimal planering",
+    "leadTime": "Ledtid: Boka 4-5 veckor i förväg för optimal planering",
+    "scheduleTitle": "Boka Din Tid",
     "tagline": "Din berättelse, vackert prydd"
   },
   "footer": {

@@ -135,11 +135,39 @@
     "clickToMessage": "Click to message",
     "email": "Email",
     "emailDesc": "For detailed inquiries",
+    "pricingTitle": "Henna Pricing & Packages",
+    "pricing": {
+      "mini": {
+        "title": "Mini / Saver",
+        "duration": "20-30 minutes",
+        "price": "300-450 SEK",
+        "description": "Simple motifs (fingers + small mandala or back of one hand). Ideal for first-time clients, festivals, friends' gatherings, and kids. Organic henna included."
+      },
+      "standard": {
+        "title": "Standard",
+        "duration": "45-60 minutes",
+        "price": "600-900 SEK",
+        "description": "Medium coverage up to wrist on both hands, front/back with light detail. Fine detailing and small mandalas. Perfect for parties, Eid, Diwali, or photoshoots."
+      },
+      "premium": {
+        "title": "Premium",
+        "duration": "90-120 minutes",
+        "price": "1,800-2,800 SEK",
+        "description": "Elaborate designs for engagements or pre-wedding. Detailed design up to mid-arm or feet. Includes short consultation, organic blend, and after-care kit."
+      },
+      "bridal": {
+        "title": "Bridal / Custom",
+        "duration": "3-6 hours",
+        "price": "3,500-5,000 SEK",
+        "description": "Full bridal (both hands & feet). Custom design concept, consultation & trial. Travel within Stockholm included. Optional add-ons: guest henna, bridesmaid mini motifs."
+      }
+    },
     "bookingTitle": "Booking Information",
-    "bridalConsultations": "Bridal Consultations: Complimentary trial available for all bridal bookings",
-    "travel": "Service Areas: Available throughout Stockholm including Södermalm, Vasastan, Kungsholmen, Barkarby, Haninge, and Rinkeby. Home visits (hembesök) available. Also travel to Kolkata and Varanasi for special occasions.",
+    "serviceArea": "Service Area: Available throughout Stockholm and Uppsala County",
+    "homeVisit": "Home Visit: Extra charges apply for hembesök (home visits)",
     "eventsDesc": "Events: Group bookings and corporate events welcome",
-    "leadTime": "Lead Time: Book 2-4 weeks in advance for optimal scheduling",
+    "leadTime": "Lead Time: Book 4-5 weeks in advance for optimal scheduling",
+    "scheduleTitle": "Book Your Appointment",
     "tagline": "Your story, beautifully adorned"
   },
   "footer": {
