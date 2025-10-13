@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, User, Heart, MessageCircle, Mail } from 'lucide-react';
+import { Image, User, BookOpen, Star, Mail } from 'lucide-react';
 
 export const FloatingMobileNav = () => {
   const { t } = useTranslation();
@@ -44,8 +44,8 @@ export const FloatingMobileNav = () => {
     { id: 'hero', icon: 'favicon', labelKey: 'nav.home', ref: heroRef },
     { id: 'portfolio', icon: Image, labelKey: 'nav.portfolio', ref: portfolioRef },
     { id: 'about', icon: User, labelKey: 'nav.about', ref: aboutRef },
-    { id: 'care', icon: Heart, labelKey: 'nav.careGuide', ref: careRef },
-    { id: 'testimonials', icon: MessageCircle, labelKey: 'nav.testimonials', ref: testimonialsRef },
+    { id: 'care', icon: BookOpen, labelKey: 'nav.careGuide', ref: careRef },
+    { id: 'testimonials', icon: Star, labelKey: 'nav.testimonials', ref: testimonialsRef },
     { id: 'contact', icon: Mail, labelKey: 'nav.getInTouch', ref: contactRef },
   ];
 
@@ -101,6 +101,7 @@ export const FloatingMobileNav = () => {
                     src="/favicon.png" 
                     alt="Home" 
                     className={`w-4 h-4 ${isActive ? 'brightness-0 invert' : 'dark:brightness-0 dark:invert'}`}
+                    style={{ filter: isActive ? 'brightness(0) invert(1)' : '' }}
                   />
                 ) : (
                   <item.icon className="w-4 h-4" />
