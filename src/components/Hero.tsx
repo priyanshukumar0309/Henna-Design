@@ -42,16 +42,6 @@ export const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          <p className="font-playfair text-lg md:text-xl text-henna-brown dark:text-henna-gold mb-2 tracking-wide">
-            नॉर्डिक सोल मेहंदी
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
           <p className="font-inter text-xl md:text-2xl text-henna-dark dark:text-henna-gold mb-8 tracking-wide">

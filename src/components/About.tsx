@@ -52,18 +52,6 @@ export const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-4"
-            >
-              <h3 className="font-playfair text-lg md:text-xl font-medium text-henna-brown dark:text-henna-gold italic">
-                कोलकाता और वाराणसी से स्टॉकहोम तक की यात्रा
-              </h3>
-            </motion.div>
-            
             <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-charcoal dark:text-dark-text mb-6">
               {t('about.title')}
             </h2>
@@ -86,29 +74,16 @@ export const About = () => {
               <p>{t('about.paragraph3')}</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+            <div className="mt-12">
               <motion.div
                 whileHover={{ y: -5 }}
-                className="bg-white/50 dark:bg-dark-surface/50 backdrop-blur-sm rounded-lg p-6 border border-henna-light/30 dark:border-henna-dark/30"
+                className="bg-white/50 dark:bg-dark-surface/50 backdrop-blur-sm rounded-lg p-6 border border-henna-light/30 dark:border-henna-dark/30 max-w-md mx-auto"
               >
-                <Heart className="w-8 h-8 text-henna-brown mb-3" />
-                <h3 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text mb-2">
-                  {t('about.philosophy')}
-                </h3>
-                <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
-                  {t('about.philosophyText')}
-                </p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -5 }}
-                className="bg-white/50 dark:bg-dark-surface/50 backdrop-blur-sm rounded-lg p-6 border border-henna-light/30 dark:border-henna-dark/30"
-              >
-                <MapPin className="w-8 h-8 text-henna-brown mb-3" />
-                <h3 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text mb-2">
+                <MapPin className="w-8 h-8 text-henna-brown mb-3 mx-auto" />
+                <h3 className="font-playfair text-xl font-semibold text-charcoal dark:text-dark-text mb-2 text-center">
                   {t('about.location')}
                 </h3>
-                <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70">
+                <p className="font-inter text-sm text-charcoal/70 dark:text-dark-text/70 text-center">
                   {t('about.locationText')}
                 </p>
               </motion.div>

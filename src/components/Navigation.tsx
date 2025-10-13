@@ -71,7 +71,7 @@ export const Navigation = () => {
             <img 
               src="/favicon.png" 
               alt="Nordic Soul Henna" 
-              className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
+              className="w-8 h-8 group-hover:scale-110 transition-transform duration-300 dark:filter dark:invert"
             />
             Nordic Soul
           </button>
