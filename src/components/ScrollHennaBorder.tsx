@@ -34,12 +34,15 @@ export const ScrollHennaBorder = () => {
   }, []);
 
   const opacity = useTransform(scrollYProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0]);
-  const leftY = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
-  const rightY = useTransform(scrollYProgress, [0, 1], ['0%', '-25%']);
+  const leftY = useTransform(scrollYProgress, [0, 1], ['0%', '-15%']);
+  const rightY = useTransform(scrollYProgress, [0, 1], ['0%', '-15%']);
 
+  // Nordic-inspired color palette
   const strokeColor = theme === 'dark' ? '#C19A6B' : '#C97E5A';
   const fillColor = theme === 'dark' ? '#8B5A3C' : '#E6D2B5';
   const accentColor = theme === 'dark' ? '#D4AF37' : '#B8956A';
+  const nordicBlue = theme === 'dark' ? '#4A5568' : '#A0AEC0';
+  const nordicSilver = theme === 'dark' ? '#718096' : '#CBD5E0';
 
   const getSectionPattern = (side: 'left' | 'right') => {
     switch (currentSection) {
@@ -58,6 +61,35 @@ export const ScrollHennaBorder = () => {
     }
   };
 
+  // Helper function to create symmetric Nordic mandala elements
+  const createNordicMandala = (centerX: number, centerY: number, radius: number, petals: number) => {
+    const elements = [];
+    for (let i = 0; i < petals; i++) {
+      const angle = (i * 360) / petals;
+      const x = centerX + radius * Math.cos((angle * Math.PI) / 180);
+      const y = centerY + radius * Math.sin((angle * Math.PI) / 180);
+      
+      elements.push(
+        <motion.ellipse
+          key={`petal-${i}`}
+          cx={x}
+          cy={y}
+          rx="4"
+          ry="8"
+          fill={fillColor}
+          fillOpacity="0.4"
+          stroke={strokeColor}
+          strokeWidth="1"
+          transform={`rotate(${angle}, ${x}, ${y})`}
+          initial={{ scale: 0, rotate: 0 }}
+          animate={{ scale: 1, rotate: 360 }}
+          transition={{ duration: 2, delay: i * 0.1, repeat: Infinity, repeatType: "reverse" }}
+        />
+      );
+    }
+    return elements;
+  };
+
   return (
     <>
       <motion.div
@@ -71,100 +103,186 @@ export const ScrollHennaBorder = () => {
           style={{ y: leftY }}
         >
           <defs>
-            <linearGradient id="leftGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor={strokeColor} stopOpacity="0.2" />
+            <radialGradient id="leftGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor={strokeColor} stopOpacity="0.8" />
+              <stop offset="70%" stopColor={nordicBlue} stopOpacity="0.4" />
+              <stop offset="100%" stopColor={nordicSilver} stopOpacity="0.2" />
+            </radialGradient>
+            <linearGradient id="leftLinear" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor={accentColor} stopOpacity="0.6" />
               <stop offset="50%" stopColor={strokeColor} stopOpacity="0.8" />
-              <stop offset="100%" stopColor={strokeColor} stopOpacity="0.2" />
+              <stop offset="100%" stopColor={nordicBlue} stopOpacity="0.4" />
             </linearGradient>
           </defs>
 
+          {/* Central spine with symmetric curves */}
           <motion.path
-            d="M 30,0 Q 40,50 35,100 Q 30,150 40,200 Q 50,250 40,300 Q 30,350 35,400 Q 40,450 35,500 Q 30,550 40,600 Q 45,650 40,700 Q 35,750 40,800 Q 45,850 40,900 Q 35,950 40,1000"
+            d="M 60,0 Q 50,50 60,100 Q 70,150 60,200 Q 50,250 60,300 Q 70,350 60,400 Q 50,450 60,500 Q 70,550 60,600 Q 50,650 60,700 Q 70,750 60,800 Q 50,850 60,900 Q 70,950 60,1000"
             fill="none"
-            stroke="url(#leftGradient)"
-            strokeWidth="2"
+            stroke="url(#leftLinear)"
+            strokeWidth="2.5"
             strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 3, ease: "easeInOut" }}
           />
 
+          {/* Symmetric Nordic Mandala Elements */}
           {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
             <motion.g
-              key={`left-pattern-${i}`}
-              initial={{ opacity: 0, scale: 0.8 }}
+              key={`left-mandala-${i}`}
+              initial={{ opacity: 0, scale: 0.5 }}
               animate={{
-                opacity: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.3,
-                scale: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.8
+                opacity: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.4,
+                scale: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.7
               }}
-              transition={{ duration: 0.6, delay: i * 0.05 }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
             >
-              <motion.path
-                d={`M 35,${80 + i * 125} Q 20,${90 + i * 125} 15,${105 + i * 125} Q 20,${120 + i * 125} 35,${130 + i * 125} Q 50,${120 + i * 125} 55,${105 + i * 125} Q 50,${90 + i * 125} 35,${80 + i * 125} Z`}
-                fill={fillColor}
-                fillOpacity="0.3"
-                stroke={strokeColor}
-                strokeWidth="1.2"
-              />
-              <motion.circle
-                cx="35"
-                cy={105 + i * 125}
-                r="4"
-                fill={accentColor}
-                fillOpacity="0.7"
-              />
-              {[0, 1, 2, 3].map((j) => (
-                <motion.circle
-                  key={`dot-${i}-${j}`}
-                  cx={35 + Math.cos((j * Math.PI * 2) / 4 + Math.PI / 4) * 12}
-                  cy={105 + i * 125 + Math.sin((j * Math.PI * 2) / 4 + Math.PI / 4) * 12}
-                  r="1.5"
+              {/* Outer ring - 8 symmetric elements */}
+              {[0, 1, 2, 3, 4, 5, 6, 7].map((j) => {
+                const angle = (j * 45); // 45 degrees each for 8 elements
+                const radius = 25;
+                const x = 60 + radius * Math.cos((angle * Math.PI) / 180);
+                const y = 100 + i * 125 + radius * Math.sin((angle * Math.PI) / 180);
+                
+                return (
+                  <motion.circle
+                    key={`outer-ring-${i}-${j}`}
+                    cx={x}
+                    cy={y}
+                    r="3"
+                    fill={accentColor}
+                    fillOpacity="0.7"
+                    stroke={strokeColor}
+                    strokeWidth="1"
+                    initial={{ scale: 0, rotate: 0 }}
+                    animate={{ 
+                      scale: [0, 1, 1.2, 1],
+                      rotate: [0, 360]
+                    }}
+                    transition={{ 
+                      duration: 2,
+                      delay: j * 0.1,
+                      repeat: Infinity,
+                      repeatType: "reverse"
+                    }}
+                  />
+                );
+              })}
+
+              {/* Inner Nordic cross pattern */}
+              <motion.g
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.8 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                <motion.rect
+                  x="55"
+                  y={95 + i * 125}
+                  width="10"
+                  height="3"
                   fill={strokeColor}
                   fillOpacity="0.6"
                 />
-              ))}
-            </motion.g>
-          ))}
+                <motion.rect
+                  x="58.5"
+                  y={90 + i * 125}
+                  width="3"
+                  height="15"
+                  fill={strokeColor}
+                  fillOpacity="0.6"
+                />
+              </motion.g>
 
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-            <motion.g
-              key={`left-vine-${i}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
-            >
-              <motion.path
-                d={`M 55,${150 + i * 150} Q 65,${165 + i * 150} 60,${180 + i * 150} Q 55,${195 + i * 150} 65,${210 + i * 150}`}
-                fill="none"
-                stroke={strokeColor}
-                strokeWidth="1"
-                strokeDasharray="4 4"
-                opacity="0.5"
-              />
+              {/* Center circle with Nordic rune-inspired pattern */}
               <motion.circle
                 cx="60"
-                cy={180 + i * 150}
-                r="2.5"
-                fill={fillColor}
+                cy={100 + i * 125}
+                r="8"
+                fill="url(#leftGradient)"
+                stroke={strokeColor}
+                strokeWidth="1.5"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
               />
+
+              {/* Symmetric connecting lines */}
+              {[0, 1, 2, 3].map((k) => {
+                const angle = k * 90; // 90 degrees each for 4 lines
+                const endRadius = 35;
+                const endX = 60 + endRadius * Math.cos((angle * Math.PI) / 180);
+                const endY = 100 + i * 125 + endRadius * Math.sin((angle * Math.PI) / 180);
+                
+                return (
+                  <motion.line
+                    key={`connecting-line-${i}-${k}`}
+                    x1="60"
+                    y1={100 + i * 125}
+                    x2={endX}
+                    y2={endY}
+                    stroke={nordicBlue}
+                    strokeWidth="1"
+                    strokeDasharray="2 3"
+                    opacity="0.6"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 1.5, delay: 0.8 + k * 0.2 }}
+                  />
+                );
+              })}
             </motion.g>
           ))}
 
-          {[0, 1, 2, 3, 4].map((i) => (
-            <motion.path
-              key={`left-leaf-${i}`}
-              d={`M 15,${220 + i * 180} Q 10,${230 + i * 180} 15,${245 + i * 180} Q 22,${240 + i * 180} 15,${220 + i * 180} Z`}
-              fill={fillColor}
-              fillOpacity="0.4"
-              stroke={strokeColor}
-              strokeWidth="0.8"
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 0.7, x: 0 }}
-              transition={{ duration: 0.6, delay: 1 + i * 0.15 }}
-            />
+          {/* Nordic geometric patterns between mandalas */}
+          {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+            <motion.g
+              key={`left-geometric-${i}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              transition={{ duration: 0.6, delay: 1.2 + i * 0.15 }}
+            >
+              {/* Diamond pattern */}
+              <motion.path
+                d={`M 60,${160 + i * 125} L 55,${165 + i * 125} L 60,${170 + i * 125} L 65,${165 + i * 125} Z`}
+                fill={fillColor}
+                fillOpacity="0.4"
+                stroke={strokeColor}
+                strokeWidth="1"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              />
+              
+              {/* Side diamonds */}
+              <motion.path
+                d={`M 45,${162 + i * 125} L 40,${167 + i * 125} L 45,${172 + i * 125} L 50,${167 + i * 125} Z`}
+                fill={nordicBlue}
+                fillOpacity="0.3"
+                stroke={strokeColor}
+                strokeWidth="0.8"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+              />
+              
+              <motion.path
+                d={`M 75,${162 + i * 125} L 70,${167 + i * 125} L 75,${172 + i * 125} L 80,${167 + i * 125} Z`}
+                fill={nordicBlue}
+                fillOpacity="0.3"
+                stroke={strokeColor}
+                strokeWidth="0.8"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
+              />
+            </motion.g>
           ))}
         </motion.svg>
       </motion.div>
 
       <motion.div
-        className="fixed right-0 top-0 h-full w-16 sm:w-20 md:w-28 lg:w-36 pointer-events-none z-0 overflow-hidden"
+        className="fixed right-0 top-0 h-full w-12 sm:w-20 md:w-28 lg:w-36 pointer-events-none z-0 overflow-hidden"
         style={{ opacity }}
       >
         <motion.svg
@@ -174,120 +292,223 @@ export const ScrollHennaBorder = () => {
           style={{ y: rightY }}
         >
           <defs>
-            <linearGradient id="rightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor={strokeColor} stopOpacity="0.2" />
+            <radialGradient id="rightGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor={strokeColor} stopOpacity="0.8" />
+              <stop offset="70%" stopColor={nordicBlue} stopOpacity="0.4" />
+              <stop offset="100%" stopColor={nordicSilver} stopOpacity="0.2" />
+            </radialGradient>
+            <linearGradient id="rightLinear" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor={accentColor} stopOpacity="0.6" />
               <stop offset="50%" stopColor={strokeColor} stopOpacity="0.8" />
-              <stop offset="100%" stopColor={strokeColor} stopOpacity="0.2" />
+              <stop offset="100%" stopColor={nordicBlue} stopOpacity="0.4" />
             </linearGradient>
           </defs>
 
+          {/* Central spine with symmetric curves (mirrored from left) */}
           <motion.path
-            d="M 90,0 Q 80,50 85,100 Q 90,150 80,200 Q 70,250 80,300 Q 90,350 85,400 Q 80,450 85,500 Q 90,550 80,600 Q 75,650 80,700 Q 85,750 80,800 Q 75,850 80,900 Q 85,950 80,1000"
+            d="M 60,0 Q 70,50 60,100 Q 50,150 60,200 Q 70,250 60,300 Q 50,350 60,400 Q 70,450 60,500 Q 50,550 60,600 Q 70,650 60,700 Q 50,750 60,800 Q 70,850 60,900 Q 50,950 60,1000"
             fill="none"
-            stroke="url(#rightGradient)"
-            strokeWidth="2"
+            stroke="url(#rightLinear)"
+            strokeWidth="2.5"
             strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 3, ease: "easeInOut" }}
           />
 
+          {/* Symmetric Nordic Mandala Elements (mirrored) */}
           {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
             <motion.g
-              key={`right-paisley-${i}`}
-              initial={{ opacity: 0, scale: 0.8 }}
+              key={`right-mandala-${i}`}
+              initial={{ opacity: 0, scale: 0.5 }}
               animate={{
-                opacity: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.3,
-                scale: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.8
+                opacity: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.4,
+                scale: Math.abs(currentSection - (i % 5)) < 2 ? 1 : 0.7
               }}
-              transition={{ duration: 0.6, delay: i * 0.05 }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
             >
-              <motion.path
-                d={`M 85,${100 + i * 125} Q 95,${110 + i * 125} 90,${130 + i * 125} Q 80,${140 + i * 125} 70,${130 + i * 125} Q 75,${110 + i * 125} 85,${100 + i * 125} Z`}
-                fill={fillColor}
-                fillOpacity="0.35"
+              {/* Outer ring - 8 symmetric elements */}
+              {[0, 1, 2, 3, 4, 5, 6, 7].map((j) => {
+                const angle = (j * 45); // 45 degrees each for 8 elements
+                const radius = 25;
+                const x = 60 + radius * Math.cos((angle * Math.PI) / 180);
+                const y = 100 + i * 125 + radius * Math.sin((angle * Math.PI) / 180);
+                
+                return (
+                  <motion.circle
+                    key={`right-outer-ring-${i}-${j}`}
+                    cx={x}
+                    cy={y}
+                    r="3"
+                    fill={accentColor}
+                    fillOpacity="0.7"
+                    stroke={strokeColor}
+                    strokeWidth="1"
+                    initial={{ scale: 0, rotate: 0 }}
+                    animate={{ 
+                      scale: [0, 1, 1.2, 1],
+                      rotate: [0, -360] // Counter-rotate for visual balance
+                    }}
+                    transition={{ 
+                      duration: 2,
+                      delay: j * 0.1,
+                      repeat: Infinity,
+                      repeatType: "reverse"
+                    }}
+                  />
+                );
+              })}
+
+              {/* Inner Nordic cross pattern */}
+              <motion.g
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.8 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                <motion.rect
+                  x="55"
+                  y={95 + i * 125}
+                  width="10"
+                  height="3"
+                  fill={strokeColor}
+                  fillOpacity="0.6"
+                />
+                <motion.rect
+                  x="58.5"
+                  y={90 + i * 125}
+                  width="3"
+                  height="15"
+                  fill={strokeColor}
+                  fillOpacity="0.6"
+                />
+              </motion.g>
+
+              {/* Center circle with Nordic rune-inspired pattern */}
+              <motion.circle
+                cx="60"
+                cy={100 + i * 125}
+                r="8"
+                fill="url(#rightGradient)"
                 stroke={strokeColor}
-                strokeWidth="1.2"
+                strokeWidth="1.5"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
               />
-              <motion.ellipse
-                cx="82"
-                cy={120 + i * 125}
-                rx="5"
-                ry="8"
-                fill={accentColor}
-                fillOpacity="0.6"
-              />
+
+              {/* Symmetric connecting lines */}
+              {[0, 1, 2, 3].map((k) => {
+                const angle = k * 90; // 90 degrees each for 4 lines
+                const endRadius = 35;
+                const endX = 60 + endRadius * Math.cos((angle * Math.PI) / 180);
+                const endY = 100 + i * 125 + endRadius * Math.sin((angle * Math.PI) / 180);
+                
+                return (
+                  <motion.line
+                    key={`right-connecting-line-${i}-${k}`}
+                    x1="60"
+                    y1={100 + i * 125}
+                    x2={endX}
+                    y2={endY}
+                    stroke={nordicBlue}
+                    strokeWidth="1"
+                    strokeDasharray="2 3"
+                    opacity="0.6"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 1.5, delay: 0.8 + k * 0.2 }}
+                  />
+                );
+              })}
             </motion.g>
           ))}
 
+          {/* Nordic geometric patterns between mandalas */}
           {[0, 1, 2, 3, 4, 5, 6].map((i) => (
             <motion.g
-              key={`right-flower-${i}`}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.8 + i * 0.12 }}
+              key={`right-geometric-${i}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              transition={{ duration: 0.6, delay: 1.2 + i * 0.15 }}
             >
-              <motion.circle
-                cx="70"
-                cy={180 + i * 140}
-                r="10"
-                fill="none"
+              {/* Diamond pattern */}
+              <motion.path
+                d={`M 60,${160 + i * 125} L 65,${165 + i * 125} L 60,${170 + i * 125} L 55,${165 + i * 125} Z`}
+                fill={fillColor}
+                fillOpacity="0.4"
                 stroke={strokeColor}
-                strokeWidth="1.2"
+                strokeWidth="1"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
               />
-              {[0, 1, 2, 3, 4, 5].map((j) => (
-                <motion.ellipse
-                  key={`petal-${i}-${j}`}
-                  cx={70 + Math.cos((j * Math.PI * 2) / 6) * 12}
-                  cy={180 + i * 140 + Math.sin((j * Math.PI * 2) / 6) * 12}
-                  rx="3.5"
-                  ry="6"
-                  fill={fillColor}
-                  fillOpacity="0.5"
-                  stroke={strokeColor}
-                  strokeWidth="0.5"
-                  transform={`rotate(${j * 60}, ${70 + Math.cos((j * Math.PI * 2) / 6) * 12}, ${180 + i * 140 + Math.sin((j * Math.PI * 2) / 6) * 12})`}
-                />
-              ))}
-              <motion.circle
-                cx="70"
-                cy={180 + i * 140}
-                r="3"
-                fill={accentColor}
+              
+              {/* Side diamonds */}
+              <motion.path
+                d={`M 75,${162 + i * 125} L 80,${167 + i * 125} L 75,${172 + i * 125} L 70,${167 + i * 125} Z`}
+                fill={nordicBlue}
+                fillOpacity="0.3"
+                stroke={strokeColor}
+                strokeWidth="0.8"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+              />
+              
+              <motion.path
+                d={`M 45,${162 + i * 125} L 40,${167 + i * 125} L 45,${172 + i * 125} L 50,${167 + i * 125} Z`}
+                fill={nordicBlue}
+                fillOpacity="0.3"
+                stroke={strokeColor}
+                strokeWidth="0.8"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
               />
             </motion.g>
           ))}
 
+          {/* Additional Nordic rune-inspired elements */}
           {[0, 1, 2, 3, 4, 5].map((i) => (
-            <motion.path
-              key={`right-curve-${i}`}
-              d={`M 60,${250 + i * 150} Q 50,${265 + i * 150} 55,${280 + i * 150} Q 60,${295 + i * 150} 50,${310 + i * 150}`}
-              fill="none"
-              stroke={strokeColor}
-              strokeWidth="1"
-              strokeDasharray="3 5"
-              opacity="0.5"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.5, delay: 1.2 + i * 0.2 }}
-            />
-          ))}
-
-          {[0, 1, 2, 3, 4].map((i) => (
-            <motion.g key={`right-peacock-${i}`}>
-              <motion.path
-                d={`M 95,${330 + i * 180} L 85,${355 + i * 180} Q 90,${362 + i * 180} 95,${355 + i * 180} Z`}
-                fill={fillColor}
-                fillOpacity="0.45"
+            <motion.g
+              key={`right-runes-${i}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.4 }}
+              transition={{ duration: 0.8, delay: 1.5 + i * 0.2 }}
+            >
+              {/* Rune-like lines */}
+              <motion.line
+                x1="65"
+                y1={200 + i * 140}
+                x2="65"
+                y2={220 + i * 140}
                 stroke={strokeColor}
-                strokeWidth="1"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 0.8, y: 0 }}
-                transition={{ duration: 0.7, delay: 1.5 + i * 0.2 }}
+                strokeWidth="2"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1, delay: i * 0.1 }}
               />
-              <motion.circle
-                cx="90"
-                cy={355 + i * 180}
-                r="3.5"
-                fill={accentColor}
-                fillOpacity="0.8"
+              <motion.line
+                x1="60"
+                y1={210 + i * 140}
+                x2="70"
+                y2={210 + i * 140}
+                stroke={strokeColor}
+                strokeWidth="2"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1, delay: 0.5 + i * 0.1 }}
+              />
+              <motion.line
+                x1="62"
+                y1={205 + i * 140}
+                x2="68"
+                y2={215 + i * 140}
+                stroke={nordicBlue}
+                strokeWidth="1.5"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1, delay: 0.3 + i * 0.1 }}
               />
             </motion.g>
           ))}
