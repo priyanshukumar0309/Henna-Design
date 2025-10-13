@@ -40,7 +40,10 @@
     "photoshoot": "Fotografering",
            "stainProgression": "Henna Fläckutveckling",
            "noImages": "Inga bilder än. Lägg till vacker hennakonst att visa!",
-           "doubleTapToZoom": "Dubbelklicka för att zooma in/ut"
+           "viewImage": "Visa Bild",
+           "closeImage": "Stäng Bild",
+           "nextImage": "Nästa Bild",
+           "previousImage": "Föregående Bild"
   },
   "care": {
     "title": "Henna Vårdguide",

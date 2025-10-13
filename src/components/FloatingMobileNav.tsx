@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, User, BookOpen, Star, Mail, Home } from 'lucide-react';
-
+import favicon from '../assets/favicon.png';
 export const FloatingMobileNav = () => {
   const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState('hero');
@@ -41,7 +41,7 @@ export const FloatingMobileNav = () => {
 
   // Navigation items
   const navItems = [
-    { id: 'hero', icon: Home, labelKey: 'nav.home', ref: heroRef },
+    { id: 'hero', icon: favicon, labelKey: 'nav.home', ref: heroRef },
     { id: 'portfolio', icon: Image, labelKey: 'nav.portfolio', ref: portfolioRef },
     { id: 'about', icon: User, labelKey: 'nav.about', ref: aboutRef },
     { id: 'care', icon: BookOpen, labelKey: 'nav.careGuide', ref: careRef },

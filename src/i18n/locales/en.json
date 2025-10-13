@@ -40,7 +40,10 @@
     "photoshoot": "Photoshoot",
            "stainProgression": "Henna Stain Progression",
            "noImages": "No images yet. Add some beautiful henna art to showcase!",
-           "doubleTapToZoom": "Double tap to zoom in/out"
+           "viewImage": "View Image",
+           "closeImage": "Close Image",
+           "nextImage": "Next Image",
+           "previousImage": "Previous Image"
   },
   "care": {
     "title": "Henna Care Guide",
