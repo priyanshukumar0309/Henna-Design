@@ -282,7 +282,7 @@ export const ScrollHennaBorder = () => {
       </motion.div>
 
       <motion.div
-        className="fixed right-0 top-0 h-full w-12 sm:w-20 md:w-28 lg:w-36 pointer-events-none z-10 overflow-hidden"
+        className="fixed right-0 top-0 h-full w-12 sm:w-20 md:w-28 lg:w-36 pointer-events-none z-0 overflow-hidden"
         style={{ opacity }}
       >
         <motion.svg
