@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, Languages } from 'lucide-react';
+import { Menu, X, Sun, Moon, Languages, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -49,6 +49,7 @@ export const Navigation = () => {
     i18n.changeLanguage(lng);
     localStorage.setItem('language', lng);
     setIsLangMenuOpen(false);
+    setIsMobileMenuOpen(false); // Close mobile menu when language is changed
   };
 
   return (
@@ -149,8 +150,9 @@ export const Navigation = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-charcoal dark:text-dark-text hover:text-henna-brown transition-colors"
+              title="Language Menu"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Globe className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -165,63 +167,56 @@ export const Navigation = () => {
             transition={{ duration: 0.3 }}
             className="fixed top-[73px] left-0 right-0 bg-ivory/98 dark:bg-dark-surface/98 backdrop-blur-md z-30 md:hidden shadow-xl"
           >
-            <div className="px-6 py-8 space-y-6">
-              {navItems.map((item, index) => (
-                <motion.button
-                  key={item.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left font-inter text-lg text-charcoal dark:text-dark-text hover:text-henna-brown transition-colors"
-                >
-                  {item.label}
-                </motion.button>
-              ))}
-              <motion.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navItems.length * 0.1 }}
-                onClick={() => scrollToSection('contact')}
-                className="w-full px-6 py-3 bg-henna-brown text-white rounded-full hover:bg-henna-dark transition-colors font-inter text-lg"
+            <div className="px-6 py-6">
+              <motion.h3
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="font-playfair text-lg font-semibold text-charcoal dark:text-dark-text mb-4"
               >
-                {t('nav.getInTouch')}
-              </motion.button>
+                Select Language
+              </motion.h3>
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navItems.length + 1) * 0.1 }}
-                className="flex gap-2 pt-2"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="space-y-3"
               >
                 <button
                   onClick={() => changeLanguage('en')}
-                  className={`flex-1 px-4 py-2 rounded-full border transition-colors ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg border transition-colors ${
                     i18n.language === 'en'
                       ? 'bg-henna-brown text-white border-henna-brown'
-                      : 'bg-transparent text-charcoal dark:text-dark-text border-henna-light dark:border-henna-dark'
+                      : 'bg-transparent text-charcoal dark:text-dark-text border-henna-light dark:border-henna-dark hover:bg-henna-light/10 dark:hover:bg-henna-dark/10'
                   }`}
                 >
-                  🇬🇧 EN
+                  <span className="text-xl">🇬🇧</span>
+                  <span className="font-inter">English</span>
+                  {i18n.language === 'en' && <span className="ml-auto text-sm">✓</span>}
                 </button>
                 <button
                   onClick={() => changeLanguage('sv')}
-                  className={`flex-1 px-4 py-2 rounded-full border transition-colors ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg border transition-colors ${
                     i18n.language === 'sv'
                       ? 'bg-henna-brown text-white border-henna-brown'
-                      : 'bg-transparent text-charcoal dark:text-dark-text border-henna-light dark:border-henna-dark'
+                      : 'bg-transparent text-charcoal dark:text-dark-text border-henna-light dark:border-henna-dark hover:bg-henna-light/10 dark:hover:bg-henna-dark/10'
                   }`}
                 >
-                  🇸🇪 SV
+                  <span className="text-xl">🇸🇪</span>
+                  <span className="font-inter">Svenska</span>
+                  {i18n.language === 'sv' && <span className="ml-auto text-sm">✓</span>}
                 </button>
                 <button
                   onClick={() => changeLanguage('hi')}
-                  className={`flex-1 px-4 py-2 rounded-full border transition-colors ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg border transition-colors ${
                     i18n.language === 'hi'
                       ? 'bg-henna-brown text-white border-henna-brown'
-                      : 'bg-transparent text-charcoal dark:text-dark-text border-henna-light dark:border-henna-dark'
+                      : 'bg-transparent text-charcoal dark:text-dark-text border-henna-light dark:border-henna-dark hover:bg-henna-light/10 dark:hover:bg-henna-dark/10'
                   }`}
                 >
-                  🇮🇳 HI
+                  <span className="text-xl">🇮🇳</span>
+                  <span className="font-inter">हिंदी</span>
+                  {i18n.language === 'hi' && <span className="ml-auto text-sm">✓</span>}
                 </button>
               </motion.div>
             </div>
