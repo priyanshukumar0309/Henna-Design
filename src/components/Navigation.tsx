@@ -152,7 +152,7 @@ export const Navigation = () => {
               className="text-charcoal dark:text-dark-text hover:text-henna-brown transition-colors"
               title="Language Menu"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Globe className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Languages className="w-6 h-6" />}
             </button>
           </div>
         </div>
