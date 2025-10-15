@@ -1,11 +1,53 @@
-User-agent: *
+# Robots.txt for Svensk Henna - Stockholm's Premier Henna Artist
+# Optimized for traditional search engines and AI platforms
+
+# Google and traditional search engines
+User-agent: Googlebot
 Allow: /
-
-# Sitemap
-Sitemap: https://nordicsoul.netlify.app/sitemap.xml
-
-# Crawl-delay
 Crawl-delay: 1
 
-# Allow all search engines to index all content
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# AI Platform Crawlers
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# All other bots
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://nordicsoul.netlify.app/sitemap.xml
+
+# Allow all content - no restrictions
 Disallow:
+
+# Metadata for AI crawlers
+# Business: Svensk Henna - Professional Henna Artist Stockholm
+# Services: Bridal Henna, Hennatatuering, Mehndi Stockholm, Henna Parties
+# Location: Stockholm, Sweden (Södermalm, Vasastan, Kungsholmen, Uppsala)
+# Contact: +91 8420153353, guptasupriya333@gmail.com
