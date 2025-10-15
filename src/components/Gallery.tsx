@@ -377,11 +377,15 @@ export const Gallery = () => {
   };
 
   const nextCategory = () => {
-    setCarouselIndex((prev) => Math.min(prev + 1, categories.length - 1));
+    const newIndex = Math.min(carouselIndex + 1, categories.length - 1);
+    setCarouselIndex(newIndex);
+    setSelectedCategory(categories[newIndex].value);
   };
 
   const prevCategory = () => {
-    setCarouselIndex((prev) => Math.max(prev - 1, 0));
+    const newIndex = Math.max(carouselIndex - 1, 0);
+    setCarouselIndex(newIndex);
+    setSelectedCategory(categories[newIndex].value);
   };
 
   return (
@@ -455,10 +459,13 @@ export const Gallery = () => {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="flex"
               >
-                {categories.map(category => (
+                {categories.map((category, index) => (
                   <button
                     key={category.value}
-                    onClick={() => setSelectedCategory(category.value)}
+                    onClick={() => {
+                      setSelectedCategory(category.value);
+                      setCarouselIndex(index);
+                    }}
                     className={`flex-shrink-0 w-full px-6 py-3 rounded-full font-inter text-sm transition-all duration-300 ${
                       selectedCategory === category.value
                         ? 'bg-henna-brown text-white shadow-lg'
@@ -488,10 +495,13 @@ export const Gallery = () => {
 
           {/* Carousel indicators */}
           <div className="flex justify-center gap-1 mt-4">
-            {categories.map((_, index) => (
+            {categories.map((category, index) => (
               <button
                 key={index}
-                onClick={() => setCarouselIndex(index)}
+                onClick={() => {
+                  setCarouselIndex(index);
+                  setSelectedCategory(category.value);
+                }}
                 className={`w-2 h-2 rounded-full transition-all ${
                   index === carouselIndex
                     ? 'bg-henna-brown dark:bg-henna-gold w-6'
