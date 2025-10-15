@@ -34,7 +34,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <h1 className="font-playfair text-6xl md:text-8xl lg:text-9xl font-semibold text-charcoal dark:text-dark-text mb-6 tracking-tight">
+          <h1 className="font-playfair text-4xl md:text-8xl lg:text-9xl font-semibold text-charcoal dark:text-dark-text mb-6 tracking-tight">
             {t('hero.title')}
           </h1>
         </motion.div>
@@ -78,81 +78,14 @@ export const Hero = () => {
         </motion.p>
       </div>
 
-      {/* Desktop scroll indicator */}
+      {/* Scroll indicator - visible on all devices */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2.5, repeat: Infinity, repeatType: 'reverse', repeatDelay: 0.5 }}
-        className="hidden md:block absolute bottom-12 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2"
       >
-        <ChevronDown className="w-8 h-8 text-henna-brown dark:text-henna-gold" />
-      </motion.div>
-
-      {/* Mobile scroll indicator with hand animation */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2.5 }}
-        className="md:hidden absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        {/* Animated hand icon */}
-        <motion.div
-          animate={{ 
-            y: [0, 10, 0],
-          }}
-          transition={{ 
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="relative"
-        >
-          <svg 
-            width="32" 
-            height="32" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            className="text-henna-brown dark:text-henna-gold"
-          >
-            <path 
-              d="M9 11V6C9 5.44772 9.44772 5 10 5C10.5523 5 11 5.44772 11 6V11M9 11V16.5C9 17.8807 10.1193 19 11.5 19C12.8807 19 14 17.8807 14 16.5V11M9 11H6.5C5.67157 11 5 11.6716 5 12.5C5 13.3284 5.67157 14 6.5 14H9M14 11V8.5C14 7.67157 14.6716 7 15.5 7C16.3284 7 17 7.67157 17 8.5V11M14 11H17M17 11V12.5C17 13.3284 17.6716 14 18.5 14C19.3284 14 20 13.3284 20 12.5V11.5C20 10.6716 19.3284 10 18.5 10H17" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            />
-          </svg>
-        </motion.div>
-        
-        {/* Swipe text */}
-        <motion.p
-          animate={{ 
-            opacity: [0.5, 1, 0.5],
-          }}
-          transition={{ 
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="text-xs font-inter text-henna-brown dark:text-henna-gold tracking-wider uppercase"
-        >
-          Scroll Down
-        </motion.p>
-
-        {/* Swipe down arrow */}
-        <motion.div
-          animate={{ 
-            y: [0, 5, 0],
-          }}
-          transition={{ 
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.2
-          }}
-        >
-          <ChevronDown className="w-5 h-5 text-henna-brown dark:text-henna-gold" />
-        </motion.div>
+        <ChevronDown className="w-10 h-10 md:w-8 md:h-8 text-henna-brown dark:text-henna-gold" />
       </motion.div>
     </div>
   );

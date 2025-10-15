@@ -13,6 +13,7 @@ export const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<PortfolioImage | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [carouselIndex, setCarouselIndex] = useState(0);
 
   const categories: { value: Category; labelKey: string }[] = [
     { value: 'all', labelKey: 'gallery.allWork' },
@@ -375,6 +376,14 @@ export const Gallery = () => {
     setSelectedImage(filteredImages[prevIndex]);
   };
 
+  const nextCategory = () => {
+    setCarouselIndex((prev) => Math.min(prev + 1, categories.length - 1));
+  };
+
+  const prevCategory = () => {
+    setCarouselIndex((prev) => Math.max(prev - 1, 0));
+  };
+
   return (
     <section className="py-20 px-6 relative">
       <div className="max-w-7xl mx-auto">
@@ -393,12 +402,13 @@ export const Gallery = () => {
           </p>
         </motion.div>
 
+        {/* Desktop: Wrapped tabs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
+          className="hidden md:flex flex-wrap justify-center gap-4 mb-16"
         >
           {categories.map(category => (
             <button
@@ -407,12 +417,90 @@ export const Gallery = () => {
               className={`px-6 py-3 rounded-full font-inter text-sm transition-all duration-300 ${
                 selectedCategory === category.value
                   ? 'bg-henna-brown text-white shadow-lg'
-                  : 'bg-white text-charcoal hover:bg-sand border border-henna-light'
+                  : 'bg-white dark:bg-dark-surface text-charcoal dark:text-dark-text hover:bg-sand dark:hover:bg-henna-dark/20 border border-henna-light dark:border-henna-dark'
               }`}
             >
               {t(category.labelKey)}
             </button>
           ))}
+        </motion.div>
+
+        {/* Mobile: Carousel with arrows */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="md:hidden mb-16 relative"
+        >
+          <div className="flex items-center justify-center gap-2">
+            {/* Left Arrow */}
+            <button
+              onClick={prevCategory}
+              disabled={carouselIndex === 0}
+              className={`p-2 rounded-full transition-all ${
+                carouselIndex === 0
+                  ? 'text-charcoal/30 dark:text-dark-text/30 cursor-not-allowed'
+                  : 'text-henna-brown dark:text-henna-gold hover:bg-henna-light/20 dark:hover:bg-henna-dark/20'
+              }`}
+              aria-label="Previous category"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            {/* Visible tabs container */}
+            <div className="overflow-hidden flex-1 max-w-xs">
+              <motion.div
+                animate={{ x: `-${carouselIndex * 100}%` }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="flex"
+              >
+                {categories.map(category => (
+                  <button
+                    key={category.value}
+                    onClick={() => setSelectedCategory(category.value)}
+                    className={`flex-shrink-0 w-full px-6 py-3 rounded-full font-inter text-sm transition-all duration-300 ${
+                      selectedCategory === category.value
+                        ? 'bg-henna-brown text-white shadow-lg'
+                        : 'bg-white dark:bg-dark-surface text-charcoal dark:text-dark-text hover:bg-sand dark:hover:bg-henna-dark/20 border border-henna-light dark:border-henna-dark'
+                    }`}
+                  >
+                    {t(category.labelKey)}
+                  </button>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Right Arrow */}
+            <button
+              onClick={nextCategory}
+              disabled={carouselIndex >= categories.length - 1}
+              className={`p-2 rounded-full transition-all ${
+                carouselIndex >= categories.length - 1
+                  ? 'text-charcoal/30 dark:text-dark-text/30 cursor-not-allowed'
+                  : 'text-henna-brown dark:text-henna-gold hover:bg-henna-light/20 dark:hover:bg-henna-dark/20'
+              }`}
+              aria-label="Next category"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Carousel indicators */}
+          <div className="flex justify-center gap-1 mt-4">
+            {categories.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCarouselIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === carouselIndex
+                    ? 'bg-henna-brown dark:bg-henna-gold w-6'
+                    : 'bg-henna-light/50 dark:bg-henna-dark/50'
+                }`}
+                aria-label={`Go to category ${index + 1}`}
+              />
+            ))}
+          </div>
         </motion.div>
 
         {loading ? (
