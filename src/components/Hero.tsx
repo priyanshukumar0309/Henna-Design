@@ -9,7 +9,7 @@ export const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <div ref={containerRef} className="relative min-h-screen flex items-center justify-center bg-ivory dark:bg-dark-bg overflow-hidden transition-colors duration-500 pt-20">
+    <div ref={containerRef} className="relative min-h-screen flex items-center justify-center bg-ivory dark:bg-dark-bg overflow-hidden transition-colors duration-500 pt-16 md:pt-20 pb-16 md:pb-8">
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
           <defs>
@@ -28,13 +28,13 @@ export const Hero = () => {
       </div>
 
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center py-4 md:py-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <h1 className="font-playfair text-4xl md:text-8xl lg:text-9xl font-semibold text-charcoal dark:text-dark-text mb-6 tracking-tight">
+          <h1 className="font-playfair text-4xl md:text-8xl lg:text-9xl font-semibold text-charcoal dark:text-dark-text mb-3 md:mb-6 tracking-tight">
             {t('hero.title')}
           </h1>
         </motion.div>
@@ -44,7 +44,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <p className="font-inter text-xl md:text-2xl text-henna-dark dark:text-henna-gold mb-8 tracking-wide">
+          <p className="font-inter text-lg md:text-2xl text-henna-dark dark:text-henna-gold mb-4 md:mb-8 tracking-wide">
             {t('hero.subtitle')}
           </p>
         </motion.div>
@@ -53,16 +53,16 @@ export const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="relative inline-block mb-8"
+          className="relative inline-block mb-4 md:mb-8"
         >
-          <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto mb-6">
+          <div className="relative w-56 h-56 md:w-96 md:h-96 mx-auto mb-3 md:mb-6">
             <IndianMandala />
           </div>
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 4.2 }}
-            className="block font-playfair italic text-henna-brown dark:text-henna-gold text-lg md:text-xl"
+            className="block font-playfair italic text-henna-brown dark:text-henna-gold text-base md:text-xl"
           >
             {t('hero.mehndi')}
           </motion.span>
@@ -72,7 +72,7 @@ export const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="font-inter text-base md:text-lg text-charcoal/70 dark:text-dark-text/70 max-w-2xl mx-auto mt-12 leading-relaxed"
+          className="font-inter text-sm md:text-lg text-charcoal/70 dark:text-dark-text/70 max-w-2xl mx-auto mt-4 md:mt-12 leading-relaxed px-4"
         >
           {t('hero.description')}
         </motion.p>
@@ -83,9 +83,9 @@ export const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2.5, repeat: Infinity, repeatType: 'reverse', repeatDelay: 0.5 }}
-        className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-4 md:bottom-12 left-1/2 transform -translate-x-1/2 z-20"
       >
-        <ChevronDown className="w-10 h-10 md:w-8 md:h-8 text-henna-brown dark:text-henna-gold" />
+        <ChevronDown className="w-10 h-10 md:w-8 md:h-8 text-henna-brown dark:text-henna-gold drop-shadow-lg" />
       </motion.div>
     </div>
   );
