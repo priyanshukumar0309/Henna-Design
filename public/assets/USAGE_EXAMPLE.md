@@ -52,7 +52,7 @@ You can also use images directly in your React components:
 // In Hero.tsx
 <img 
   src="/assets/hero/main-banner.jpg" 
-  alt="Nordic Soul Henna"
+  alt="Svensk Henna"
   className="w-full h-full object-cover"
 />
 
@@ -66,7 +66,7 @@ You can also use images directly in your React components:
 // In Navigation.tsx (for logo)
 <img 
   src="/assets/logos/logo.svg" 
-  alt="Nordic Soul Logo"
+  alt="Svensk Henna Logo"
   className="h-10 w-auto"
 />
 ```

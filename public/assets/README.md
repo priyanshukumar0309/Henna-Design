@@ -1,6 +1,6 @@
 # Assets Directory Structure
 
-This folder contains all static assets (images, icons, logos) for the Nordic Soul Henna website.
+This folder contains all static assets (images, icons, logos) for the Svensk Henna website.
 
 ## 📁 Folder Organization
 
@@ -87,7 +87,7 @@ Brand logos and branding assets
 <img src="/assets/gallery/henna-bridal-001.jpg" alt="Nordic Bridal Henna" />
 
 // For hero images
-<img src="/assets/hero/main-banner.jpg" alt="Nordic Soul Henna" />
+<img src="/assets/hero/main-banner.jpg" alt="Svensk Henna" />
 
 // For about section
 <img src="/assets/about/artist-portrait.jpg" alt="Artist at work" />

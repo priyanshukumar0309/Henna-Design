@@ -1,4 +1,4 @@
-# SEO Strategy for Nordic Soul Henna - Stockholm Local Search Optimization
+# SEO Strategy for Svensk Henna - Stockholm Local Search Optimization
 
 ## 🎯 **SEO Objectives**
 - Capture Swedish henna/mehndi search traffic in Stockholm

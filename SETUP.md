@@ -1,4 +1,4 @@
-# Nordic Soul Henna - Setup Guide
+# Svensk Henna - Setup Guide
 
 ## ✅ Application Status: Running Successfully
 

@@ -1,5 +1,5 @@
 /*
-  # Nordic Soul Henna - Portfolio Database Schema
+  # Svensk Henna - Portfolio Database Schema
 
   ## Overview
   This migration creates the complete database structure for a professional henna artistry portfolio website.
