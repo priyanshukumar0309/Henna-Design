@@ -1,14 +1,14 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, User, BookOpen, Star, Mail, Home } from 'lucide-react';
+import { Image, User, BookOpen, Star, Mail, Home, Menu, X } from 'lucide-react';
 
 export const FloatingMobileNav = () => {
   const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState('hero');
   const [isVisible, setIsVisible] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   // Section refs for intersection observer
   const { ref: heroRef, inView: heroInView } = useInView({ threshold: 0.3 });
@@ -54,69 +54,97 @@ export const FloatingMobileNav = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setIsExpanded(false); // Collapse menu after navigation
     }
   };
 
+  // Close menu when scrolling
+  useEffect(() => {
+    const handleScrollCollapse = () => {
+      if (isExpanded) {
+        setIsExpanded(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScrollCollapse);
+    return () => window.removeEventListener('scroll', handleScrollCollapse);
+  }, [isExpanded]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 100 }}
       animate={{ 
         opacity: isVisible ? 1 : 0,
-        y: isVisible ? 0 : 50
+        y: isVisible ? 0 : 100
       }}
       transition={{ duration: 0.3 }}
-      className="fixed right-4 top-1/2 -translate-y-1/2 z-50 block sm:hidden"
+      className="fixed bottom-6 right-6 z-50 block sm:hidden"
     >
-      <div className="bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md rounded-xl p-1.5 shadow-2xl border border-henna-light/30 dark:border-henna-dark/30">
-        <div className="flex flex-col gap-1">
-          {navItems.map((item, index) => {
-            const isActive = activeSection === item.id;
-            
-            return (
-              <motion.button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`relative group p-2 rounded-lg transition-all duration-300 ${
-                  isActive 
-                    ? 'bg-henna-brown text-white shadow-lg' 
-                    : 'text-charcoal dark:text-dark-text hover:bg-henna-light/20 dark:hover:bg-henna-dark/20'
-                }`}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <item.icon className="w-4 h-4" />
-                
-                {/* Active indicator */}
-                {isActive && (
-                  <motion.div
-                    layoutId="activeIndicator"
-                    className="absolute inset-0 rounded-xl"
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  />
-                )}
-                
-                {/* Label tooltip */}
-                <div className={`absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1 rounded-lg text-sm font-medium whitespace-nowrap transition-opacity duration-300 ${
-                  isActive 
-                    ? 'bg-henna-brown text-white' 
-                    : 'bg-charcoal dark:bg-dark-surface text-white dark:text-dark-text'
-                } opacity-0 group-hover:opacity-100 pointer-events-none`}>
-                  {t(item.labelKey)}
-                  <div className={`absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-l-4 border-l-transparent ${
-                    isActive ? 'border-t-4 border-b-4 border-t-henna-brown border-b-henna-brown' 
-                    : 'border-t-4 border-b-4 border-t-charcoal dark:border-t-dark-surface border-b-charcoal dark:border-b-dark-surface'
-                  }`} />
-                </div>
-              </motion.button>
-            );
-          })}
+      {/* Expanded Menu */}
+      <motion.div
+        initial={false}
+        animate={{ 
+          height: isExpanded ? 'auto' : 0,
+          opacity: isExpanded ? 1 : 0,
+          marginBottom: isExpanded ? '0.75rem' : 0
+        }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        className="overflow-hidden"
+      >
+        <div className="bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md rounded-xl p-2 shadow-2xl border border-henna-light/30 dark:border-henna-dark/30">
+          <div className="grid grid-cols-3 gap-2">
+            {navItems.map((item, index) => {
+              const isActive = activeSection === item.id;
+              
+              return (
+                <motion.button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative flex flex-col items-center gap-1 p-3 rounded-lg transition-all duration-300 ${
+                    isActive 
+                      ? 'bg-henna-brown text-white shadow-lg' 
+                      : 'text-charcoal dark:text-dark-text hover:bg-henna-light/20 dark:hover:bg-henna-dark/20'
+                  }`}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <item.icon className="w-5 h-5" />
+                  <span className="text-xs font-medium whitespace-nowrap">
+                    {t(item.labelKey).split(' ')[0]}
+                  </span>
+                  
+                  {/* Active indicator */}
+                  {isActive && (
+                    <motion.div
+                      className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white"
+                      layoutId="mobileActiveIndicator"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                </motion.button>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* Hamburger Toggle Button */}
+      <motion.button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="bg-henna-brown text-white p-4 rounded-full shadow-2xl hover:bg-henna-dark transition-colors duration-300"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <motion.div
+          animate={{ rotate: isExpanded ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {isExpanded ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </motion.div>
+      </motion.button>
     </motion.div>
   );
 };
