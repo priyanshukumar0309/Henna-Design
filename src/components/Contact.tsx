@@ -149,7 +149,7 @@ export const Contact = () => {
                 {/* Back */}
                 <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg overflow-hidden shadow-lg">
                   <img 
-                    src="/assets/gallery/intricate-half-mandala.jpg" 
+                    src="/assets/gallery/traditional-diamond-hand-design.jpg" 
                     alt="Mini Package Sample"
                     className="w-full h-full object-cover"
                   />
@@ -190,7 +190,7 @@ export const Contact = () => {
                 {/* Back */}
                 <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg overflow-hidden shadow-lg">
                   <img 
-                    src="/assets/gallery/elegant-arm-mandala.jpg" 
+                    src="/assets/gallery/elaborate-forearm-mandala-bridal.jpg" 
                     alt="Standard Package Sample"
                     className="w-full h-full object-cover"
                   />

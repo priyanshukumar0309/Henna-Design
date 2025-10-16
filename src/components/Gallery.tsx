@@ -327,6 +327,48 @@ export const Gallery = () => {
             display_order: 1,
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
+          },
+          {
+            id: '23',
+            title: 'Traditional Diamond Hand Design',
+            description: 'Intricate traditional henna featuring geometric diamond patterns and floral motifs on the back of hand',
+            descriptionKey: 'gallery.image23description',
+            image_url: '/assets/gallery/traditional-diamond-hand-design.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/traditional-diamond-hand-design.jpg',
+            category: 'festival',
+            tags: ['traditional', 'hand', 'intricate', 'dense-patterns', 'diamond-design', 'geometric', 'floral'],
+            featured: true,
+            display_order: 23,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '24',
+            title: 'Elaborate Forearm Mandala Bridal Design',
+            description: 'Intricate bridal henna featuring elaborate mandala patterns, floral motifs, and dense traditional designs extending from wrist to elbow',
+            descriptionKey: 'gallery.image24description',
+            image_url: '/assets/gallery/elaborate-forearm-mandala-bridal.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/elaborate-forearm-mandala-bridal.jpg',
+            category: 'bridal',
+            tags: ['traditional', 'forearm', 'mandala', 'floral', 'intricate', 'dense-patterns', 'bridal', 'elaborate'],
+            featured: true,
+            display_order: 24,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          },
+          {
+            id: '25',
+            title: 'Complex Forearm Floral Bridal Design',
+            description: 'Sophisticated bridal henna with complex layered patterns, multiple floral motifs, and intricate geometric elements covering the forearm',
+            descriptionKey: 'gallery.image25description',
+            image_url: '/assets/gallery/complex-forearm-floral-bridal.jpg',
+            thumbnail_url: '/assets/gallery/thumbnails/complex-forearm-floral-bridal.jpg',
+            category: 'bridal',
+            tags: ['traditional', 'forearm', 'intricate', 'floral', 'geometric', 'dense-patterns', 'bridal', 'complex'],
+            featured: true,
+            display_order: 25,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
           }
         ];
         setImages(fallbackImages);
