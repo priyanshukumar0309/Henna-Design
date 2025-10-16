@@ -477,7 +477,7 @@ export const Gallery = () => {
           ))}
         </motion.div>
 
-        {/* Mobile: Carousel with arrows */}
+        {/* Mobile: Carousel with arrows and swipe */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -500,12 +500,27 @@ export const Gallery = () => {
               <ChevronLeft className="w-6 h-6" />
             </button>
 
-            {/* Visible tabs container */}
+            {/* Visible tabs container with swipe support */}
             <div className="overflow-hidden flex-1 max-w-xs">
               <motion.div
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(_e, { offset, velocity }) => {
+                  const swipe = Math.abs(offset.x) * velocity.x;
+                  
+                  // Swipe left (next)
+                  if (swipe < -500 && carouselIndex < categories.length - 1) {
+                    nextCategory();
+                  }
+                  // Swipe right (previous)
+                  else if (swipe > 500 && carouselIndex > 0) {
+                    prevCategory();
+                  }
+                }}
                 animate={{ x: `-${carouselIndex * 100}%` }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="flex"
+                className="flex cursor-grab active:cursor-grabbing"
               >
                 {categories.map((category, index) => (
                   <button

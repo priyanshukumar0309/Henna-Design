@@ -9,6 +9,7 @@ export const FloatingMobileNav = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   // Section refs for intersection observer
   const { ref: heroRef, inView: heroInView } = useInView({ threshold: 0.3 });
@@ -53,27 +54,58 @@ export const FloatingMobileNav = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
+      // Set navigating flag to prevent menu close during programmatic scroll
+      setIsNavigating(true);
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Don't collapse menu after navigation - only on scroll
+      
+      // Clear navigating flag after scroll completes
+      setTimeout(() => {
+        setIsNavigating(false);
+      }, 1000); // Match typical smooth scroll duration
     }
   };
 
-  // Close menu only when user scrolls
+  // Close menu only when user manually scrolls (not during navigation)
   useEffect(() => {
     let lastScrollY = window.scrollY;
+    let scrollTimeout: NodeJS.Timeout;
     
     const handleScrollCollapse = () => {
-      const currentScrollY = window.scrollY;
-      // Only close if actual scroll detected (not programmatic scroll)
-      if (isExpanded && Math.abs(currentScrollY - lastScrollY) > 10) {
-        setIsExpanded(false);
+      // Don't close menu if we're currently navigating
+      if (isNavigating) {
+        lastScrollY = window.scrollY;
+        return;
       }
+      
+      const currentScrollY = window.scrollY;
+      const scrollDelta = Math.abs(currentScrollY - lastScrollY);
+      
+      // Clear any existing timeout
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      
+      // Only close if user manually scrolls (significant delta)
+      if (isExpanded && scrollDelta > 50) {
+        // Add small delay to differentiate user scroll from programmatic scroll
+        scrollTimeout = setTimeout(() => {
+          if (!isNavigating) {
+            setIsExpanded(false);
+          }
+        }, 100);
+      }
+      
       lastScrollY = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScrollCollapse);
-    return () => window.removeEventListener('scroll', handleScrollCollapse);
-  }, [isExpanded]);
+    return () => {
+      window.removeEventListener('scroll', handleScrollCollapse);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+    };
+  }, [isExpanded, isNavigating]);
 
   return (
     <motion.div
