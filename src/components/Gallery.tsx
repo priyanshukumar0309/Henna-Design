@@ -32,18 +32,9 @@ export const Gallery = () => {
 
   useEffect(() => {
     if (selectedCategory === 'all') {
-      // Sort by ID descending (latest first), then by design complexity (small to large)
+      // Sort by design complexity (small to large)
+      // Category complexity order: minimalist < festival < fusion < photoshoot < stain_progression < bridal
       const sortedImages = [...images].sort((a, b) => {
-        const idA = parseInt(a.id);
-        const idB = parseInt(b.id);
-        
-        // First sort by ID descending (latest first)
-        if (idA !== idB) {
-          return idB - idA;
-        }
-        
-        // Then sort by design complexity (small to large)
-        // Category complexity order: minimalist < festival < fusion < bridal
         const complexityOrder: Record<string, number> = {
           'minimalist': 1,
           'festival': 2,
@@ -56,7 +47,15 @@ export const Gallery = () => {
         const complexityA = complexityOrder[a.category] || 999;
         const complexityB = complexityOrder[b.category] || 999;
         
-        return complexityA - complexityB;
+        // Primary sort: complexity (small to large)
+        if (complexityA !== complexityB) {
+          return complexityA - complexityB;
+        }
+        
+        // Secondary sort: within same complexity, show latest first
+        const idA = parseInt(a.id);
+        const idB = parseInt(b.id);
+        return idB - idA;
       });
       setFilteredImages(sortedImages);
     } else {
