@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, User, BookOpen, Star, Mail, Home, Menu, X } from 'lucide-react';
+import { Image, User, BookOpen, Star, Mail, Menu, X } from 'lucide-react';
 
 export const FloatingMobileNav = () => {
   const { t } = useTranslation();
@@ -42,12 +42,12 @@ export const FloatingMobileNav = () => {
 
   // Navigation items
   const navItems = [
-    { id: 'hero', icon: Home, labelKey: 'nav.home', ref: heroRef },
-    { id: 'portfolio', icon: Image, labelKey: 'nav.portfolio', ref: portfolioRef },
-    { id: 'about', icon: User, labelKey: 'nav.about', ref: aboutRef },
-    { id: 'care', icon: BookOpen, labelKey: 'nav.careGuide', ref: careRef },
-    { id: 'testimonials', icon: Star, labelKey: 'nav.testimonials', ref: testimonialsRef },
-    { id: 'contact', icon: Mail, labelKey: 'nav.getInTouch', ref: contactRef },
+    { id: 'hero', icon: null, labelKey: 'nav.home', ref: heroRef, isFavicon: true },
+    { id: 'portfolio', icon: Image, labelKey: 'nav.portfolio', ref: portfolioRef, isFavicon: false },
+    { id: 'about', icon: User, labelKey: 'nav.about', ref: aboutRef, isFavicon: false },
+    { id: 'care', icon: BookOpen, labelKey: 'nav.careGuide', ref: careRef, isFavicon: false },
+    { id: 'testimonials', icon: Star, labelKey: 'nav.testimonials', ref: testimonialsRef, isFavicon: false },
+    { id: 'contact', icon: Mail, labelKey: 'nav.getInTouch', ref: contactRef, isFavicon: false },
   ];
 
   // Smooth scroll to section
@@ -153,7 +153,15 @@ export const FloatingMobileNav = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                   >
-                    <item.icon className="w-5 h-5 flex-shrink-0" />
+                    {item.isFavicon ? (
+                      <img 
+                        src="/favicon.png" 
+                        alt="Home" 
+                        className="w-5 h-5 flex-shrink-0 object-contain" 
+                      />
+                    ) : (
+                      item.icon && <item.icon className="w-5 h-5 flex-shrink-0" />
+                    )}
                     
                     {/* Active indicator */}
                     {isActive && (
