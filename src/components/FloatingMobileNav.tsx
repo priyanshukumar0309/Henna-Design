@@ -163,16 +163,6 @@ export const FloatingMobileNav = () => {
                       item.icon && <item.icon className="w-5 h-5 flex-shrink-0" />
                     )}
                     
-                    {/* Active indicator */}
-                    {isActive && (
-                      <motion.div
-                        className="absolute left-1 top-1/2 -translate-y-1/2 w-1 h-6 rounded-full bg-white"
-                        layoutId="mobileActiveIndicator"
-                        initial={false}
-                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                      />
-                    )}
-                    
                     {/* Label tooltip on hover */}
                     <div className={`absolute right-full mr-3 px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-opacity duration-300 ${
                       isActive 
