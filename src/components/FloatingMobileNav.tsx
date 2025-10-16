@@ -54,16 +54,21 @@ export const FloatingMobileNav = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setIsExpanded(false); // Collapse menu after navigation
+      // Don't collapse menu after navigation - only on scroll
     }
   };
 
-  // Close menu when scrolling
+  // Close menu only when user scrolls
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+    
     const handleScrollCollapse = () => {
-      if (isExpanded) {
+      const currentScrollY = window.scrollY;
+      // Only close if actual scroll detected (not programmatic scroll)
+      if (isExpanded && Math.abs(currentScrollY - lastScrollY) > 10) {
         setIsExpanded(false);
       }
+      lastScrollY = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScrollCollapse);
@@ -72,13 +77,13 @@ export const FloatingMobileNav = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 100 }}
+      initial={{ opacity: 0, y: 100 }}
       animate={{ 
         opacity: isVisible ? 1 : 0,
-        x: isVisible ? 0 : 100
+        y: isVisible ? 0 : 100
       }}
       transition={{ duration: 0.3 }}
-      className="fixed right-4 top-1/2 -translate-y-1/2 z-50 block sm:hidden"
+      className="fixed bottom-6 right-6 z-50 block sm:hidden"
     >
       <div className="flex flex-col items-end gap-3">
         {/* Expanded Menu - Vertical Layout */}
@@ -101,8 +106,12 @@ export const FloatingMobileNav = () => {
                 return (
                   <motion.button
                     key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`relative group flex items-center gap-2 p-2.5 rounded-lg transition-all duration-300 ${
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      scrollToSection(item.id);
+                    }}
+                    className={`relative group flex items-center gap-2 p-2.5 rounded-lg transition-all duration-300 cursor-pointer ${
                       isActive 
                         ? 'bg-henna-brown text-white shadow-lg' 
                         : 'text-charcoal dark:text-dark-text hover:bg-henna-light/20 dark:hover:bg-henna-dark/20'
@@ -112,12 +121,12 @@ export const FloatingMobileNav = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                   >
-                    <item.icon className="w-4 h-4 flex-shrink-0" />
+                    <item.icon className="w-5 h-5 flex-shrink-0" />
                     
                     {/* Active indicator */}
                     {isActive && (
                       <motion.div
-                        className="absolute left-1 top-1/2 -translate-y-1/2 w-1 h-4 rounded-full bg-white"
+                        className="absolute left-1 top-1/2 -translate-y-1/2 w-1 h-6 rounded-full bg-white"
                         layoutId="mobileActiveIndicator"
                         initial={false}
                         transition={{ type: "spring", stiffness: 500, damping: 30 }}
@@ -125,7 +134,7 @@ export const FloatingMobileNav = () => {
                     )}
                     
                     {/* Label tooltip on hover */}
-                    <div className={`absolute right-full mr-3 px-3 py-1 rounded-lg text-sm font-medium whitespace-nowrap transition-opacity duration-300 ${
+                    <div className={`absolute right-full mr-3 px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-opacity duration-300 ${
                       isActive 
                         ? 'bg-henna-brown text-white' 
                         : 'bg-charcoal dark:bg-dark-surface text-white dark:text-dark-text'
@@ -144,8 +153,12 @@ export const FloatingMobileNav = () => {
 
         {/* Hamburger Toggle Button */}
         <motion.button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="bg-henna-brown text-white p-3 rounded-full shadow-2xl hover:bg-henna-dark transition-colors duration-300"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsExpanded(!isExpanded);
+          }}
+          className="bg-henna-brown text-white p-4 rounded-full shadow-2xl hover:bg-henna-dark transition-colors duration-300 cursor-pointer"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
@@ -153,7 +166,7 @@ export const FloatingMobileNav = () => {
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            {isExpanded ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isExpanded ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </motion.div>
         </motion.button>
       </div>
