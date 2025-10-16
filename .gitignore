@@ -24,3 +24,10 @@ dist-ssr
 
 # Local Netlify folder
 .netlify
+
+# Exclude large gallery images from git (deploy via Netlify CDN or separate storage)
+public/assets/gallery/*.jpg
+public/assets/gallery/*.jpeg
+public/assets/gallery/*.png
+public/assets/gallery/thumbnails/
+!public/assets/gallery/README.md

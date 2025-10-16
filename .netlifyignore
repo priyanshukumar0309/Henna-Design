@@ -1,0 +1,36 @@
+# Netlify Ignore - Exclude files/folders from deployment to save bandwidth
+
+# Development files
+node_modules/
+.git/
+.vscode/
+.idea/
+
+# Documentation
+README.md
+SETUP.md
+docs/
+
+# Source files (only need dist/)
+src/
+
+# Config files (already in dist/)
+*.config.js
+*.config.ts
+tsconfig*.json
+eslint.config.js
+
+# Package files
+package.json
+package-lock.json
+
+# Environment files
+.env*
+!.env.example
+
+# Local Netlify
+.netlify/
+
+# Supabase migrations (if not needed in production)
+supabase/
+

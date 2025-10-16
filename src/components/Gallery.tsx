@@ -14,6 +14,7 @@ export const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [lightboxImageLoaded, setLightboxImageLoaded] = useState(false);
 
   const categories: { value: Category; labelKey: string }[] = [
     { value: 'all', labelKey: 'gallery.allWork' },
@@ -406,22 +407,26 @@ export const Gallery = () => {
   const openLightbox = (image: PortfolioImage, index: number) => {
     setSelectedImage(image);
     setCurrentIndex(index);
+    setLightboxImageLoaded(false); // Reset load state for new image
   };
 
   const closeLightbox = () => {
     setSelectedImage(null);
+    setLightboxImageLoaded(false);
   };
 
   const goToNext = () => {
     const nextIndex = (currentIndex + 1) % filteredImages.length;
     setCurrentIndex(nextIndex);
     setSelectedImage(filteredImages[nextIndex]);
+    setLightboxImageLoaded(false); // Reset for next image
   };
 
   const goToPrev = () => {
     const prevIndex = (currentIndex - 1 + filteredImages.length) % filteredImages.length;
     setCurrentIndex(prevIndex);
     setSelectedImage(filteredImages[prevIndex]);
+    setLightboxImageLoaded(false); // Reset for previous image
   };
 
   const nextCategory = () => {
@@ -606,8 +611,9 @@ export const Gallery = () => {
                   onClick={() => openLightbox(image, index)}
                 >
                   <img
-                    src={image.image_url}
+                    src={image.thumbnail_url || image.image_url}
                     alt={image.title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -678,12 +684,30 @@ export const Gallery = () => {
               className="flex flex-col items-center justify-center w-full h-full px-4 sm:px-8 md:px-16"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center justify-center max-w-7xl max-h-[75vh] w-full">
+              <div className="flex items-center justify-center max-w-7xl max-h-[75vh] w-full relative">
+                {/* Loading placeholder - show thumbnail while full image loads */}
+                {!lightboxImageLoaded && selectedImage.thumbnail_url && (
+                  <img
+                    src={selectedImage.thumbnail_url}
+                    alt={selectedImage.title}
+                    className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-lg mx-auto blur-sm"
+                  />
+                )}
+                {/* Full resolution image */}
                 <img
                   src={selectedImage.image_url}
                   alt={selectedImage.title}
-                  className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-lg mx-auto"
+                  onLoad={() => setLightboxImageLoaded(true)}
+                  className={`max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-lg mx-auto transition-opacity duration-300 ${
+                    lightboxImageLoaded ? 'opacity-100' : 'opacity-0 absolute inset-0'
+                  }`}
                 />
+                {/* Loading spinner */}
+                {!lightboxImageLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  </div>
+                )}
               </div>
               <div className="mt-6 text-center max-w-2xl">
                 <h3 className="font-playfair text-2xl text-white mb-2">
