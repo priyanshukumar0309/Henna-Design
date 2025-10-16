@@ -660,15 +660,17 @@ export const Gallery = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="max-w-6xl max-h-[90vh] relative"
+              className="flex flex-col items-center justify-center w-full h-full px-4 sm:px-8 md:px-16"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={selectedImage.image_url}
-                alt={selectedImage.title}
-                className="max-w-full max-h-[80vh] object-contain rounded-lg"
-              />
-              <div className="mt-6 text-center">
+              <div className="flex items-center justify-center max-w-7xl max-h-[75vh] w-full">
+                <img
+                  src={selectedImage.image_url}
+                  alt={selectedImage.title}
+                  className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-lg mx-auto"
+                />
+              </div>
+              <div className="mt-6 text-center max-w-2xl">
                 <h3 className="font-playfair text-2xl text-white mb-2">
                   {selectedImage.title}
                 </h3>
