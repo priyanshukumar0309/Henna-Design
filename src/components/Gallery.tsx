@@ -32,7 +32,13 @@ export const Gallery = () => {
 
   useEffect(() => {
     if (selectedCategory === 'all') {
-      setFilteredImages(images);
+      // Sort by ID descending (latest first) for "All Work"
+      const sortedImages = [...images].sort((a, b) => {
+        const idA = parseInt(a.id);
+        const idB = parseInt(b.id);
+        return idB - idA;
+      });
+      setFilteredImages(sortedImages);
     } else {
       setFilteredImages(images.filter(img => img.category === selectedCategory));
     }
