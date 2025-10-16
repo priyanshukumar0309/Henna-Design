@@ -32,27 +32,8 @@ export const Gallery = () => {
 
   useEffect(() => {
     if (selectedCategory === 'all') {
-      // Sort by design complexity (small to large)
-      // Category complexity order: minimalist < festival < fusion < photoshoot < stain_progression < bridal
+      // Sort by ID descending (newest to oldest)
       const sortedImages = [...images].sort((a, b) => {
-        const complexityOrder: Record<string, number> = {
-          'minimalist': 1,
-          'festival': 2,
-          'fusion': 3,
-          'photoshoot': 4,
-          'stain_progression': 5,
-          'bridal': 6
-        };
-        
-        const complexityA = complexityOrder[a.category] || 999;
-        const complexityB = complexityOrder[b.category] || 999;
-        
-        // Primary sort: complexity (small to large)
-        if (complexityA !== complexityB) {
-          return complexityA - complexityB;
-        }
-        
-        // Secondary sort: within same complexity, show latest first
         const idA = parseInt(a.id);
         const idB = parseInt(b.id);
         return idB - idA;
