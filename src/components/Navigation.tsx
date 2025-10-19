@@ -43,6 +43,7 @@ export const Navigation = () => {
     { label: t('nav.about'), id: 'about' },
     { label: t('nav.careGuide'), id: 'care' },
     { label: t('nav.testimonials'), id: 'testimonials' },
+    { label: t('nav.pricing'), id: 'pricing' },
   ];
 
   const changeLanguage = (lng: string) => {

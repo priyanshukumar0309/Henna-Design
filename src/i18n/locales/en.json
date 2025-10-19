@@ -5,6 +5,7 @@
     "about": "About",
     "careGuide": "Care Guide",
     "testimonials": "Testimonials",
+    "pricing": "Pricing",
     "getInTouch": "Get in Touch"
   },
   "hero": {
@@ -126,6 +127,81 @@
       "aisha": "The attention to detail in Supriya's work is incredible. My photoshoot henna designs were not only beautiful but also told a story. Highly recommend her services!",
       "lisa": "Working with Supriya was a wonderful experience. Her fusion of Indian heritage with Nordic minimalism created something truly special for my private party."
     }
+  },
+  "pricing": {
+    "title": "Henna Pricing & Packages",
+    "subtitle": "Transparent pricing for authentic henna artistry in Stockholm",
+    "tagline": "Every design is crafted with care, precision, and pure organic henna",
+    "hoverToSee": "Hover or tap to see sample",
+    "designTypes": {
+      "title": "Henna Design Types"
+    },
+    "designs": {
+      "simple": {
+        "name": "Simple Design",
+        "description": "2 fingers & palm pattern",
+        "details": "Simple flowers and vines",
+        "example1": "Perfect for beginners",
+        "example2": "Quick application",
+        "example3": "Elegant simplicity"
+      },
+      "medium": {
+        "name": "Medium Design",
+        "description": "All fingers & palm pattern",
+        "details": "Geometric patterns, paisley designs",
+        "example1": "Balanced detail",
+        "example2": "Modern aesthetic",
+        "example3": "Versatile style"
+      },
+      "intricate": {
+        "name": "Intricate Design",
+        "description": "All fingers & palm pattern",
+        "details": "Mandalas, detailed artwork",
+        "example1": "Highly detailed",
+        "example2": "Artistic expression",
+        "example3": "Statement piece"
+      },
+      "bridal": {
+        "name": "Bridal Design",
+        "description": "Full bridal henna design",
+        "details": "Hands, custom consultation",
+        "example1": "Full bridal package",
+        "example2": "Custom consultation",
+        "example3": "4+ hours of artistry"
+      }
+    },
+    "bridalNote": {
+      "title": "Bridal Henna",
+      "price": "Starting from 3,500 SEK",
+      "duration": "Approximately 4 hours · Full consultation included"
+    },
+    "matrix": {
+      "title": "Detailed Pricing by Length & Complexity",
+      "designType": "Design / Length",
+      "palm": "Palm",
+      "wrist": "Wrist",
+      "bangle": "Bangle",
+      "halfHand": "Half Hand",
+      "threeQuarter": "3/4 Hand",
+      "elbow": "Up to Elbow"
+    },
+    "lengthGuide": {
+      "title": "Hand Length Reference Guide",
+      "subtitle": "Visual guide to help you choose the perfect length for your henna design",
+      "alt": "Mehndi design lengths reference showing palm, wrist, bangle, half hand, 3/4 hand, and above elbow options",
+      "note": "All lengths are measured from the base of the palm. Choose based on your preference and occasion."
+    },
+    "notes": {
+      "title": "💡 Important Notes",
+      "point1": "All prices are per hand unless otherwise specified",
+      "point2": "Custom designs and consultations available",
+      "point3": "Time estimates may vary based on design complexity",
+      "point4": "Both hands discount: 10% off total price"
+    },
+    "bookNow": "Book Your Session on WhatsApp",
+    "bookNowDesc": "Get instant confirmation and discuss your perfect design",
+    "scrollHint": "Scroll to see all pricing options",
+    "startsFrom": "Starts from"
   },
   "contact": {
     "title": "Book Your Henna Session in Stockholm",

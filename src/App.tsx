@@ -9,6 +9,7 @@ import { Gallery } from './components/Gallery';
 import { About } from './components/About';
 import { HennaCareGuide } from './components/HennaCareGuide';
 import { Testimonials } from './components/Testimonials';
+import { Pricing } from './components/Pricing';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
@@ -42,6 +43,10 @@ function App() {
 
         <section id="testimonials">
           <Testimonials />
+        </section>
+
+        <section id="pricing">
+          <Pricing />
         </section>
 
         <section id="contact">

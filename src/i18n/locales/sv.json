@@ -5,6 +5,7 @@
     "about": "Om Mig",
     "careGuide": "Vårdguide",
     "testimonials": "Omdömen",
+    "pricing": "Priser",
     "getInTouch": "Kontakta"
   },
   "hero": {
@@ -125,6 +126,81 @@
       "aisha": "Uppmärksamheten på detaljer i Supriyas arbete är otrolig. Mina fotograferings henna-designs var inte bara vackra utan berättade också en historia. Rekommenderar starkt hennes tjänster!",
       "lisa": "Att arbeta med Supriya var en underbar upplevelse. Hennes fusion av indiskt arv med nordisk minimalism skapade något verkligen speciellt för min privata fest."
     }
+  },
+  "pricing": {
+    "title": "Henna Priser & Paket",
+    "subtitle": "Transparenta priser för autentisk hennakonst i Stockholm",
+    "tagline": "Varje design skapas med omsorg, precision och ren organisk henna",
+    "hoverToSee": "Hovra eller tryck för att se exempel",
+    "designTypes": {
+      "title": "Henna Designtyper"
+    },
+    "designs": {
+      "simple": {
+        "name": "Enkel Design",
+        "description": "2 fingrar & handflata mönster",
+        "details": "Enkla blommor och rankor",
+        "example1": "Perfekt för nybörjare",
+        "example2": "Snabb applicering",
+        "example3": "Elegant enkelhet"
+      },
+      "medium": {
+        "name": "Medium Design",
+        "description": "Alla fingrar & handflata mönster",
+        "details": "Geometriska mönster, paisley designs",
+        "example1": "Balanserad detalj",
+        "example2": "Modern estetik",
+        "example3": "Mångsidig stil"
+      },
+      "intricate": {
+        "name": "Intrikat Design",
+        "description": "Alla fingrar & handflata mönster",
+        "details": "Mandalas, detaljerad konst",
+        "example1": "Högt detaljerad",
+        "example2": "Konstnärlig uttryck",
+        "example3": "Uttrycksfullt verk"
+      },
+      "bridal": {
+        "name": "Bröllopsdesign",
+        "description": "Fullständig bröllops henna design",
+        "details": "Händer, anpassad konsultation",
+        "example1": "Fullständigt bröllopspaket",
+        "example2": "Anpassad konsultation",
+        "example3": "4+ timmar konstnärskap"
+      }
+    },
+    "bridalNote": {
+      "title": "Brudhenna",
+      "price": "Från 3 500 SEK",
+      "duration": "Cirka 4 timmar · Full konsultation ingår"
+    },
+    "matrix": {
+      "title": "Detaljerad Prissättning efter Längd & Komplexitet",
+      "designType": "Design / Längd",
+      "palm": "Handflata",
+      "wrist": "Handled",
+      "bangle": "Armband",
+      "halfHand": "Halv Hand",
+      "threeQuarter": "3/4 Hand",
+      "elbow": "Upp till Armbåge"
+    },
+    "lengthGuide": {
+      "title": "Handlängd Referensguide",
+      "subtitle": "Visuell guide för att hjälpa dig välja den perfekta längden för din henna-design",
+      "alt": "Mehndi designlängder referens som visar handflata, handled, armband, halv hand, 3/4 hand och ovanför armbåge alternativ",
+      "note": "Alla längder mäts från handflatan. Välj baserat på din preferens och tillfälle."
+    },
+    "notes": {
+      "title": "💡 Viktiga Noter",
+      "point1": "Alla priser är per hand om inte annat anges",
+      "point2": "Anpassade designer och konsultationer tillgängliga",
+      "point3": "Tidsuppskattningar kan variera beroende på designkomplexitet",
+      "point4": "Rabatt för båda händer: 10% av totalpriset"
+    },
+    "bookNow": "Boka Din Session på WhatsApp",
+    "bookNowDesc": "Få omedelbar bekräftelse och diskutera din perfekta design",
+    "scrollHint": "Scrolla för att se alla prisalternativ",
+    "startsFrom": "Från"
   },
   "contact": {
     "title": "Boka Din Henna Session i Stockholm",

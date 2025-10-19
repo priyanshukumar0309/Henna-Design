@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, User, BookOpen, Star, Mail, Menu, X } from 'lucide-react';
+import { Image, User, BookOpen, Star, DollarSign, Mail, Menu, X } from 'lucide-react';
 
 export const FloatingMobileNav = () => {
   const { t } = useTranslation();
@@ -17,17 +17,19 @@ export const FloatingMobileNav = () => {
   const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.3 });
   const { ref: careRef, inView: careInView } = useInView({ threshold: 0.3 });
   const { ref: testimonialsRef, inView: testimonialsInView } = useInView({ threshold: 0.3 });
+  const { ref: pricingRef, inView: pricingInView } = useInView({ threshold: 0.3 });
   const { ref: contactRef, inView: contactInView } = useInView({ threshold: 0.3 });
 
   // Update active section based on scroll position
   useEffect(() => {
     if (contactInView) setActiveSection('contact');
+    else if (pricingInView) setActiveSection('pricing');
     else if (testimonialsInView) setActiveSection('testimonials');
     else if (careInView) setActiveSection('care');
     else if (aboutInView) setActiveSection('about');
     else if (portfolioInView) setActiveSection('portfolio');
     else if (heroInView) setActiveSection('hero');
-  }, [heroInView, portfolioInView, aboutInView, careInView, testimonialsInView, contactInView]);
+  }, [heroInView, portfolioInView, aboutInView, careInView, testimonialsInView, pricingInView, contactInView]);
 
   // Show/hide navigation based on scroll
   useEffect(() => {
@@ -47,6 +49,7 @@ export const FloatingMobileNav = () => {
     { id: 'about', icon: User, labelKey: 'nav.about', ref: aboutRef, isFavicon: false },
     { id: 'care', icon: BookOpen, labelKey: 'nav.careGuide', ref: careRef, isFavicon: false },
     { id: 'testimonials', icon: Star, labelKey: 'nav.testimonials', ref: testimonialsRef, isFavicon: false },
+    { id: 'pricing', icon: DollarSign, labelKey: 'nav.pricing', ref: pricingRef, isFavicon: false },
     { id: 'contact', icon: Mail, labelKey: 'nav.getInTouch', ref: contactRef, isFavicon: false },
   ];
 
