@@ -11,11 +11,11 @@ export const Pricing = () => {
     {
       id: 'simple',
       icon: '🌿',
-      name: 'Simple Design',
-      description: '2 fingers & palm pattern',
-      details: 'Simple flowers and vines',
+      name: t('pricing.designs.simple.name'),
+      description: t('pricing.designs.simple.description'),
+      details: t('pricing.designs.simple.details'),
       price: '100 SEK',
-      examples: ['Perfect for beginners', 'Quick application', 'Elegant simplicity'],
+      examples: [t('pricing.designs.simple.example1'), t('pricing.designs.simple.example2'), t('pricing.designs.simple.example3')],
       image: '/assets/gallery/traditional-diamond-hand-design.jpg'
     },
     {
@@ -40,13 +40,13 @@ export const Pricing = () => {
     },
     {
       id: 'bridal',
-      name: 'Bridal Design',
+      name: t('pricing.designs.bridal.name'),
       icon: '💍',
-      description: 'Full bridal henna design',
-      details: 'Hands, custom consultation',
+      description: t('pricing.designs.bridal.description'),
+      details: t('pricing.designs.bridal.details'),
       price: '3,500 SEK',
-      startsFrom: 'Starts from',
-      examples: ['Full bridal package', 'Custom consultation', '4+ hours of artistry'],
+      startsFrom: t('pricing.startsFrom'),
+      examples: [t('pricing.designs.bridal.example1'), t('pricing.designs.bridal.example2'), t('pricing.designs.bridal.example3')],
       image: '/assets/gallery/full-arm-darkest-stain.jpg'
     }
   ];
